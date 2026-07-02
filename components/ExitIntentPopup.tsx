@@ -87,8 +87,6 @@ export function ExitIntentPopup() {
 
             <form
               name="exit-intent"
-              data-netlify="true"
-              data-netlify-honeypot="bot-field"
               onSubmit={submit}
               className="mt-5 space-y-3"
             >

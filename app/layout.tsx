@@ -4,7 +4,6 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { ExitIntentPopup } from "@/components/ExitIntentPopup";
 import { CookieBanner } from "@/components/CookieBanner";
-import { NetlifyFormsHidden } from "@/components/NetlifyFormsHidden";
 import {
   JsonLd,
   localBusinessSchema,
@@ -88,7 +87,6 @@ export default function RootLayout({
     <html lang="pl" className={inter.variable}>
       <body className="min-h-screen bg-white text-slate-900">
         <JsonLd data={[localBusinessSchema(), organizationSchema()]} />
-        <NetlifyFormsHidden />
         <Navbar />
         <main>{children}</main>
         <Footer />

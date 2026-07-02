@@ -9,7 +9,7 @@ export async function submitNetlifyForm(
   data: Record<string, string>
 ): Promise<void> {
   const body = encodeFormData({ "form-name": formName, ...data });
-  const response = await fetch("/", {
+  const response = await fetch("/__forms.html", {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
     body,

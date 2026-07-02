@@ -89,8 +89,6 @@ export function LeadWizard() {
   return (
     <form
       name="lead"
-      data-netlify="true"
-      data-netlify-honeypot="bot-field"
       onSubmit={submit}
       className="rounded-3xl border border-slate-200 bg-white p-6 shadow-lg sm:p-8"
     >
