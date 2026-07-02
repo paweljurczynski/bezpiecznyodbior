@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { CheckCircle2, MapPin, Phone, Building2, Star } from "lucide-react";
 import { districts } from "@/lib/districts";
@@ -93,15 +94,16 @@ export default function KrakowLandingPage() {
           <div className="relative">
             <div className="absolute inset-0 -z-10 rounded-3xl bg-gradient-to-br from-brand-100 to-white blur-2xl" />
             <div className="relative overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-xl">
-              <div
-                className="aspect-[4/3] w-full bg-cover bg-center"
-                style={{
-                  backgroundImage:
-                    "url('https://images.unsplash.com/photo-1573424659379-f5d699f4845a?auto=format&fit=crop&w=1400&q=80')",
-                }}
-                role="img"
-                aria-label="Panorama Krakowa"
-              />
+              <div className="relative aspect-[4/3] w-full">
+                <Image
+                  src="https://images.unsplash.com/photo-1573424659379-f5d699f4845a?auto=format&fit=crop&w=1400&q=80"
+                  alt="Panorama Krakowa"
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover"
+                />
+              </div>
               <div className="border-t border-slate-200 bg-slate-50 p-5">
                 <div className="flex items-center gap-2">
                   <div className="flex items-center gap-1 text-amber-500">

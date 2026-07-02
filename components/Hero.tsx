@@ -1,6 +1,8 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Phone, Star } from "lucide-react";
 import { site } from "@/lib/site";
+import heroImg from "@/public/hero-apartment.png";
 
 export function Hero() {
   return (
@@ -40,15 +42,17 @@ export function Hero() {
         <div className="relative">
           <div className="absolute inset-0 -z-10 rounded-3xl bg-gradient-to-br from-brand-100 via-brand-50 to-white blur-2xl" />
           <div className="relative overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-xl">
-            <div
-              className="aspect-[4/3] w-full bg-cover bg-center"
-              style={{
-                backgroundImage:
-                  "url('/hero-apartment.png')",
-              }}
-              role="img"
-              aria-label="Puste mieszkanie w stanie deweloperskim gotowe do odbioru technicznego"
-            />
+            <div className="relative aspect-[4/3] w-full">
+              <Image
+                src={heroImg}
+                alt="Puste mieszkanie w stanie deweloperskim gotowe do odbioru technicznego"
+                fill
+                priority
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
+                placeholder="blur"
+              />
+            </div>
             <div className="grid grid-cols-3 divide-x divide-slate-200 border-t border-slate-200 bg-slate-50">
               <Stat value="100+" label="Opinii 5★" />
               <Stat value="1500+" label="Odbiorów" />
