@@ -3,7 +3,7 @@ export const site = {
   legalName: "Bezpieczny Odbiór — Odbiory mieszkań Kraków",
   tagline: "Profesjonalne odbiory techniczne mieszkań i domów",
   description:
-    "Bezpieczny Odbiór — inżynierskie odbiory techniczne mieszkań i domów w Krakowie oraz Małopolsce. Kamera termowizyjna, sprawdzenie zgodności z Polskimi Normami, protokół gotowy tego samego dnia.",
+    "Odbiory techniczne mieszkań w Krakowie. Kamera termowizyjna, Polskie Normy, protokół gotowy tego samego dnia.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://bezpiecznyodbior.pl",
   phone: "+48502298030",
   phoneDisplay: "502 298 030",
