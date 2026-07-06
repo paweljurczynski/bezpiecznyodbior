@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { Building2, Home as HomeIcon, Thermometer, Compass, Scale, Ruler, Zap, Check, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -25,6 +26,8 @@ const services = [
       "Sprawdzenie instalacji elektrycznej, hydraulicznej i wentylacji",
       "Kompletny protokół z fotografiami i podstawą prawną",
     ],
+    image: "/oferta-deweloper-mieszkanie.jpg",
+    imageAlt: "Pomiar wilgotności podczas odbioru technicznego mieszkania",
     id: "odbior-od-dewelopera",
   },
   {
@@ -38,6 +41,8 @@ const services = [
       "Szacunkowe koszty koniecznych napraw",
       "Rekomendacje negocjacyjne przed zakupem",
     ],
+    image: "/oferta-deweloper-protokol.jpg",
+    imageAlt: "Protokół odbioru technicznego nieruchomości",
     id: "odbior-rynek-wtorny",
   },
   {
@@ -51,6 +56,8 @@ const services = [
       "Ocena jakości izolacji ścian i stropów",
       "Raport z termogramami i analizą",
     ],
+    image: "/oferta-termowizja.jpg",
+    imageAlt: "Badanie termowizyjne kamerą FLIR",
     id: "badania-termowizyjne",
   },
   {
@@ -64,6 +71,8 @@ const services = [
       "Kontrola jakości wykończenia",
       "Konsultacje techniczne i budżetowe",
     ],
+    image: "/oferta-doradztwo.jpg",
+    imageAlt: "Dwoje ludzi analizujących rzuty architektoniczne",
     id: "doradztwo-inwestycyjne",
   },
 ];
@@ -121,12 +130,17 @@ export default function OfertaPage() {
         ])}
       />
 
-      <section className="border-b border-border bg-gradient-to-b from-brand-soft/50 to-background">
-        <div className="container-page py-16 text-center md:py-20">
-          <h1 className="mx-auto max-w-3xl text-4xl font-extrabold text-brand md:text-5xl">
+      <section className="relative overflow-hidden border-b border-border">
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: "url('/oferta-hero.jpg')" }}
+        />
+        <div className="absolute inset-0 bg-black/60" />
+        <div className="container-page relative py-16 text-center md:py-20">
+          <h1 className="mx-auto max-w-3xl text-4xl font-extrabold text-white md:text-5xl">
             Oferta i usługi
           </h1>
-          <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
+          <p className="mx-auto mt-4 max-w-2xl text-white/80">
             Cztery usługi bazowe i trzy premium — pełen katalog wsparcia inżynierskiego dla kupujących nieruchomości.
           </p>
         </div>
@@ -135,26 +149,37 @@ export default function OfertaPage() {
       <section className="container-page py-16">
         <h2 className="text-2xl font-bold text-brand md:text-3xl">Usługi podstawowe</h2>
         <div className="mt-8 grid gap-6 lg:grid-cols-2">
-          {services.map(({ icon: Icon, tag, title, desc, bullets, id }) => (
-            <article key={id} id={id} className="surface-panel bg-card p-8">
-              <div className="flex items-center gap-3">
-                <div className="grid h-12 w-12 place-items-center rounded-lg bg-brand-soft text-brand">
-                  <Icon className="h-6 w-6" />
-                </div>
-                <span className="rounded-full bg-secondary px-3 py-1 text-xs font-semibold text-secondary-foreground">
-                  {tag}
-                </span>
+          {services.map(({ icon: Icon, tag, title, desc, bullets, image, imageAlt, id }) => (
+            <article key={id} id={id} className="surface-panel overflow-hidden bg-card">
+              <div className="relative aspect-[16/7] w-full">
+                <Image
+                  src={image}
+                  alt={imageAlt}
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover"
+                />
               </div>
-              <h3 className="mt-5 text-xl font-bold">{title}</h3>
-              <p className="mt-3 text-sm text-muted-foreground">{desc}</p>
-              <ul className="mt-5 space-y-2">
-                {bullets.map((b) => (
-                  <li key={b} className="flex items-start gap-2 text-sm">
-                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-cta" />
-                    <span>{b}</span>
-                  </li>
-                ))}
-              </ul>
+              <div className="p-8">
+                <div className="flex items-center gap-3">
+                  <div className="grid h-12 w-12 place-items-center rounded-lg bg-brand-soft text-brand">
+                    <Icon className="h-6 w-6" />
+                  </div>
+                  <span className="rounded-full bg-secondary px-3 py-1 text-xs font-semibold text-secondary-foreground">
+                    {tag}
+                  </span>
+                </div>
+                <h3 className="mt-5 text-xl font-bold">{title}</h3>
+                <p className="mt-3 text-sm text-muted-foreground">{desc}</p>
+                <ul className="mt-5 space-y-2">
+                  {bullets.map((b) => (
+                    <li key={b} className="flex items-start gap-2 text-sm">
+                      <Check className="mt-0.5 h-4 w-4 shrink-0 text-cta" />
+                      <span>{b}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </article>
           ))}
         </div>
