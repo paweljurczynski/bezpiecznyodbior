@@ -64,7 +64,7 @@ export function Navbar() {
                 {link.label}
               </Link>
             ))}
-            <Button asChild className="btn-cta mt-2">
+            <Button asChild variant="cta" className="mt-2">
               <Link href="/kontakt" onClick={() => setOpen(false)}>
                 Zamów bezpłatną wycenę
               </Link>

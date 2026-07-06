@@ -27,7 +27,7 @@ export default function KontaktPage() {
             Skontaktuj się z nami
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
-            Odpowiadamy w ciągu 24 godzin. Bezpłatna wycena bez zobowiązań.
+            Oferujemy szybkie odpowiedzi na Twoje zapytania. Bezpłatna wycena bez zobowiązań.
           </p>
         </div>
       </section>

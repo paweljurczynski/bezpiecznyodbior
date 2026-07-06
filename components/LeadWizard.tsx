@@ -97,18 +97,22 @@ export function LeadWizard() {
         <label>Nie wypełniaj: <input name="bot-field" /></label>
       </p>
 
-      <div className="mb-6 flex items-center gap-2">
+      <div className="mb-6 flex items-center">
         {([1, 2, 3] as const).map((s) => (
-          <div key={s} className="flex flex-1 items-center gap-2">
+          <div key={s} className="contents">
             <div
-              className={`grid h-8 w-8 place-items-center rounded-full text-sm font-semibold ${
-                step >= s ? "bg-brand text-brand-foreground" : "bg-muted text-muted-foreground"
+              className={`grid h-8 w-8 shrink-0 place-items-center rounded-full text-sm font-semibold ${
+                step > s
+                  ? "border-2 border-cta/50 bg-cta/15 text-cta/70"
+                  : step === s
+                  ? "bg-cta text-cta-foreground"
+                  : "border border-border text-muted-foreground"
               }`}
             >
               {s}
             </div>
             {s < 3 && (
-              <div className={`h-1 flex-1 rounded ${step > s ? "bg-brand" : "bg-muted"}`} />
+              <div className={`h-px flex-1 ${step > s ? "bg-cta/50" : "bg-border"}`} />
             )}
           </div>
         ))}
@@ -126,10 +130,10 @@ export function LeadWizard() {
                     type="button"
                     key={value}
                     onClick={() => update("propertyType", value)}
-                    className={`flex flex-col items-center gap-2 rounded-lg border p-4 text-sm font-medium transition-colors ${
+                    className={`flex flex-col items-center gap-2 rounded-lg border p-4 text-sm font-medium transition-colors cursor-pointer ${
                       active
-                        ? "border-brand bg-brand-soft text-brand"
-                        : "border-border hover:border-brand/50"
+                        ? "border-cta/50 bg-cta/5 text-cta"
+                        : "border-border hover:border-cta/30"
                     }`}
                   >
                     <Icon className="h-6 w-6" />
@@ -148,10 +152,10 @@ export function LeadWizard() {
                   type="button"
                   key={s}
                   onClick={() => update("area", s)}
-                  className={`rounded-full border px-4 py-2 text-sm transition-colors ${
+                  className={`rounded-full border px-4 py-2 text-sm transition-colors cursor-pointer ${
                     data.area === s
-                      ? "border-brand bg-brand text-brand-foreground"
-                      : "border-border hover:border-brand/50"
+                      ? "border-cta bg-cta text-cta-foreground"
+                      : "border-border hover:border-cta/30"
                   }`}
                 >
                   {s}

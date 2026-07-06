@@ -88,7 +88,7 @@ export function ExitIntentPopup() {
                 onChange={(e) => setValue(e.target.value)}
               />
               <RodoCheckbox />
-              <Button type="submit" className="btn-cta w-full" disabled={status === "sending"}>
+              <Button type="submit" variant="cta" className="w-full" disabled={status === "sending"}>
                 {status === "sending" ? (
                   <><Loader2 className="h-4 w-4 animate-spin" /> Wysyłanie…</>
                 ) : (

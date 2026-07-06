@@ -194,7 +194,7 @@ export default function KrakowLandingPage() {
                 </li>
               ))}
             </ul>
-            <Button asChild size="lg" className="btn-cta mt-6">
+            <Button asChild size="lg" variant="cta" className="mt-6">
               <Link href="/oferta">
                 Zobacz pełną ofertę <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
