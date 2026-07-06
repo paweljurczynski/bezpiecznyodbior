@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Clock, Facebook, Instagram, Mail, MapPin, Phone } from "lucide-react";
-import { LeadWizard } from "@/components/LeadWizard";
+import { ContactFormTabs } from "@/components/ContactFormTabs";
 import { JsonLd, breadcrumbSchema } from "@/components/JsonLd";
 import { site } from "@/lib/site";
 
@@ -126,12 +126,12 @@ export default function KontaktPage() {
           </div>
 
           <div>
-            <h2 className="text-2xl font-bold text-brand">Szybki formularz kontaktowy</h2>
+            <h2 className="text-2xl font-bold text-brand">Skontaktuj się z nami</h2>
             <p className="mt-2 text-sm text-muted-foreground">
-              Wypełnij trzy proste kroki, oddzwaniamy w ciągu 24 godzin.
+              Napisz ogólne zapytanie lub zamów bezpłatną wycenę odbioru technicznego.
             </p>
             <div className="mt-6">
-              <LeadWizard />
+              <ContactFormTabs />
             </div>
           </div>
         </div>

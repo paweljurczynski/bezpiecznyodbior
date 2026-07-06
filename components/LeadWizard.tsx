@@ -48,13 +48,13 @@ export function LeadWizard() {
 
   const canNext =
     (step === 1 && Boolean(data.propertyType) && Boolean(data.area)) ||
-    (step === 2 && Boolean(data.location) && Boolean(data.date)) ||
+    (step === 2 && Boolean(data.location)) ||
     step === 3;
 
   const submit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!data.name || !data.phone || !data.email) {
-      toast.error("Uzupełnij wszystkie dane kontaktowe.");
+    if (!data.phone || !data.email) {
+      toast.error("Uzupełnij dane kontaktowe.");
       return;
     }
     setStatus("sending");
@@ -180,7 +180,7 @@ export function LeadWizard() {
             />
           </div>
           <div>
-            <Label htmlFor="date">Planowana data odbioru</Label>
+            <Label htmlFor="date">Planowana data odbioru <span className="text-muted-foreground font-normal">(opcjonalnie)</span></Label>
             <Input
               id="date"
               name="date"
@@ -197,11 +197,10 @@ export function LeadWizard() {
       {step === 3 && (
         <div className="space-y-4">
           <div>
-            <Label htmlFor="name">Imię</Label>
+            <Label htmlFor="name">Imię <span className="text-muted-foreground font-normal">(opcjonalnie)</span></Label>
             <Input
               id="name"
               name="name"
-              required
               value={data.name}
               onChange={(e) => update("name", e.target.value)}
               className="mt-2"
