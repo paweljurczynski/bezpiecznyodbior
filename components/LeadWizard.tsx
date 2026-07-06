@@ -127,7 +127,7 @@ export function LeadWizard() {
         <div className="space-y-5">
           <div>
             <Label className="mb-3 block">Rodzaj nieruchomości</Label>
-            <div className="grid grid-cols-3 gap-2">
+            <div className="grid grid-cols-3 gap-1.5 sm:gap-2">
               {propertyTypes.map(({ value, icon: Icon, hint }) => {
                 const active = data.propertyType === value;
                 return (
@@ -135,15 +135,15 @@ export function LeadWizard() {
                     type="button"
                     key={value}
                     onClick={() => update("propertyType", value)}
-                    className={`flex flex-col items-center gap-2 rounded-lg border p-4 text-sm font-medium transition-colors cursor-pointer ${
+                    className={`flex flex-col items-center justify-center gap-1.5 rounded-lg border p-2.5 sm:p-4 text-xs sm:text-sm font-medium transition-colors cursor-pointer ${
                       active
                         ? "border-cta/50 bg-cta/5 text-cta"
                         : "border-border hover:border-cta/30"
                     }`}
                   >
-                    <Icon className="h-6 w-6" />
-                    {value}
-                    <span className="text-xs font-normal text-muted-foreground text-center">{hint}</span>
+                    <Icon className="h-5 w-5 sm:h-6 sm:w-6 shrink-0" />
+                    <span className="text-center leading-tight">{value}</span>
+                    <span className="hidden sm:block text-xs font-normal text-muted-foreground text-center">{hint}</span>
                   </button>
                 );
               })}

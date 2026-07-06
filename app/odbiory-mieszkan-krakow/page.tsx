@@ -6,6 +6,7 @@ import { districts } from "@/lib/districts";
 import { krakowFaq } from "@/lib/faq";
 import { FaqAccordion } from "@/components/FaqAccordion";
 import { LeadWizard } from "@/components/LeadWizard";
+import { GoogleReviewsBadge } from "@/components/GoogleReviewsBadge";
 import { JsonLd, faqSchema, breadcrumbSchema } from "@/components/JsonLd";
 import { Button } from "@/components/ui/button";
 import { site } from "@/lib/site";
@@ -77,6 +78,9 @@ export default function KrakowLandingPage() {
                   <Phone className="h-4 w-4" /> {site.phoneDisplay}
                 </a>
               </Button>
+            </div>
+            <div className="mt-5">
+              <GoogleReviewsBadge variant="compact" />
             </div>
           </div>
 

@@ -7,6 +7,7 @@ import {
 } from "lucide-react";
 import { LeadWizard } from "@/components/LeadWizard";
 import { FaqAccordion } from "@/components/FaqAccordion";
+import { GoogleReviewsBadge } from "@/components/GoogleReviewsBadge";
 import { Button } from "@/components/ui/button";
 import { faqItems } from "@/lib/faq";
 import { testimonials } from "@/lib/testimonials";
@@ -151,6 +152,9 @@ export default function HomePage() {
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-bold text-brand md:text-4xl">Opinie klientów</h2>
             <p className="mt-3 text-muted-foreground">Zaufali nam kupujący mieszkania w całej Polsce południowej.</p>
+            <div className="mt-5 flex justify-center">
+              <GoogleReviewsBadge />
+            </div>
           </div>
           <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {testimonials.map((t) => (
