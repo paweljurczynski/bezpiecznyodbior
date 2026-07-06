@@ -247,14 +247,14 @@ export function LeadWizard() {
         {step < 3 ? (
           <Button
             type="button"
-            className="btn-cta"
+            variant="cta"
             onClick={() => canNext && setStep((s) => Math.min(3, s + 1) as 1 | 2 | 3)}
             disabled={!canNext}
           >
             Dalej <ChevronRight className="ml-1 h-4 w-4" />
           </Button>
         ) : (
-          <Button type="submit" className="btn-cta" disabled={status === "sending"}>
+          <Button type="submit" variant="cta" disabled={status === "sending"}>
             {status === "sending" ? (
               <><Loader2 className="h-4 w-4 animate-spin" /> Wysyłanie…</>
             ) : (

@@ -36,7 +36,7 @@ export function Navbar() {
             <Phone className="h-4 w-4 text-cta" />
             {site.phoneDisplay}
           </a>
-          <Button asChild className="btn-cta">
+          <Button asChild variant="cta">
             <Link href="/kontakt">Zamów wycenę</Link>
           </Button>
         </div>

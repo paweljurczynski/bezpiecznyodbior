@@ -43,13 +43,14 @@ export default function HomePage() {
               <Sparkles className="h-3.5 w-3.5" /> Małopolskie · Śląskie · Podkarpackie
             </span>
             <h1 className="mt-5 text-4xl font-extrabold leading-tight text-brand md:text-5xl lg:text-6xl">
-              Profesjonalne odbiory techniczne mieszkań i domów
+              Profesjonalne odbiory techniczne{" "}
+              <span className="text-cta">mieszkań i domów</span>
             </h1>
             <p className="mt-5 text-lg text-muted-foreground">
               Kompleksowe kontrole inżynierskie nieruchomości zgodne z Polskimi Normami, umową deweloperską i projektami architektonicznymi. Kamera termowizyjna w standardzie.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Button asChild size="lg" className="btn-cta">
+              <Button asChild size="lg" variant="cta">
                 <a href="#formularz">Zamów bezpłatną wycenę</a>
               </Button>
               <Button asChild size="lg" variant="outline">
@@ -152,7 +153,7 @@ export default function HomePage() {
             </h3>
             <p className="mt-1 text-sm opacity-80">Kompleksowe bezpieczeństwo Twojej inwestycji w jednej usłudze.</p>
           </div>
-          <Button asChild size="lg" className="btn-cta">
+          <Button asChild size="lg" variant="cta">
             <Link href="/oferta">Zobacz szczegóły</Link>
           </Button>
         </div>

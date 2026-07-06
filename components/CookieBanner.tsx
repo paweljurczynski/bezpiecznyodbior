@@ -60,7 +60,7 @@ export function CookieBanner() {
                 <Button type="button" variant="outline" size="sm" onClick={() => set("rejected")}>
                   Odrzuć
                 </Button>
-                <Button type="button" size="sm" className="btn-cta" onClick={() => set("accepted")}>
+                <Button type="button" size="sm" variant="cta" onClick={() => set("accepted")}>
                   Akceptuję
                 </Button>
               </div>

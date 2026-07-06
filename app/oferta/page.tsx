@@ -206,7 +206,7 @@ export default function OfertaPage() {
             Zadzwoń lub napisz — dobierzemy zakres dopasowany do Twojej nieruchomości i budżetu.
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-3">
-            <Button asChild size="lg" className="btn-cta">
+            <Button asChild size="lg" variant="cta">
               <Link href="/kontakt">Zamów bezpłatną wycenę <ArrowRight className="ml-2 h-4 w-4" /></Link>
             </Button>
             <Button asChild size="lg" variant="outline" className="border-brand-foreground/30 text-brand-foreground hover:bg-brand-foreground/10">

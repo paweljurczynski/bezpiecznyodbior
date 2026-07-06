@@ -69,7 +69,7 @@ export default function KrakowLandingPage() {
               ))}
             </ul>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Button asChild size="lg" className="btn-cta">
+              <Button asChild size="lg" variant="cta">
                 <a href="#wycena">Bezpłatna wycena</a>
               </Button>
               <Button asChild size="lg" variant="outline">
