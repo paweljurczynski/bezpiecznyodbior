@@ -9,7 +9,7 @@ import { site } from "@/lib/site";
 import { BLUR_PLACEHOLDER } from "@/lib/image";
 
 export const metadata: Metadata = {
-  title: "Oferta i usługi — Bezpieczny Odbiór",
+  title: "Oferta i usługi",
   description:
     "Odbiory od dewelopera i z rynku wtórnego, badania termowizyjne, doradztwo inwestycyjne, pakiet premium z audytem prawnym, inwentaryzacje architektoniczne i świadectwa energetyczne.",
   alternates: { canonical: "/oferta" },

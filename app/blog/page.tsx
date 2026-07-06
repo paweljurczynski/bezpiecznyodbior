@@ -6,7 +6,7 @@ import { JsonLd, breadcrumbSchema } from "@/components/JsonLd";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Blog — Porady Ekspertów | Bezpieczny Odbiór",
+  title: "Blog — Porady Ekspertów",
   description:
     "Porady i wskazówki dotyczące odbioru technicznego mieszkania od dewelopera. Dowiedz się, na co zwrócić uwagę podczas odbioru nieruchomości.",
   alternates: { canonical: "/blog" },

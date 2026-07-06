@@ -5,7 +5,7 @@ import { JsonLd, breadcrumbSchema } from "@/components/JsonLd";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Kontakt — Bezpieczny Odbiór",
+  title: "Kontakt",
   description:
     "Zadzwoń: 502 298 030. Napisz: kontakt@bezpiecznyodbior.pl. Bezpłatna wycena odbioru technicznego w 24h. Małopolskie, Śląskie, Podkarpackie.",
   alternates: { canonical: "/kontakt" },

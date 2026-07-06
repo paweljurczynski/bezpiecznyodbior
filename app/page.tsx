@@ -15,7 +15,7 @@ import { testimonials } from "@/lib/testimonials";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: `${site.tagline} | ${site.name} Kraków`,
+  title: { absolute: `${site.tagline} | ${site.name} Kraków` },
   description:
     "Bezpieczny Odbiór — profesjonalne odbiory techniczne mieszkań i domów w Krakowie i Małopolsce. Kamera termowizyjna, Polskie Normy, ponad 100 opinii 5★. Bezpłatna wycena w 24h.",
   alternates: { canonical: "/" },

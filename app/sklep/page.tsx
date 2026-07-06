@@ -3,7 +3,7 @@ import { BookOpen, CheckCircle2, Clock, Sparkles } from "lucide-react";
 import { WaitlistForm } from "@/components/WaitlistForm";
 
 export const metadata: Metadata = {
-  title: "Sklep i edukacja — E-booki Bezpieczny Odbiór",
+  title: "Sklep i edukacja — E-booki",
   description:
     "Premium e-booki o odbiorach technicznych i umowach deweloperskich. Zapisz się na listę oczekujących i odbierz 20% zniżki w dniu premiery.",
   alternates: { canonical: "/sklep" },
