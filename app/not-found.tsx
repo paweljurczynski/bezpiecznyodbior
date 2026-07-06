@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, Home } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export default function NotFound() {
   return (
@@ -14,14 +15,18 @@ export default function NotFound() {
         Wygląda na to, że szukana strona nie istnieje lub została przeniesiona. Wróć na stronę główną albo skontaktuj się z nami.
       </p>
       <div className="mt-8 flex gap-3">
-        <Link href="/" className="btn-primary">
-          <Home className="h-4 w-4" />
-          Strona główna
-        </Link>
-        <Link href="/kontakt" className="btn-secondary">
-          Kontakt
-          <ArrowRight className="h-4 w-4" />
-        </Link>
+        <Button asChild variant="cta">
+          <Link href="/">
+            <Home className="h-4 w-4" />
+            Strona główna
+          </Link>
+        </Button>
+        <Button asChild variant="outline">
+          <Link href="/kontakt">
+            Kontakt
+            <ArrowRight className="h-4 w-4" />
+          </Link>
+        </Button>
       </div>
     </section>
   );

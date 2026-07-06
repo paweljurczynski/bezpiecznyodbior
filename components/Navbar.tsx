@@ -52,7 +52,7 @@ export function Navbar() {
         </div>
 
         <button
-          className="ml-auto md:hidden"
+          className="ml-auto cursor-pointer md:hidden"
           onClick={() => setOpen((v) => !v)}
           aria-label="Menu"
           aria-expanded={open}

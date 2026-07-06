@@ -226,7 +226,7 @@ export function LeadWizard() {
                     <button
                       type="button"
                       onClick={() => setFiles((prev) => prev.filter((x) => x.name !== f.name))}
-                      className="ml-2 shrink-0 text-muted-foreground hover:text-destructive"
+                      className="ml-2 shrink-0 cursor-pointer text-muted-foreground hover:text-destructive"
                     >
                       <X className="h-3.5 w-3.5" />
                     </button>
