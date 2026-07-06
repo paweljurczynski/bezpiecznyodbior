@@ -29,7 +29,7 @@ export function ContactForm() {
     e.preventDefault();
     setStatus("sending");
     try {
-      await submitNetlifyForm("contact", data);
+      await submitNetlifyForm(e.currentTarget);
       setStatus("success");
       toast.success("Dziękujemy! Odezwiemy się wkrótce.");
     } catch {

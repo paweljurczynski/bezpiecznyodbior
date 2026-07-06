@@ -21,7 +21,7 @@ export function WaitlistForm({ title }: { title: string }) {
     }
     setStatus("sending");
     try {
-      await submitNetlifyForm("waitlist", { title, name, email });
+      await submitNetlifyForm(e.currentTarget);
       setStatus("success");
       toast.success("Zapisano na listę oczekujących!");
     } catch {

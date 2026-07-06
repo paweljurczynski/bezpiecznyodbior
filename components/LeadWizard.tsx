@@ -60,19 +60,7 @@ export function LeadWizard() {
     }
     setStatus("sending");
     try {
-      await submitNetlifyForm(
-        "lead",
-        {
-          propertyType: data.propertyType,
-          area: data.area,
-          location: data.location,
-          date: data.date,
-          name: data.name,
-          phone: data.phone,
-          email: data.email,
-        },
-        files
-      );
+      await submitNetlifyForm(e.currentTarget, files);
       setStatus("success");
       toast.success("Dziękujemy! Odezwiemy się w ciągu 24h.");
     } catch {
@@ -98,6 +86,8 @@ export function LeadWizard() {
   return (
     <form name="lead" onSubmit={submit} className="surface-panel p-6 md:p-8">
       <input type="hidden" name="form-name" value="lead" />
+      <input type="hidden" name="propertyType" value={data.propertyType} />
+      <input type="hidden" name="area" value={data.area} />
       <p hidden>
         <label>Nie wypełniaj: <input name="bot-field" /></label>
       </p>

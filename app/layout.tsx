@@ -80,7 +80,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Navbar />
         <main>{children}</main>
         <Footer />
-        <ExitIntentPopup />
+        {/* <ExitIntentPopup /> */}
         <CookieBanner />
         <Toaster />
       </body>

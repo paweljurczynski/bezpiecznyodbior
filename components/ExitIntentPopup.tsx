@@ -46,7 +46,7 @@ export function ExitIntentPopup() {
     }
     setStatus("sending");
     try {
-      await submitNetlifyForm("exit-intent", { contact: value });
+      await submitNetlifyForm(e.currentTarget);
       setStatus("success");
     } catch {
       setStatus("error");
