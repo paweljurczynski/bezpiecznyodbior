@@ -138,6 +138,7 @@ export default function OfertaPage() {
           fill
           priority
           fetchPriority="high"
+          quality={70}
           sizes="100vw"
           className="object-cover object-center"
         />
