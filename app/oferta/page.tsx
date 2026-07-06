@@ -201,7 +201,7 @@ export default function OfertaPage() {
 
       <section className="bg-surface py-16">
         <div className="container-page">
-          <h2 className="text-2xl font-bold text-brand md:text-3xl">Nowe usługi premium</h2>
+          <h2 className="text-2xl font-bold text-brand md:text-3xl">Nowe usługi</h2>
           <p className="mt-2 text-muted-foreground">Rozszerzony katalog dla wymagających klientów.</p>
           <div className="mt-8 grid gap-6 lg:grid-cols-3">
             {premiumServices.map(({ icon: Icon, badge, title, desc, bullets, id }) => (
@@ -253,7 +253,7 @@ export default function OfertaPage() {
             <Button asChild size="lg" variant="cta">
               <Link href="/kontakt">Zamów bezpłatną wycenę <ArrowRight className="ml-2 h-4 w-4" /></Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="border-brand-foreground/30 text-brand-foreground hover:bg-brand-foreground/10">
+            <Button asChild size="lg" variant="outline" className="border-brand-foreground/30 bg-transparent text-brand-foreground hover:bg-brand-foreground/10">
               <a href={`tel:${site.phone}`}>Zadzwoń: {site.phoneDisplay}</a>
             </Button>
           </div>

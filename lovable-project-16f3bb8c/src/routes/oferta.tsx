@@ -166,7 +166,7 @@ function Oferta() {
         <div className="container-page">
           <div className="flex items-end justify-between gap-4">
             <div>
-              <h2 className="text-2xl font-bold text-brand md:text-3xl">Nowe usługi premium</h2>
+              <h2 className="text-2xl font-bold text-brand md:text-3xl">Nowe usługi</h2>
               <p className="mt-2 text-muted-foreground">Rozszerzony katalog dla wymagających klientów.</p>
             </div>
           </div>

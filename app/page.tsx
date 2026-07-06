@@ -166,12 +166,12 @@ export default function HomePage() {
           <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {testimonials.map((t) => (
               <div key={t.author} className="surface-panel bg-card p-6">
-                <div className="flex gap-0.5 text-cta">
+                <div className="flex gap-0.5 text-[#FBBC05]">
                   {Array.from({ length: t.rating }).map((_, i) => (
                     <Star key={i} className="h-4 w-4 fill-current" />
                   ))}
                 </div>
-                <p className="mt-1 text-xs font-semibold text-cta">{t.highlight}</p>
+                <p className="mt-1 text-xs font-semibold text-foreground">{t.highlight}</p>
                 <p className="mt-3 text-sm leading-relaxed text-foreground">„{t.text}"</p>
                 <div className="mt-5 flex items-center justify-between gap-2 text-sm">
                   <span className="font-semibold">{t.author}</span>
