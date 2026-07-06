@@ -92,7 +92,7 @@ export function ContactForm() {
             name="email"
             type="email"
             required
-            placeholder="ty@email.pl"
+            placeholder="jan.kowalski@firma.pl"
             value={data.email}
             onChange={(e) => update("email", e.target.value)}
             className="mt-2"

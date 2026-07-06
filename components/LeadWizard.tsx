@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Building2, Home, Warehouse, ChevronLeft, ChevronRight, CheckCircle2, Loader2 } from "lucide-react";
+import { Building2, Home, Warehouse, ChevronLeft, ChevronRight, CheckCircle2, Loader2, Paperclip, X } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -33,6 +33,7 @@ const sizes = ["do 40 m²", "40–60 m²", "60–90 m²", "90–150 m²", "powy�
 export function LeadWizard() {
   const [step, setStep] = useState<1 | 2 | 3>(1);
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const [files, setFiles] = useState<File[]>([]);
   const [data, setData] = useState<LeadData>({
     propertyType: "",
     area: "",
@@ -59,15 +60,19 @@ export function LeadWizard() {
     }
     setStatus("sending");
     try {
-      await submitNetlifyForm("lead", {
-        propertyType: data.propertyType,
-        area: data.area,
-        location: data.location,
-        date: data.date,
-        name: data.name,
-        phone: data.phone,
-        email: data.email,
-      });
+      await submitNetlifyForm(
+        "lead",
+        {
+          propertyType: data.propertyType,
+          area: data.area,
+          location: data.location,
+          date: data.date,
+          name: data.name,
+          phone: data.phone,
+          email: data.email,
+        },
+        files
+      );
       setStatus("success");
       toast.success("Dziękujemy! Odezwiemy się w ciągu 24h.");
     } catch {
@@ -191,6 +196,45 @@ export function LeadWizard() {
               className="mt-2"
             />
           </div>
+          <div>
+            <Label>Załączniki <span className="text-muted-foreground font-normal">(opcjonalnie — rzut, projekt, inne)</span></Label>
+            <label
+              htmlFor="files"
+              className="mt-2 flex cursor-pointer flex-col items-center justify-center gap-1.5 rounded-lg border-2 border-dashed border-border p-5 transition-colors hover:border-cta/30"
+            >
+              <Paperclip className="h-5 w-5 text-muted-foreground" />
+              <span className="text-sm text-muted-foreground">
+                {files.length > 0
+                  ? `${files.length} plik${files.length === 1 ? "" : files.length < 5 ? "i" : "ów"} wybranych`
+                  : "Kliknij lub przeciągnij pliki"}
+              </span>
+              <span className="text-xs text-muted-foreground/70">PDF, JPG, PNG, DOC — maks. 10 MB każdy</span>
+              <input
+                id="files"
+                type="file"
+                multiple
+                accept=".pdf,.jpg,.jpeg,.png,.doc,.docx"
+                className="sr-only"
+                onChange={(e) => setFiles(Array.from(e.target.files ?? []))}
+              />
+            </label>
+            {files.length > 0 && (
+              <ul className="mt-2 space-y-1">
+                {files.map((f) => (
+                  <li key={f.name} className="flex items-center justify-between rounded-md bg-muted px-3 py-1.5 text-sm">
+                    <span className="truncate text-muted-foreground">{f.name}</span>
+                    <button
+                      type="button"
+                      onClick={() => setFiles((prev) => prev.filter((x) => x.name !== f.name))}
+                      className="ml-2 shrink-0 text-muted-foreground hover:text-destructive"
+                    >
+                      <X className="h-3.5 w-3.5" />
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
         </div>
       )}
 
@@ -227,7 +271,7 @@ export function LeadWizard() {
                 name="email"
                 type="email"
                 required
-                placeholder="ty@email.pl"
+                placeholder="jan.kowalski@firma.pl"
                 value={data.email}
                 onChange={(e) => update("email", e.target.value)}
                 className="mt-2"
@@ -239,14 +283,17 @@ export function LeadWizard() {
       )}
 
       <div className="mt-8 flex items-center justify-between gap-3">
-        <Button
-          type="button"
-          variant="ghost"
-          onClick={() => setStep((s) => Math.max(1, s - 1) as 1 | 2 | 3)}
-          disabled={step === 1}
-        >
-          <ChevronLeft className="mr-1 h-4 w-4" /> Wstecz
-        </Button>
+        {step > 1 ? (
+          <Button
+            type="button"
+            variant="ghost"
+            onClick={() => setStep((s) => Math.max(1, s - 1) as 1 | 2 | 3)}
+          >
+            <ChevronLeft className="mr-1 h-4 w-4" /> Wstecz
+          </Button>
+        ) : (
+          <span />
+        )}
         {step < 3 ? (
           <Button
             type="button"

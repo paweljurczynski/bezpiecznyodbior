@@ -1,7 +1,7 @@
 <html>
   <head></head>
   <body>
-    <form name="lead" data-netlify="true" method="post" hidden>
+    <form name="lead" data-netlify="true" method="post" enctype="multipart/form-data" hidden>
       <input type="hidden" name="form-name" value="lead" />
       <input name="propertyType" />
       <input name="area" />
@@ -12,6 +12,7 @@
       <input name="email" />
       <input name="rodo" />
       <input name="bot-field" />
+      <input type="file" name="files" multiple />
     </form>
     <form name="waitlist" data-netlify="true" method="post" hidden>
       <input type="hidden" name="form-name" value="waitlist" />
