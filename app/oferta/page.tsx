@@ -150,37 +150,42 @@ export default function OfertaPage() {
         <h2 className="text-2xl font-bold text-brand md:text-3xl">Usługi podstawowe</h2>
         <div className="mt-8 grid gap-6 lg:grid-cols-2">
           {services.map(({ icon: Icon, tag, title, desc, bullets, image, imageAlt, id }) => (
-            <article key={id} id={id} className="surface-panel overflow-hidden bg-card">
-              <div className="relative aspect-[16/7] w-full">
-                <Image
-                  src={image}
-                  alt={imageAlt}
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover"
-                />
-              </div>
-              <div className="p-8">
-                <div className="flex items-center gap-3">
-                  <div className="grid h-12 w-12 place-items-center rounded-lg bg-brand-soft text-brand">
-                    <Icon className="h-6 w-6" />
-                  </div>
-                  <span className="rounded-full bg-secondary px-3 py-1 text-xs font-semibold text-secondary-foreground">
-                    {tag}
-                  </span>
+            <Link key={id} href={`/oferta/${id}`} className="group block">
+              <article id={id} className="surface-panel overflow-hidden bg-card transition-shadow hover:shadow-elegant">
+                <div className="relative aspect-[16/7] w-full overflow-hidden">
+                  <Image
+                    src={image}
+                    alt={imageAlt}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
                 </div>
-                <h3 className="mt-5 text-xl font-bold">{title}</h3>
-                <p className="mt-3 text-sm text-muted-foreground">{desc}</p>
-                <ul className="mt-5 space-y-2">
-                  {bullets.map((b) => (
-                    <li key={b} className="flex items-start gap-2 text-sm">
-                      <Check className="mt-0.5 h-4 w-4 shrink-0 text-cta" />
-                      <span>{b}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </article>
+                <div className="p-8">
+                  <div className="flex items-center gap-3">
+                    <div className="grid h-12 w-12 place-items-center rounded-lg bg-brand-soft text-brand">
+                      <Icon className="h-6 w-6" />
+                    </div>
+                    <span className="rounded-full bg-secondary px-3 py-1 text-xs font-semibold text-secondary-foreground">
+                      {tag}
+                    </span>
+                  </div>
+                  <h3 className="mt-5 text-xl font-bold">{title}</h3>
+                  <p className="mt-3 text-sm text-muted-foreground">{desc}</p>
+                  <ul className="mt-5 space-y-2">
+                    {bullets.map((b) => (
+                      <li key={b} className="flex items-start gap-2 text-sm">
+                        <Check className="mt-0.5 h-4 w-4 shrink-0 text-cta" />
+                        <span>{b}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="mt-6 flex items-center gap-1.5 text-sm font-semibold text-brand group-hover:underline">
+                    Dowiedz się co sprawdzamy <ArrowRight className="h-4 w-4" />
+                  </div>
+                </div>
+              </article>
+            </Link>
           ))}
         </div>
       </section>
@@ -191,24 +196,29 @@ export default function OfertaPage() {
           <p className="mt-2 text-muted-foreground">Rozszerzony katalog dla wymagających klientów.</p>
           <div className="mt-8 grid gap-6 lg:grid-cols-3">
             {premiumServices.map(({ icon: Icon, badge, title, desc, bullets, id }) => (
-              <article key={id} id={id} className="relative flex flex-col rounded-2xl border border-brand/20 bg-card p-8 shadow-elegant">
-                <span className="absolute -top-3 left-6 rounded-full bg-cta px-3 py-1 text-xs font-bold uppercase tracking-wider text-cta-foreground">
-                  {badge}
-                </span>
-                <div className="grid h-12 w-12 place-items-center rounded-lg bg-brand text-brand-foreground">
-                  <Icon className="h-6 w-6" />
-                </div>
-                <h3 className="mt-5 text-lg font-bold leading-tight">{title}</h3>
-                <p className="mt-3 text-sm text-muted-foreground">{desc}</p>
-                <ul className="mt-5 space-y-2">
-                  {bullets.map((b) => (
-                    <li key={b} className="flex items-start gap-2 text-sm">
-                      <Check className="mt-0.5 h-4 w-4 shrink-0 text-cta" />
-                      <span>{b}</span>
-                    </li>
-                  ))}
-                </ul>
-              </article>
+              <Link key={id} href={`/oferta/${id}`} className="group block">
+                <article id={id} className="relative flex h-full flex-col rounded-2xl border border-brand/20 bg-card p-8 shadow-elegant transition-shadow hover:shadow-lg">
+                  <span className="absolute -top-3 left-6 rounded-full bg-cta px-3 py-1 text-xs font-bold uppercase tracking-wider text-cta-foreground">
+                    {badge}
+                  </span>
+                  <div className="grid h-12 w-12 place-items-center rounded-lg bg-brand text-brand-foreground">
+                    <Icon className="h-6 w-6" />
+                  </div>
+                  <h3 className="mt-5 text-lg font-bold leading-tight">{title}</h3>
+                  <p className="mt-3 text-sm text-muted-foreground">{desc}</p>
+                  <ul className="mt-5 space-y-2">
+                    {bullets.map((b) => (
+                      <li key={b} className="flex items-start gap-2 text-sm">
+                        <Check className="mt-0.5 h-4 w-4 shrink-0 text-cta" />
+                        <span>{b}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="mt-auto pt-6 flex items-center gap-1.5 text-sm font-semibold text-brand group-hover:underline">
+                    Dowiedz się więcej <ArrowRight className="h-4 w-4" />
+                  </div>
+                </article>
+              </Link>
             ))}
           </div>
         </div>
