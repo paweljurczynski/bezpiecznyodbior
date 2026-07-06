@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import {
   ShieldCheck, Thermometer, FileCheck2, HardHat,
@@ -38,9 +39,13 @@ export default function HomePage() {
     <>
       {/* HERO */}
       <section className="relative overflow-hidden border-b border-border">
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url('/hero-apartment.png')" }}
+        <Image
+          src="/hero-apartment.png"
+          alt="Wnętrze nowego mieszkania — odbiór techniczny"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
         />
         <div className="absolute inset-0 bg-black/60" />
         <div className="container-page relative grid gap-12 py-16 md:grid-cols-2 md:py-24">

@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { LeadWizard } from "@/components/LeadWizard";
 import { JsonLd, breadcrumbSchema } from "@/components/JsonLd";
 import { site } from "@/lib/site";
+import { BLUR_PLACEHOLDER } from "@/lib/image";
 
 export const metadata: Metadata = {
   title: "Oferta i usługi — Bezpieczny Odbiór",
@@ -131,9 +132,13 @@ export default function OfertaPage() {
       />
 
       <section className="relative overflow-hidden border-b border-border">
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url('/oferta-hero.jpg')" }}
+        <Image
+          src="/oferta-hero.jpg"
+          alt="Inspektor techniczny podczas odbioru nieruchomości"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
         />
         <div className="absolute inset-0 bg-black/60" />
         <div className="container-page relative py-16 text-center md:py-20">
@@ -158,6 +163,8 @@ export default function OfertaPage() {
                     alt={imageAlt}
                     fill
                     sizes="(max-width: 1024px) 100vw, 50vw"
+                    placeholder="blur"
+                    blurDataURL={BLUR_PLACEHOLDER}
                     className="object-cover transition-transform duration-300 group-hover:scale-105"
                   />
                 </div>

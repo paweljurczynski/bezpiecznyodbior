@@ -8,6 +8,7 @@ import { FaqAccordion } from "@/components/FaqAccordion";
 import { LeadWizard } from "@/components/LeadWizard";
 import { GoogleReviewsBadge } from "@/components/GoogleReviewsBadge";
 import { JsonLd, faqSchema, breadcrumbSchema } from "@/components/JsonLd";
+import { BLUR_PLACEHOLDER } from "@/lib/image";
 import { Button } from "@/components/ui/button";
 import { site } from "@/lib/site";
 
@@ -93,6 +94,8 @@ export default function KrakowLandingPage() {
                   fill
                   priority
                   sizes="(max-width: 1024px) 100vw, 50vw"
+                  placeholder="blur"
+                  blurDataURL={BLUR_PLACEHOLDER}
                   className="object-cover"
                 />
               </div>

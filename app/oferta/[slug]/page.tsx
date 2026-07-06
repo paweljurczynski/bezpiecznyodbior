@@ -8,6 +8,7 @@ import { LeadWizard } from "@/components/LeadWizard";
 import { JsonLd, breadcrumbSchema } from "@/components/JsonLd";
 import { Button } from "@/components/ui/button";
 import { site } from "@/lib/site";
+import { BLUR_PLACEHOLDER } from "@/lib/image";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -92,6 +93,8 @@ export default async function ServiceDetailPage({ params }: Props) {
                 fill
                 priority
                 sizes="(max-width: 1024px) 100vw, 50vw"
+                placeholder="blur"
+                blurDataURL={BLUR_PLACEHOLDER}
                 className="object-cover"
               />
             </div>

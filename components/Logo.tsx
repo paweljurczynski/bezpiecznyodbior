@@ -18,7 +18,6 @@ export function Logo({ size = 40, withText = true, className = "", href = "/", o
         alt={`${site.name} — logo`}
         width={size}
         height={size}
-        priority
         className="h-auto shrink-0"
         style={{ width: size, height: size }}
       />
