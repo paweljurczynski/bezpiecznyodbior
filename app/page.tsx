@@ -44,6 +44,7 @@ export default function HomePage() {
           alt="Wnętrze nowego mieszkania — odbiór techniczny"
           fill
           priority
+          fetchPriority="high"
           sizes="100vw"
           className="object-cover object-center"
         />

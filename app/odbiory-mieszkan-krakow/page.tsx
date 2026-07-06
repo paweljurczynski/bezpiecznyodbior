@@ -93,6 +93,7 @@ export default function KrakowLandingPage() {
                   alt="Panorama Krakowa"
                   fill
                   priority
+                  fetchPriority="high"
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   placeholder="blur"
                   blurDataURL={BLUR_PLACEHOLDER}

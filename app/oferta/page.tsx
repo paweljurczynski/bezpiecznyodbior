@@ -137,6 +137,7 @@ export default function OfertaPage() {
           alt="Inspektor techniczny podczas odbioru nieruchomości"
           fill
           priority
+          fetchPriority="high"
           sizes="100vw"
           className="object-cover object-center"
         />

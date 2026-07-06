@@ -92,6 +92,7 @@ export default async function ServiceDetailPage({ params }: Props) {
                 alt={service.imageAlt}
                 fill
                 priority
+                fetchPriority="high"
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 placeholder="blur"
                 blurDataURL={BLUR_PLACEHOLDER}
