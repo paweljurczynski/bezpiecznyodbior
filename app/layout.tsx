@@ -1,20 +1,24 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { ExitIntentPopup } from "@/components/ExitIntentPopup";
 import { CookieBanner } from "@/components/CookieBanner";
-import {
-  JsonLd,
-  localBusinessSchema,
-  organizationSchema,
-} from "@/components/JsonLd";
+import { Toaster } from "@/components/ui/sonner";
+import { JsonLd, localBusinessSchema, organizationSchema } from "@/components/JsonLd";
 import { site } from "@/lib/site";
 import "./globals.css";
 
 const inter = Inter({
   subsets: ["latin", "latin-ext"],
   variable: "--font-inter",
+  display: "swap",
+});
+
+const plusJakarta = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  weight: ["600", "700", "800"],
+  variable: "--font-plus-jakarta",
   display: "swap",
 });
 
@@ -37,9 +41,7 @@ export const metadata: Metadata = {
   authors: [{ name: site.name }],
   creator: site.name,
   publisher: site.name,
-  alternates: {
-    canonical: "/",
-  },
+  alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     locale: "pl_PL",
@@ -47,14 +49,7 @@ export const metadata: Metadata = {
     siteName: site.name,
     title: `${site.tagline} | ${site.name} Kraków`,
     description: site.description,
-    images: [
-      {
-        url: "/og.jpg",
-        width: 1200,
-        height: 630,
-        alt: site.name,
-      },
-    ],
+    images: [{ url: "/og.jpg", width: 1200, height: 630, alt: site.name }],
   },
   twitter: {
     card: "summary_large_image",
@@ -78,20 +73,18 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="pl" className={inter.variable}>
-      <body className="min-h-screen bg-white text-slate-900">
+    <html lang="pl" className={`${inter.variable} ${plusJakarta.variable}`}>
+      <head />
+      <body className="min-h-screen bg-background text-foreground">
         <JsonLd data={[localBusinessSchema(), organizationSchema()]} />
         <Navbar />
         <main>{children}</main>
         <Footer />
         <ExitIntentPopup />
         <CookieBanner />
+        <Toaster />
       </body>
     </html>
   );

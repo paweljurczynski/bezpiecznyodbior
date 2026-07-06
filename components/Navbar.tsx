@@ -2,47 +2,53 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Menu, Phone, X } from "lucide-react";
-import { navLinks } from "@/lib/nav";
+import { ShieldCheck, Menu, X, Phone } from "lucide-react";
 import { site } from "@/lib/site";
-import { Logo } from "./Logo";
+import { navLinks } from "@/lib/nav";
+import { Button } from "@/components/ui/button";
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-slate-100 bg-white/90 backdrop-blur">
-      <div className="container-page flex h-16 items-center justify-between">
-        <Logo size={40} onClick={() => setOpen(false)} />
+    <header className="sticky top-0 z-40 border-b border-border/70 bg-background/85 backdrop-blur">
+      <div className="container-page flex h-16 items-center gap-4">
+        <Link href="/" className="flex shrink-0 items-center gap-2" onClick={() => setOpen(false)}>
+          <span className="grid h-9 w-9 place-items-center rounded-lg bg-brand text-brand-foreground">
+            <ShieldCheck className="h-5 w-5" />
+          </span>
+          <span className="font-display text-lg font-bold tracking-tight text-brand">
+            {site.name}
+          </span>
+        </Link>
 
-        <nav className="hidden items-center gap-1 md:flex">
+        <nav className="ml-6 hidden items-center gap-1 md:flex">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="rounded-lg px-3 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-100 hover:text-slate-900"
+              className="rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
             >
               {link.label}
             </Link>
           ))}
         </nav>
 
-        <div className="hidden items-center gap-3 md:flex">
+        <div className="ml-auto hidden items-center gap-3 md:flex">
           <a
             href={`tel:${site.phone}`}
-            className="flex items-center gap-2 text-sm font-semibold text-slate-900"
+            className="flex items-center gap-2 text-sm font-semibold text-foreground"
           >
-            <Phone className="h-4 w-4 text-brand-500" />
+            <Phone className="h-4 w-4 text-cta" />
             {site.phoneDisplay}
           </a>
-          <Link href="/#wycena" className="btn-primary py-2 text-sm">
-            Bezpłatna wycena
-          </Link>
+          <Button asChild className="btn-cta">
+            <Link href="/kontakt">Zamów wycenę</Link>
+          </Button>
         </div>
 
         <button
-          type="button"
-          className="md:hidden rounded-lg p-2 text-slate-700 hover:bg-slate-100"
+          className="ml-auto md:hidden"
           onClick={() => setOpen((v) => !v)}
           aria-label="Menu"
           aria-expanded={open}
@@ -52,33 +58,24 @@ export function Navbar() {
       </div>
 
       {open && (
-        <div className="border-t border-slate-100 bg-white md:hidden">
-          <nav className="container-page flex flex-col gap-1 py-4">
+        <div className="border-t border-border md:hidden">
+          <div className="container-page flex flex-col gap-1 py-3">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="rounded-lg px-3 py-3 text-base font-medium text-slate-700 hover:bg-slate-100"
                 onClick={() => setOpen(false)}
+                className="rounded-md px-3 py-2 text-sm font-medium text-foreground"
               >
                 {link.label}
               </Link>
             ))}
-            <a
-              href={`tel:${site.phone}`}
-              className="mt-2 flex items-center gap-2 rounded-lg bg-slate-100 px-3 py-3 text-base font-semibold text-slate-900"
-            >
-              <Phone className="h-5 w-5 text-brand-500" />
-              {site.phoneDisplay}
-            </a>
-            <Link
-              href="/#wycena"
-              className="btn-primary mt-2"
-              onClick={() => setOpen(false)}
-            >
-              Bezpłatna wycena
-            </Link>
-          </nav>
+            <Button asChild className="btn-cta mt-2">
+              <Link href="/kontakt" onClick={() => setOpen(false)}>
+                Zamów bezpłatną wycenę
+              </Link>
+            </Button>
+          </div>
         </div>
       )}
     </header>

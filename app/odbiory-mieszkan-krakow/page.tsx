@@ -1,18 +1,19 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { CheckCircle2, MapPin, Phone, Building2, Star } from "lucide-react";
+import { CheckCircle2, MapPin, Phone, Building2, Star, ArrowRight } from "lucide-react";
 import { districts } from "@/lib/districts";
 import { krakowFaq } from "@/lib/faq";
-import { WizardSection } from "@/components/WizardSection";
 import { FaqAccordion } from "@/components/FaqAccordion";
+import { LeadWizard } from "@/components/LeadWizard";
 import { JsonLd, faqSchema, breadcrumbSchema } from "@/components/JsonLd";
+import { Button } from "@/components/ui/button";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Odbiór mieszkania Kraków — techniczny przegląd inżyniera",
   description:
-    "Odbiór mieszkania Kraków — profesjonalny przegląd techniczny z kamerą termowizyjną w każdej dzielnicy: Prądnik, Krowodrza, Bronowice, Dębniki, Ruczaj, Podgórze i inne. Bezpłatna wycena w 60 minut.",
+    "Odbiór mieszkania Kraków — profesjonalny przegląd techniczny z kamerą termowizyjną w każdej dzielnicy: Prądnik, Krowodrza, Bronowice, Dębniki, Ruczaj, Podgórze i inne. Bezpłatna wycena w 24h.",
   alternates: { canonical: "/odbiory-mieszkan-krakow" },
   openGraph: {
     title: "Odbiór mieszkania Kraków — Bezpieczny Odbiór",
@@ -22,15 +23,16 @@ export const metadata: Metadata = {
   },
 };
 
-const localDevelopersInfo = [
-  "Buma Group",
-  "Dom Development",
-  "Atal",
-  "Develia",
-  "Robyg",
-  "Murapol",
-  "Novisa Development",
-  "Wawel Service",
+const localDevelopers = [
+  "Buma Group", "Dom Development", "Atal", "Develia",
+  "Robyg", "Murapol", "Novisa Development", "Wawel Service",
+];
+
+const highlights = [
+  "Znajomość lokalnych deweloperów",
+  "Odbiory w 2–5 dni roboczych",
+  "Kamera termowizyjna FLIR",
+  "Protokół PDF tego samego dnia",
 ];
 
 export default function KrakowLandingPage() {
@@ -41,59 +43,45 @@ export default function KrakowLandingPage() {
           faqSchema(krakowFaq),
           breadcrumbSchema([
             { name: "Start", item: "/" },
-            {
-              name: "Odbiór mieszkania Kraków",
-              item: "/odbiory-mieszkan-krakow",
-            },
+            { name: "Odbiór mieszkania Kraków", item: "/odbiory-mieszkan-krakow" },
           ]),
         ]}
       />
 
-      <section className="relative overflow-hidden bg-gradient-to-b from-slate-50 to-white py-16 sm:py-24">
-        <div className="container-page grid gap-12 lg:grid-cols-2 lg:items-center">
+      <section className="relative overflow-hidden border-b border-border bg-gradient-to-b from-brand-soft/50 to-background">
+        <div className="container-page grid gap-12 py-16 lg:grid-cols-2 lg:items-center lg:py-24">
           <div>
-            <div className="inline-flex items-center gap-2 rounded-full bg-brand-100 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-brand-700">
-              <MapPin className="h-3 w-3" />
-              Kraków i okolice
-            </div>
-            <h1 className="mt-4 text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">
+            <span className="inline-flex items-center gap-2 rounded-full border border-border bg-background/80 px-3 py-1 text-xs font-semibold text-brand">
+              <MapPin className="h-3.5 w-3.5" /> Kraków i okolice
+            </span>
+            <h1 className="mt-5 text-4xl font-extrabold leading-tight text-brand md:text-5xl">
               Odbiór mieszkania Kraków — techniczny przegląd inżyniera
             </h1>
-            <p className="mt-6 text-lg text-slate-600">
+            <p className="mt-5 text-lg text-muted-foreground">
               Realizujemy odbiory techniczne mieszkań i domów w każdej dzielnicy Krakowa — od Prądnika Białego, przez Krowodrzę i Bronowice, po Podgórze i Nową Hutę. Ponad 5 lat lokalnego doświadczenia i {site.reviews.count}+ opinii 5★ na Google.
             </p>
-
             <ul className="mt-6 grid gap-2 sm:grid-cols-2">
-              {[
-                "Znajomość lokalnych deweloperów",
-                "Odbiory w 2–5 dni roboczych",
-                "Kamera termowizyjna FLIR",
-                "Protokół PDF tego samego dnia",
-              ].map((item) => (
-                <li
-                  key={item}
-                  className="flex items-center gap-2 text-sm text-slate-700"
-                >
-                  <CheckCircle2 className="h-5 w-5 text-brand-500" />
+              {highlights.map((item) => (
+                <li key={item} className="flex items-center gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 shrink-0 text-cta" />
                   {item}
                 </li>
               ))}
             </ul>
-
-            <div className="mt-8 flex flex-wrap items-center gap-3">
-              <Link href="#wycena" className="btn-primary">
-                Bezpłatna wycena
-              </Link>
-              <a href={`tel:${site.phone}`} className="btn-secondary">
-                <Phone className="h-4 w-4 text-brand-500" />
-                {site.phoneDisplay}
-              </a>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Button asChild size="lg" className="btn-cta">
+                <a href="#wycena">Bezpłatna wycena</a>
+              </Button>
+              <Button asChild size="lg" variant="outline">
+                <a href={`tel:${site.phone}`}>
+                  <Phone className="h-4 w-4" /> {site.phoneDisplay}
+                </a>
+              </Button>
             </div>
           </div>
 
           <div className="relative">
-            <div className="absolute inset-0 -z-10 rounded-3xl bg-gradient-to-br from-brand-100 to-white blur-2xl" />
-            <div className="relative overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-xl">
+            <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-elegant">
               <div className="relative aspect-[4/3] w-full">
                 <Image
                   src="https://images.unsplash.com/photo-1573424659379-f5d699f4845a?auto=format&fit=crop&w=1400&q=80"
@@ -104,19 +92,19 @@ export default function KrakowLandingPage() {
                   className="object-cover"
                 />
               </div>
-              <div className="border-t border-slate-200 bg-slate-50 p-5">
+              <div className="border-t border-border bg-surface p-5">
                 <div className="flex items-center gap-2">
-                  <div className="flex items-center gap-1 text-amber-500">
+                  <div className="flex items-center gap-0.5 text-cta">
                     {Array.from({ length: 5 }).map((_, i) => (
                       <Star key={i} className="h-4 w-4 fill-current" />
                     ))}
                   </div>
-                  <span className="text-sm font-semibold text-slate-900">
+                  <span className="text-sm font-semibold">
                     {site.reviews.rating.toFixed(1)} / 5 · {site.reviews.count}+ opinii
                   </span>
                 </div>
-                <p className="mt-2 text-xs text-slate-600">
-                  „Odbiór mieszkania w Krakowie (Prądnik Biały) spełnił oczekiwania. Świetnie ocenione przez klientów."
+                <p className="mt-2 text-xs text-muted-foreground">
+                  „Odbiór mieszkania w Krakowie (Prądnik Biały) spełnił wszystkie oczekiwania. Profesjonalny raport."
                 </p>
               </div>
             </div>
@@ -124,83 +112,108 @@ export default function KrakowLandingPage() {
         </div>
       </section>
 
-      <section className="py-16 sm:py-20">
-        <div className="container-page">
-          <div className="mx-auto max-w-3xl text-center">
-            <p className="section-eyebrow">Krakowskie dzielnice</p>
-            <h2 className="mt-2 section-heading">
-              Wykonujemy odbiory w każdej dzielnicy Krakowa
-            </h2>
-            <p className="mt-4 text-lg text-slate-600">
-              Znamy specyfikę lokalnych inwestycji, standard wykonawczy deweloperów oraz najczęstsze problemy techniczne występujące w poszczególnych rejonach miasta.
-            </p>
-          </div>
-
-          <div className="mt-10 flex flex-wrap justify-center gap-3">
-            {districts.map((district) => (
-              <div
-                key={district.slug}
-                className="flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 shadow-sm"
-              >
-                <MapPin className="h-3.5 w-3.5 text-brand-500" />
-                {district.name}
-              </div>
-            ))}
-          </div>
+      <section className="container-page py-16">
+        <div className="mx-auto max-w-3xl text-center">
+          <h2 className="text-3xl font-bold text-brand md:text-4xl">
+            Wykonujemy odbiory w każdej dzielnicy Krakowa
+          </h2>
+          <p className="mt-4 text-muted-foreground">
+            Znamy specyfikę lokalnych inwestycji, standard wykonawczy deweloperów oraz najczęstsze problemy techniczne w poszczególnych rejonach miasta.
+          </p>
+        </div>
+        <div className="mt-10 flex flex-wrap justify-center gap-2">
+          {districts.map((district) => (
+            <div
+              key={district.slug}
+              className="flex items-center gap-1.5 rounded-full border border-border bg-card px-4 py-2 text-sm font-medium"
+            >
+              <MapPin className="h-3.5 w-3.5 text-cta" />
+              {district.name}
+            </div>
+          ))}
         </div>
       </section>
 
-      <section className="bg-slate-50 py-16 sm:py-20">
+      <section className="bg-surface py-16">
         <div className="container-page">
           <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
             <div>
-              <p className="section-eyebrow">Krakowscy deweloperzy</p>
-              <h2 className="mt-2 section-heading">
+              <h2 className="text-3xl font-bold text-brand md:text-4xl">
                 Znamy standardy pracy krakowskich deweloperów
               </h2>
-              <p className="mt-4 text-lg text-slate-600">
-                W ciągu ostatnich 5 lat wykonaliśmy odbiory w inwestycjach największych deweloperów działających w Krakowie. Wiemy, na co zwrócić szczególną uwagę u konkretnego wykonawcy — od jakości tynków, przez posadzki, po stolarkę okienną.
-              </p>
-              <p className="mt-4 text-sm text-slate-500">
-                Nasza wiedza dotyczy m.in. następujących deweloperów obecnych na krakowskim rynku:
+              <p className="mt-4 text-muted-foreground">
+                W ciągu ostatnich 5 lat wykonaliśmy odbiory w inwestycjach największych deweloperów w Krakowie. Wiemy, na co zwrócić szczególną uwagę u konkretnego wykonawcy — od jakości tynków, przez posadzki, po stolarkę okienną.
               </p>
             </div>
-
-            <div className="grid grid-cols-2 gap-3 sm:grid-cols-2">
-              {localDevelopersInfo.map((name) => (
+            <div className="grid grid-cols-2 gap-3">
+              {localDevelopers.map((name) => (
                 <div
                   key={name}
-                  className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm"
+                  className="surface-panel flex items-center gap-3 bg-card p-4"
                 >
-                  <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-brand-50 text-brand-600">
+                  <div className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-brand-soft text-brand">
                     <Building2 className="h-5 w-5" />
                   </div>
-                  <p className="text-sm font-semibold text-slate-900">{name}</p>
+                  <p className="text-sm font-semibold">{name}</p>
                 </div>
               ))}
             </div>
           </div>
-          <p className="mt-8 text-xs text-slate-500">
+          <p className="mt-8 text-xs text-muted-foreground">
             * Lista deweloperów ma charakter informacyjny — nie stanowi partnerstwa handlowego. Wykonujemy niezależne odbiory techniczne w interesie kupujących.
           </p>
         </div>
       </section>
 
-      <WizardSection />
+      <section id="wycena" className="container-page py-16">
+        <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
+          <div>
+            <h2 className="text-3xl font-bold text-brand md:text-4xl">
+              Zamów odbiór w Krakowie
+            </h2>
+            <p className="mt-4 text-muted-foreground">
+              Wypełnij formularz — bezpłatną wycenę otrzymasz w ciągu 24 godzin.
+            </p>
+            <div className="mt-6">
+              <LeadWizard />
+            </div>
+          </div>
+          <div className="rounded-2xl border border-brand/20 bg-brand p-8 text-brand-foreground">
+            <h3 className="text-xl font-bold">Dlaczego warto wybrać nas w Krakowie?</h3>
+            <ul className="mt-5 space-y-3">
+              {[
+                "Ponad 5 lat obsługi krakowskiego rynku nieruchomości",
+                `${site.reviews.count}+ pozytywnych opinii na Google`,
+                "Znajomość specyfiki krakowskich inwestycji deweloperskich",
+                "Protokół gotowy tego samego dnia w formacie PDF",
+                "Wsparcie po odbiorze — pomoc przy kontakcie z deweloperem",
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-3 text-sm">
+                  <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-cta" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <Button asChild size="lg" className="btn-cta mt-6">
+              <Link href="/oferta">
+                Zobacz pełną ofertę <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </section>
 
-      <section className="py-16 sm:py-20">
+      <section className="bg-surface py-16">
         <div className="container-page">
           <div className="mx-auto max-w-3xl text-center">
-            <p className="section-eyebrow">FAQ</p>
-            <h2 className="mt-2 section-heading">
+            <h2 className="text-3xl font-bold text-brand md:text-4xl">
               Najczęstsze pytania — odbiór mieszkania w Krakowie
             </h2>
-            <p className="mt-4 text-lg text-slate-600">
-              Zebraliśmy odpowiedzi na pytania, które klienci zadają nam najczęściej przed odbiorem technicznym mieszkania w Krakowie.
+            <p className="mt-4 text-muted-foreground">
+              Odpowiedzi na pytania, które klienci zadają nam najczęściej przed odbiorem w Krakowie.
             </p>
           </div>
-
-          <div className="mt-12">
+          <div className="mt-10">
             <FaqAccordion items={krakowFaq} />
           </div>
         </div>

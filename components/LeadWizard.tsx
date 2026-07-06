@@ -1,7 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowRight, ArrowLeft, Check, Home, Building2, Store, Loader2 } from "lucide-react";
+import { Building2, Home, Warehouse, ChevronLeft, ChevronRight, CheckCircle2, Loader2 } from "lucide-react";
+import { toast } from "sonner";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import { submitNetlifyForm } from "@/lib/netlify";
 import { RodoCheckbox } from "./RodoCheckbox";
 import { site } from "@/lib/site";
@@ -9,7 +13,7 @@ import { site } from "@/lib/site";
 type PropertyType = "Mieszkanie" | "Dom" | "Lokal usługowy";
 
 type LeadData = {
-  type: PropertyType | "";
+  propertyType: PropertyType | "";
   area: string;
   location: string;
   date: string;
@@ -18,41 +22,45 @@ type LeadData = {
   email: string;
 };
 
-const initial: LeadData = {
-  type: "",
-  area: "",
-  location: "Kraków",
-  date: "",
-  name: "",
-  phone: "",
-  email: "",
-};
-
-const typeOptions: { value: PropertyType; icon: typeof Home; hint: string }[] = [
+const propertyTypes: { value: PropertyType; icon: typeof Home; hint: string }[] = [
   { value: "Mieszkanie", icon: Building2, hint: "Rynek pierwotny lub wtórny" },
   { value: "Dom", icon: Home, hint: "Jednorodzinny, szeregówka, bliźniak" },
-  { value: "Lokal usługowy", icon: Store, hint: "Biuro, gastronomia, handel" },
+  { value: "Lokal usługowy", icon: Warehouse, hint: "Biuro, gastronomia, handel" },
 ];
+
+const sizes = ["do 40 m²", "40–60 m²", "60–90 m²", "90–150 m²", "powyżej 150 m²"];
 
 export function LeadWizard() {
   const [step, setStep] = useState<1 | 2 | 3>(1);
-  const [data, setData] = useState<LeadData>(initial);
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const [data, setData] = useState<LeadData>({
+    propertyType: "",
+    area: "",
+    location: "Kraków",
+    date: "",
+    name: "",
+    phone: "",
+    email: "",
+  });
 
   const update = <K extends keyof LeadData>(key: K, value: LeadData[K]) =>
     setData((prev) => ({ ...prev, [key]: value }));
 
-  const canGoNext =
-    (step === 1 && data.type && data.area) ||
-    (step === 2 && data.location && data.date) ||
+  const canNext =
+    (step === 1 && Boolean(data.propertyType) && Boolean(data.area)) ||
+    (step === 2 && Boolean(data.location) && Boolean(data.date)) ||
     step === 3;
 
-  const submit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+  const submit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!data.name || !data.phone || !data.email) {
+      toast.error("Uzupełnij wszystkie dane kontaktowe.");
+      return;
+    }
     setStatus("sending");
     try {
       await submitNetlifyForm("lead", {
-        type: data.type,
+        propertyType: data.propertyType,
         area: data.area,
         location: data.location,
         date: data.date,
@@ -61,177 +69,165 @@ export function LeadWizard() {
         email: data.email,
       });
       setStatus("success");
+      toast.success("Dziękujemy! Odezwiemy się w ciągu 24h.");
     } catch {
       setStatus("error");
+      toast.error(`Ups, coś poszło nie tak. Zadzwoń pod ${site.phoneDisplay}.`);
     }
   };
 
   if (status === "success") {
     return (
-      <div className="rounded-3xl border border-emerald-100 bg-emerald-50 p-8 text-center">
-        <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-emerald-500 text-white">
-          <Check className="h-7 w-7" />
+      <div className="surface-panel p-8 text-center">
+        <div className="mx-auto grid h-14 w-14 place-items-center rounded-full bg-cta/20 text-cta">
+          <CheckCircle2 className="h-8 w-8" />
         </div>
-        <h3 className="mt-4 text-2xl font-bold tracking-tight text-slate-900">
-          Dziękujemy! Odezwiemy się w ciągu godziny.
-        </h3>
-        <p className="mt-2 text-slate-600">
-          Sprawdź telefon i skrzynkę mailową. Jeśli sprawa jest pilna, zadzwoń pod{" "}
-          <a href={`tel:${site.phone}`} className="font-semibold text-brand-600">
-            {site.phoneDisplay}
-          </a>
-          .
+        <h3 className="mt-4 text-2xl font-bold">Zgłoszenie przyjęte</h3>
+        <p className="mt-2 text-muted-foreground">
+          Nasz inżynier oddzwoni w ciągu 24 godzin z bezpłatną wyceną odbioru.
         </p>
       </div>
     );
   }
 
   return (
-    <form
-      name="lead"
-      onSubmit={submit}
-      className="rounded-3xl border border-slate-200 bg-white p-6 shadow-lg sm:p-8"
-    >
+    <form name="lead" onSubmit={submit} className="surface-panel p-6 md:p-8">
       <input type="hidden" name="form-name" value="lead" />
       <p hidden>
-        <label>
-          Nie wypełniaj: <input name="bot-field" />
-        </label>
+        <label>Nie wypełniaj: <input name="bot-field" /></label>
       </p>
 
-      <Steps step={step} />
+      <div className="mb-6 flex items-center gap-2">
+        {([1, 2, 3] as const).map((s) => (
+          <div key={s} className="flex flex-1 items-center gap-2">
+            <div
+              className={`grid h-8 w-8 place-items-center rounded-full text-sm font-semibold ${
+                step >= s ? "bg-brand text-brand-foreground" : "bg-muted text-muted-foreground"
+              }`}
+            >
+              {s}
+            </div>
+            {s < 3 && (
+              <div className={`h-1 flex-1 rounded ${step > s ? "bg-brand" : "bg-muted"}`} />
+            )}
+          </div>
+        ))}
+      </div>
 
       {step === 1 && (
-        <div className="mt-6 space-y-6">
+        <div className="space-y-5">
           <div>
-            <label className="text-sm font-semibold text-slate-900">
-              Jaka nieruchomość?
-            </label>
-            <div className="mt-3 grid gap-3 sm:grid-cols-3">
-              {typeOptions.map((option) => {
-                const Icon = option.icon;
-                const active = data.type === option.value;
+            <Label className="mb-3 block">Rodzaj nieruchomości</Label>
+            <div className="grid grid-cols-3 gap-2">
+              {propertyTypes.map(({ value, icon: Icon, hint }) => {
+                const active = data.propertyType === value;
                 return (
                   <button
                     type="button"
-                    key={option.value}
-                    onClick={() => update("type", option.value)}
-                    className={`rounded-2xl border p-4 text-left transition ${
+                    key={value}
+                    onClick={() => update("propertyType", value)}
+                    className={`flex flex-col items-center gap-2 rounded-lg border p-4 text-sm font-medium transition-colors ${
                       active
-                        ? "border-brand-500 bg-brand-50 ring-2 ring-brand-400"
-                        : "border-slate-200 hover:border-brand-300"
+                        ? "border-brand bg-brand-soft text-brand"
+                        : "border-border hover:border-brand/50"
                     }`}
                   >
-                    <Icon
-                      className={`h-6 w-6 ${active ? "text-brand-500" : "text-slate-500"}`}
-                    />
-                    <p className="mt-2 text-sm font-semibold text-slate-900">
-                      {option.value}
-                    </p>
-                    <p className="text-xs text-slate-500">{option.hint}</p>
+                    <Icon className="h-6 w-6" />
+                    {value}
+                    <span className="text-xs font-normal text-muted-foreground text-center">{hint}</span>
                   </button>
                 );
               })}
             </div>
           </div>
-
           <div>
-            <label htmlFor="area" className="text-sm font-semibold text-slate-900">
-              Metraż (m²)
-            </label>
-            <input
-              id="area"
-              name="area"
-              type="number"
-              min={10}
-              max={2000}
-              value={data.area}
-              onChange={(e) => update("area", e.target.value)}
-              placeholder="np. 65"
-              className="mt-2 w-full rounded-xl border border-slate-300 px-4 py-3 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-400"
-            />
+            <Label className="mb-3 block">Metraż</Label>
+            <div className="flex flex-wrap gap-2">
+              {sizes.map((s) => (
+                <button
+                  type="button"
+                  key={s}
+                  onClick={() => update("area", s)}
+                  className={`rounded-full border px-4 py-2 text-sm transition-colors ${
+                    data.area === s
+                      ? "border-brand bg-brand text-brand-foreground"
+                      : "border-border hover:border-brand/50"
+                  }`}
+                >
+                  {s}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
       )}
 
       {step === 2 && (
-        <div className="mt-6 space-y-6">
+        <div className="space-y-4">
           <div>
-            <label htmlFor="location" className="text-sm font-semibold text-slate-900">
-              Lokalizacja nieruchomości
-            </label>
-            <input
+            <Label htmlFor="location">Lokalizacja (miasto)</Label>
+            <Input
               id="location"
               name="location"
-              type="text"
+              placeholder="np. Kraków"
               value={data.location}
               onChange={(e) => update("location", e.target.value)}
-              placeholder="np. Kraków, Prądnik Biały"
-              className="mt-2 w-full rounded-xl border border-slate-300 px-4 py-3 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-400"
+              className="mt-2"
             />
           </div>
           <div>
-            <label htmlFor="date" className="text-sm font-semibold text-slate-900">
-              Planowana data odbioru
-            </label>
-            <input
+            <Label htmlFor="date">Planowana data odbioru</Label>
+            <Input
               id="date"
               name="date"
               type="date"
               value={data.date}
-              onChange={(e) => update("date", e.target.value)}
               min={new Date().toISOString().split("T")[0]}
-              className="mt-2 w-full rounded-xl border border-slate-300 px-4 py-3 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-400"
+              onChange={(e) => update("date", e.target.value)}
+              className="mt-2"
             />
           </div>
         </div>
       )}
 
       {step === 3 && (
-        <div className="mt-6 space-y-4">
+        <div className="space-y-4">
           <div>
-            <label htmlFor="name" className="text-sm font-semibold text-slate-900">
-              Imię
-            </label>
-            <input
+            <Label htmlFor="name">Imię</Label>
+            <Input
               id="name"
               name="name"
-              type="text"
               required
               value={data.name}
               onChange={(e) => update("name", e.target.value)}
-              className="mt-2 w-full rounded-xl border border-slate-300 px-4 py-3 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-400"
+              className="mt-2"
             />
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
             <div>
-              <label htmlFor="phone" className="text-sm font-semibold text-slate-900">
-                Telefon
-              </label>
-              <input
+              <Label htmlFor="phone">Telefon</Label>
+              <Input
                 id="phone"
                 name="phone"
                 type="tel"
                 required
+                placeholder="+48 500 000 000"
                 value={data.phone}
                 onChange={(e) => update("phone", e.target.value)}
-                placeholder="+48 500 000 000"
-                className="mt-2 w-full rounded-xl border border-slate-300 px-4 py-3 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-400"
+                className="mt-2"
               />
             </div>
             <div>
-              <label htmlFor="email" className="text-sm font-semibold text-slate-900">
-                Email
-              </label>
-              <input
+              <Label htmlFor="email">Email</Label>
+              <Input
                 id="email"
                 name="email"
                 type="email"
                 required
+                placeholder="ty@email.pl"
                 value={data.email}
                 onChange={(e) => update("email", e.target.value)}
-                placeholder="ty@email.pl"
-                className="mt-2 w-full rounded-xl border border-slate-300 px-4 py-3 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-400"
+                className="mt-2"
               />
             </div>
           </div>
@@ -239,96 +235,34 @@ export function LeadWizard() {
         </div>
       )}
 
-      {status === "error" && (
-        <p className="mt-4 rounded-xl bg-red-50 px-4 py-3 text-sm text-red-700">
-          Ups, coś poszło nie tak. Zadzwoń pod {site.phoneDisplay} lub spróbuj ponownie.
-        </p>
-      )}
-
       <div className="mt-8 flex items-center justify-between gap-3">
-        {step > 1 ? (
-          <button
+        <Button
+          type="button"
+          variant="ghost"
+          onClick={() => setStep((s) => Math.max(1, s - 1) as 1 | 2 | 3)}
+          disabled={step === 1}
+        >
+          <ChevronLeft className="mr-1 h-4 w-4" /> Wstecz
+        </Button>
+        {step < 3 ? (
+          <Button
             type="button"
-            onClick={() => setStep((s) => (s === 3 ? 2 : 1))}
-            className="btn-secondary py-2"
+            className="btn-cta"
+            onClick={() => canNext && setStep((s) => Math.min(3, s + 1) as 1 | 2 | 3)}
+            disabled={!canNext}
           >
-            <ArrowLeft className="h-4 w-4" />
-            Wstecz
-          </button>
+            Dalej <ChevronRight className="ml-1 h-4 w-4" />
+          </Button>
         ) : (
-          <span />
-        )}
-
-        {step < 3 && (
-          <button
-            type="button"
-            onClick={() => canGoNext && setStep((s) => (s === 1 ? 2 : 3))}
-            disabled={!canGoNext}
-            className="btn-primary disabled:cursor-not-allowed disabled:opacity-50"
-          >
-            Dalej
-            <ArrowRight className="h-4 w-4" />
-          </button>
-        )}
-
-        {step === 3 && (
-          <button
-            type="submit"
-            disabled={status === "sending"}
-            className="btn-primary disabled:cursor-not-allowed disabled:opacity-50"
-          >
+          <Button type="submit" className="btn-cta" disabled={status === "sending"}>
             {status === "sending" ? (
-              <>
-                <Loader2 className="h-4 w-4 animate-spin" />
-                Wysyłanie…
-              </>
+              <><Loader2 className="h-4 w-4 animate-spin" /> Wysyłanie…</>
             ) : (
-              <>
-                Zamów bezpłatną wycenę
-                <ArrowRight className="h-4 w-4" />
-              </>
+              "Zamów bezpłatną wycenę"
             )}
-          </button>
+          </Button>
         )}
       </div>
     </form>
-  );
-}
-
-function Steps({ step }: { step: 1 | 2 | 3 }) {
-  const labels = ["Nieruchomość", "Termin", "Kontakt"];
-  return (
-    <div className="flex items-center gap-2">
-      {labels.map((label, i) => {
-        const num = (i + 1) as 1 | 2 | 3;
-        const active = step === num;
-        const done = step > num;
-        return (
-          <div key={label} className="flex flex-1 items-center gap-2">
-            <div
-              className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-sm font-bold ${
-                done
-                  ? "bg-brand-500 text-white"
-                  : active
-                    ? "bg-slate-900 text-white"
-                    : "bg-slate-100 text-slate-500"
-              }`}
-            >
-              {done ? <Check className="h-4 w-4" /> : num}
-            </div>
-            <span
-              className={`hidden text-xs font-semibold sm:inline ${
-                active ? "text-slate-900" : "text-slate-500"
-              }`}
-            >
-              {label}
-            </span>
-            {i < labels.length - 1 && (
-              <div className={`h-px flex-1 ${done ? "bg-brand-500" : "bg-slate-200"}`} />
-            )}
-          </div>
-        );
-      })}
-    </div>
   );
 }

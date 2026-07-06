@@ -3,6 +3,29 @@ export type FaqItem = {
   answer: string;
 };
 
+export const faqItems: FaqItem[] = [
+  {
+    question: "Ile kosztuje odbiór mieszkania?",
+    answer: "Cena odbioru technicznego zaczyna się od 700 zł brutto za lokal do 50 m². Ostateczny koszt zależy od metrażu, lokalizacji oraz zakresu usługi. Bezpłatną wycenę otrzymasz w ciągu 24 godzin od zgłoszenia.",
+  },
+  {
+    question: "Jak długo trwa odbiór techniczny?",
+    answer: "Standardowy odbiór mieszkania trwa od 2 do 4 godzin w zależności od metrażu i liczby wykrytych usterek. Dla domów jednorodzinnych planujemy 3–5 godzin. Protokół otrzymasz tego samego dnia w formie PDF.",
+  },
+  {
+    question: "Czy warto zamówić odbiór z kamerą termowizyjną?",
+    answer: "Zdecydowanie tak. Kamera termowizyjna wykrywa mostki termiczne, nieszczelności izolacji, nieprawidłowo wykonane ogrzewanie podłogowe oraz zawilgocenia niewidoczne gołym okiem — deweloper nie ma pola do dyskusji.",
+  },
+  {
+    question: "Co jeśli deweloper nie chce uznać usterek?",
+    answer: "Każda usterka jest udokumentowana zdjęciem, opisem i wskazaniem konkretnej normy lub zapisu umowy. W ponad 100 opiniach na Google klienci potwierdzają, że deweloperzy uznają nasze zgłoszenia.",
+  },
+  {
+    question: "Jak umówić się na odbiór?",
+    answer: "Wypełnij formularz na stronie lub zadzwoń pod 502 298 030. Bezpłatną wycenę otrzymasz w ciągu 24 godzin. Terminy realizujemy najczęściej w 2–5 dni roboczych.",
+  },
+];
+
 export const krakowFaq: FaqItem[] = [
   {
     question: "Ile kosztuje odbiór mieszkania w Krakowie?",
