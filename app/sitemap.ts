@@ -1,28 +1,35 @@
 import type { MetadataRoute } from "next";
 import { site } from "@/lib/site";
+import { posts } from "@/lib/posts";
+import { services } from "@/lib/services";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
-  const routes = [
-    { url: "/", priority: 1, changeFrequency: "weekly" as const },
-    { url: "/oferta", priority: 0.9, changeFrequency: "monthly" as const },
-    {
-      url: "/odbiory-mieszkan-krakow",
-      priority: 0.9,
-      changeFrequency: "monthly" as const,
-    },
-    { url: "/kontakt", priority: 0.7, changeFrequency: "yearly" as const },
-    {
-      url: "/polityka-prywatnosci",
-      priority: 0.3,
-      changeFrequency: "yearly" as const,
-    },
+
+  const staticRoutes: MetadataRoute.Sitemap = [
+    { url: `${site.url}/`, lastModified: now, changeFrequency: "weekly", priority: 1 },
+    { url: `${site.url}/oferta`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${site.url}/o-nas`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${site.url}/odbiory-mieszkan-krakow`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${site.url}/sklep`, lastModified: now, changeFrequency: "weekly", priority: 0.7 },
+    { url: `${site.url}/blog`, lastModified: now, changeFrequency: "weekly", priority: 0.7 },
+    { url: `${site.url}/kontakt`, lastModified: now, changeFrequency: "yearly", priority: 0.6 },
+    { url: `${site.url}/polityka-prywatnosci`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
   ];
 
-  return routes.map((route) => ({
-    url: `${site.url}${route.url}`,
+  const serviceRoutes: MetadataRoute.Sitemap = services.map((s) => ({
+    url: `${site.url}/oferta/${s.slug}`,
     lastModified: now,
-    changeFrequency: route.changeFrequency,
-    priority: route.priority,
+    changeFrequency: "monthly",
+    priority: 0.8,
   }));
+
+  const blogRoutes: MetadataRoute.Sitemap = posts.map((p) => ({
+    url: `${site.url}/blog/${p.slug}`,
+    lastModified: now,
+    changeFrequency: "yearly",
+    priority: 0.6,
+  }));
+
+  return [...staticRoutes, ...serviceRoutes, ...blogRoutes];
 }
