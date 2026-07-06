@@ -1,20 +1,16 @@
 import Link from "next/link";
-import { Facebook, Instagram, Mail, Phone, MapPin, ShieldCheck, Star } from "lucide-react";
+import { Facebook, Instagram, Mail, Phone, MapPin, Star } from "lucide-react";
 import { site } from "@/lib/site";
 import { navLinks } from "@/lib/nav";
 import { services } from "@/lib/services";
+import { Logo } from "@/components/Logo";
 
 export function Footer() {
   return (
     <footer className="mt-24 border-t border-border bg-surface">
       <div className="container-page grid gap-10 py-14 md:grid-cols-4">
         <div>
-          <div className="flex items-center gap-2">
-            <span className="grid h-9 w-9 place-items-center rounded-lg bg-brand text-brand-foreground">
-              <ShieldCheck className="h-5 w-5" />
-            </span>
-            <span className="font-display text-lg font-bold text-brand">{site.name}</span>
-          </div>
+          <Logo size={44} href={null} />
           <p className="mt-4 text-sm text-muted-foreground">
             Profesjonalne odbiory techniczne mieszkań i domów w województwach małopolskim, śląskim i podkarpackim.
           </p>

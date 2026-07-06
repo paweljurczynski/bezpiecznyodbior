@@ -2,10 +2,11 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { ShieldCheck, Menu, X, Phone } from "lucide-react";
+import { Menu, X, Phone } from "lucide-react";
 import { site } from "@/lib/site";
 import { navLinks } from "@/lib/nav";
 import { Button } from "@/components/ui/button";
+import { Logo } from "@/components/Logo";
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
@@ -13,14 +14,7 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-40 border-b border-border/70 bg-background/85 backdrop-blur">
       <div className="container-page flex h-16 items-center gap-4">
-        <Link href="/" className="flex shrink-0 items-center gap-2" onClick={() => setOpen(false)}>
-          <span className="grid h-9 w-9 place-items-center rounded-lg bg-brand text-brand-foreground">
-            <ShieldCheck className="h-5 w-5" />
-          </span>
-          <span className="font-display text-lg font-bold tracking-tight text-brand">
-            {site.name}
-          </span>
-        </Link>
+        <Logo size={40} onClick={() => setOpen(false)} />
 
         <nav className="ml-6 hidden items-center gap-1 md:flex">
           {navLinks.map((link) => (
