@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import {
   Users, ShieldCheck, ThumbsUp, MapPin, ArrowRight, HardHat, Star,
@@ -54,19 +55,30 @@ export default function ONasPage() {
       ])} />
       <JsonLd data={organizationSchema()} />
 
-      <section className="border-b border-border bg-gradient-to-b from-brand-soft/50 to-background">
-        <div className="container-page py-16 text-center md:py-20">
-          <h1 className="mx-auto max-w-3xl text-4xl font-extrabold text-brand md:text-5xl">
+      <section className="relative overflow-hidden">
+        <Image
+          src="/hero-apartment.png"
+          alt="Wnętrze nowego mieszkania — odbiór techniczny"
+          fill
+          priority
+          fetchPriority="high"
+          quality={70}
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-black/60" />
+        <div className="container-page relative py-20 text-center md:py-28">
+          <h1 className="mx-auto max-w-3xl text-4xl font-extrabold text-white md:text-5xl">
             Ponad 5 lat doświadczenia<br className="hidden sm:inline" /> w odbiorach technicznych
           </h1>
-          <p className="mx-auto mt-5 max-w-2xl text-lg text-muted-foreground">
+          <p className="mx-auto mt-5 max-w-2xl text-lg text-white/80">
             {site.name} to zespół inżynierów i architektów pasjonujących się inspekcjami nieruchomości. Zapewniamy bezpieczeństwo Twojej inwestycji w województwach małopolskim, śląskim i podkarpackim.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Button asChild size="lg" variant="cta">
               <Link href="/kontakt">Zarezerwuj termin odbioru</Link>
             </Button>
-            <Button asChild size="lg" variant="outline">
+            <Button asChild size="lg" variant="outline" className="border-white/40 bg-white/10 text-white backdrop-blur-sm hover:bg-white/20">
               <Link href="/oferta">Sprawdź ofertę <ArrowRight className="ml-2 h-4 w-4" /></Link>
             </Button>
           </div>

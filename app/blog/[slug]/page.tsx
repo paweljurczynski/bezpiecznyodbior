@@ -5,7 +5,7 @@ import { ArrowLeft, Clock, Tag, Phone, ArrowRight } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { posts } from "@/lib/posts";
-import { JsonLd, breadcrumbSchema } from "@/components/JsonLd";
+import { JsonLd, breadcrumbSchema, articleSchema } from "@/components/JsonLd";
 import { Button } from "@/components/ui/button";
 import { site } from "@/lib/site";
 
@@ -47,11 +47,14 @@ export default async function BlogPostPage({ params }: Props) {
   return (
     <>
       <JsonLd
-        data={breadcrumbSchema([
-          { name: "Start", item: "/" },
-          { name: "Blog", item: "/blog" },
-          { name: post.title, item: `/blog/${post.slug}` },
-        ])}
+        data={[
+          articleSchema(post),
+          breadcrumbSchema([
+            { name: "Start", item: "/" },
+            { name: "Blog", item: "/blog" },
+            { name: post.title, item: `/blog/${post.slug}` },
+          ]),
+        ]}
       />
 
       <section className="border-b border-border bg-gradient-to-b from-brand-soft/50 to-background">

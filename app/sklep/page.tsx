@@ -5,7 +5,7 @@ import { WaitlistForm } from "@/components/WaitlistForm";
 export const metadata: Metadata = {
   title: "Sklep i edukacja — E-booki",
   description:
-    "Premium e-booki o odbiorach technicznych i umowach deweloperskich. Zapisz się na listę oczekujących i odbierz 20% zniżki w dniu premiery.",
+    "E-booki o odbiorach technicznych i umowach deweloperskich. Zapisz się na listę oczekujących i odbierz 20% zniżki w dniu premiery.",
   alternates: { canonical: "/sklep" },
 };
 
@@ -46,7 +46,7 @@ export default function SklepPage() {
             Sklep i edukacja
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
-            Przygotowujemy premium e-booki, w których dzielimy się wiedzą z setek odbiorów. Zapisz się na listę oczekujących i otrzymaj 20% zniżki w dniu premiery.
+            Przygotowujemy e-booki, w których dzielimy się wiedzą z setek odbiorów. Zapisz się na listę oczekujących i otrzymaj 20% zniżki w dniu premiery.
           </p>
         </div>
       </section>

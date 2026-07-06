@@ -11,7 +11,7 @@ import { BLUR_PLACEHOLDER } from "@/lib/image";
 export const metadata: Metadata = {
   title: "Oferta i usługi",
   description:
-    "Odbiory od dewelopera i z rynku wtórnego, badania termowizyjne, doradztwo inwestycyjne, pakiet premium z audytem prawnym, inwentaryzacje architektoniczne i świadectwa energetyczne.",
+    "Odbiory od dewelopera i z rynku wtórnego, badania termowizyjne, doradztwo inwestycyjne, pakiet z audytem prawnym, inwentaryzacje architektoniczne i świadectwa energetyczne.",
   alternates: { canonical: "/oferta" },
 };
 
@@ -81,8 +81,8 @@ const services = [
 const premiumServices = [
   {
     icon: Scale,
-    badge: "PREMIUM",
-    title: "Pakiet Premium: Sprawdzenie umowy przez prawnika + Odbiór techniczny",
+    badge: "NOWOŚĆ",
+    title: "Pakiet: Sprawdzenie umowy przez prawnika + Odbiór techniczny",
     desc: "Kompletny pakiet bezpieczeństwa prawno-technicznego. Doświadczony prawnik analizuje umowę deweloperską pod kątem klauzul niedozwolonych, ryzyk i zapisów wymagających negocjacji.",
     bullets: [
       "Pełny audyt prawny umowy deweloperskiej",
@@ -91,7 +91,7 @@ const premiumServices = [
       "Rygorystyczny odbiór techniczny nieruchomości",
       "Jednolity raport prawno-inżynierski",
     ],
-    id: "pakiet-premium-prawnik",
+    id: "pakiet-prawnik",
   },
   {
     icon: Ruler,
@@ -148,7 +148,7 @@ export default function OfertaPage() {
             Oferta i usługi
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-white/80">
-            Cztery usługi bazowe i trzy premium — pełen katalog wsparcia inżynierskiego dla kupujących nieruchomości.
+            Cztery usługi bazowe i trzy dodatkowe — pełen katalog wsparcia inżynierskiego dla kupujących nieruchomości.
           </p>
         </div>
       </section>

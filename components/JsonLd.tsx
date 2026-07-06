@@ -93,6 +93,49 @@ export function faqSchema(items: { question: string; answer: string }[]) {
   };
 }
 
+export function articleSchema(post: {
+  slug: string;
+  title: string;
+  excerpt: string;
+  date: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "@id": `${site.url}/blog/${post.slug}`,
+    headline: post.title,
+    description: post.excerpt,
+    datePublished: post.date,
+    dateModified: post.date,
+    url: `${site.url}/blog/${post.slug}`,
+    image: `${site.url}/og.jpg`,
+    inLanguage: "pl-PL",
+    publisher: {
+      "@type": "Organization",
+      "@id": `${site.url}/#organization`,
+      name: site.name,
+      logo: {
+        "@type": "ImageObject",
+        url: `${site.url}/logo/logo-square.webp`,
+      },
+    },
+    author: {
+      "@type": "Organization",
+      "@id": `${site.url}/#organization`,
+      name: site.name,
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${site.url}/blog/${post.slug}`,
+    },
+    isPartOf: {
+      "@type": "Blog",
+      "@id": `${site.url}/blog`,
+      name: `${site.name} — Blog`,
+    },
+  };
+}
+
 export function breadcrumbSchema(
   crumbs: { name: string; item: string }[]
 ) {

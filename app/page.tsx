@@ -121,7 +121,7 @@ export default function HomePage() {
             <div>
               <div className="text-xs font-semibold uppercase tracking-wider text-white/60">Aktualność</div>
               <h3 className="mt-1 text-xl font-bold text-white md:text-2xl">
-                Nowość: Pakiet Premium — audyt prawny umowy + odbiór techniczny
+                Nowość: Pakiet — audyt prawny umowy + odbiór techniczny
               </h3>
               <p className="mt-1 text-sm text-white/70">Kompleksowe bezpieczeństwo Twojej inwestycji w jednej usłudze.</p>
             </div>
