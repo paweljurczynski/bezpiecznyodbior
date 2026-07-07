@@ -9,7 +9,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { submitNetlifyForm } from "@/lib/netlify";
 import { RodoCheckbox } from "./RodoCheckbox";
-import { site } from "@/lib/site";
+import { getPhoneDisplay } from "@/lib/contact-obfuscation";
 
 type FormData = {
   name: string;
@@ -34,7 +34,7 @@ export function ContactForm() {
       toast.success("Dziękujemy! Odezwiemy się wkrótce.");
     } catch {
       setStatus("error");
-      toast.error(`Ups, coś poszło nie tak. Zadzwoń pod ${site.phoneDisplay}.`);
+      toast.error(`Ups, coś poszło nie tak. Zadzwoń pod ${getPhoneDisplay()}.`);
     }
   };
 

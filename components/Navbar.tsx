@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X, Phone } from "lucide-react";
-import { site } from "@/lib/site";
+import { ObfuscatedPhoneLink } from "@/components/ObfuscatedContact";
 import { navLinks } from "@/lib/nav";
 import { Button } from "@/components/ui/button";
 import { Logo } from "@/components/Logo";
@@ -39,13 +39,9 @@ export function Navbar() {
         </nav>
 
         <div className="ml-auto hidden items-center gap-3 md:flex">
-          <a
-            href={`tel:${site.phone}`}
-            className="flex items-center gap-2 text-sm font-semibold text-foreground"
-          >
+          <ObfuscatedPhoneLink className="flex items-center gap-2 text-sm font-semibold text-foreground">
             <Phone className="h-4 w-4 text-cta" />
-            {site.phoneDisplay}
-          </a>
+          </ObfuscatedPhoneLink>
           <Button asChild variant="cta">
             <Link href="/kontakt">Zamów wycenę</Link>
           </Button>

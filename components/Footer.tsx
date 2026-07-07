@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Facebook, Instagram, Mail, Phone, MapPin, Star } from "lucide-react";
+import { ObfuscatedEmailLink, ObfuscatedPhoneLink } from "@/components/ObfuscatedContact";
 import { site } from "@/lib/site";
 import { navLinks } from "@/lib/nav";
 import { services } from "@/lib/services";
@@ -79,11 +80,11 @@ export function Footer() {
           <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
             <li className="flex items-start gap-2">
               <Phone className="mt-0.5 h-4 w-4 shrink-0 text-cta" />
-              <a href={`tel:${site.phone}`} className="hover:text-brand">{site.phoneDisplay}</a>
+              <ObfuscatedPhoneLink className="hover:text-brand" />
             </li>
             <li className="flex items-start gap-2">
               <Mail className="mt-0.5 h-4 w-4 shrink-0 text-cta" />
-              <a href={`mailto:${site.email}`} className="hover:text-brand">{site.email}</a>
+              <ObfuscatedEmailLink className="hover:text-brand" />
             </li>
             <li className="flex items-start gap-2">
               <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-cta" />

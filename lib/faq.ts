@@ -22,7 +22,7 @@ export const faqItems: FaqItem[] = [
   },
   {
     question: "Jak umówić się na odbiór?",
-    answer: "Wypełnij formularz na stronie lub zadzwoń pod 502 298 030. Bezpłatną wycenę otrzymasz w ciągu 24 godzin. Terminy realizujemy najczęściej w 2–5 dni roboczych.",
+    answer: "Wypełnij formularz na stronie lub skontaktuj się telefonicznie. Bezpłatną wycenę otrzymasz w ciągu 24 godzin. Terminy realizujemy najczęściej w 2–5 dni roboczych.",
   },
 ];
 
@@ -60,7 +60,7 @@ export const krakowFaq: FaqItem[] = [
   {
     question: "Jak umówić się na odbiór?",
     answer:
-      "Wypełnij formularz na stronie lub zadzwoń pod 502 298 030. Wystarczy podać typ nieruchomości, metraż i planowaną datę odbioru — bezpłatną wycenę otrzymasz w ciągu godziny. Terminy realizujemy najczęściej w 2–5 dni roboczych.",
+      "Wypełnij formularz na stronie lub skontaktuj się telefonicznie. Wystarczy podać typ nieruchomości, metraż i planowaną datę odbioru — bezpłatną wycenę otrzymasz w ciągu godziny. Terminy realizujemy najczęściej w 2–5 dni roboczych.",
   },
   {
     question: "Czy współpracujecie z prawnikami przy odbiorach?",

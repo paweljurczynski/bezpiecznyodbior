@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ObfuscatedEmailLink, ObfuscatedPhoneLink } from "@/components/ObfuscatedContact";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -28,9 +29,7 @@ export default function PolitykaPrywatnosciPage() {
               Administratorem Państwa danych osobowych jest firma{" "}
               <strong>{site.legalName}</strong> z siedzibą przy ul.{" "}
               {site.address.street}, {site.address.postalCode} {site.address.city}. Kontakt w sprawach ochrony danych: {" "}
-              <a href={`mailto:${site.email}`} className="font-semibold text-brand-600 hover:underline">
-                {site.email}
-              </a>
+              <ObfuscatedEmailLink className="font-semibold text-brand-600 hover:underline" />
               .
             </p>
           </div>
@@ -114,13 +113,9 @@ export default function PolitykaPrywatnosciPage() {
             <h2 className="text-2xl font-bold text-slate-900">9. Kontakt</h2>
             <p className="mt-3">
               W sprawach związanych z ochroną danych osobowych prosimy o kontakt pod adresem{" "}
-              <a href={`mailto:${site.email}`} className="font-semibold text-brand-600 hover:underline">
-                {site.email}
-              </a>{" "}
+              <ObfuscatedEmailLink className="font-semibold text-brand-600 hover:underline" />{" "}
               lub telefonicznie:{" "}
-              <a href={`tel:${site.phone}`} className="font-semibold text-brand-600 hover:underline">
-                {site.phoneDisplay}
-              </a>
+              <ObfuscatedPhoneLink className="font-semibold text-brand-600 hover:underline" />
               .
             </p>
           </div>

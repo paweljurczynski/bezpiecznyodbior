@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { Clock, Facebook, Instagram, Mail, MapPin, Phone } from "lucide-react";
+import { Clock, Facebook, Instagram, MapPin } from "lucide-react";
+import { ContactEmailCard, ContactPhoneCard } from "@/components/ObfuscatedContact";
 import { ContactFormTabs } from "@/components/ContactFormTabs";
 import { JsonLd, breadcrumbSchema } from "@/components/JsonLd";
 import { site } from "@/lib/site";
@@ -7,7 +8,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Kontakt",
   description:
-    "Zadzwoń: 502 298 030. Napisz: kontakt@bezpiecznyodbior.pl. Bezpłatna wycena odbioru technicznego w 24h. Małopolskie, Śląskie, Podkarpackie.",
+    "Skontaktuj się z nami telefonicznie lub mailowo. Bezpłatna wycena odbioru technicznego w 24h. Małopolskie, Śląskie, Podkarpackie.",
   alternates: { canonical: "/kontakt" },
 };
 
@@ -35,31 +36,8 @@ export default function KontaktPage() {
       <section className="container-page py-16">
         <div className="grid gap-10 lg:grid-cols-[1fr_1.2fr]">
           <div className="space-y-4">
-            <a
-              href={`tel:${site.phone}`}
-              className="surface-panel flex items-center gap-4 bg-card p-5 transition-colors hover:border-brand"
-            >
-              <div className="grid h-12 w-12 shrink-0 place-items-center rounded-lg bg-cta/15 text-cta">
-                <Phone className="h-6 w-6" />
-              </div>
-              <div>
-                <div className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Telefon</div>
-                <div className="text-lg font-bold">{site.phoneDisplay}</div>
-              </div>
-            </a>
-
-            <a
-              href={`mailto:${site.email}`}
-              className="surface-panel flex items-center gap-4 bg-card p-5 transition-colors hover:border-brand"
-            >
-              <div className="grid h-12 w-12 shrink-0 place-items-center rounded-lg bg-cta/15 text-cta">
-                <Mail className="h-6 w-6" />
-              </div>
-              <div className="min-w-0">
-                <div className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Email</div>
-                <div className="truncate text-lg font-bold">{site.email}</div>
-              </div>
-            </a>
+            <ContactPhoneCard />
+            <ContactEmailCard />
 
             <div className="surface-panel flex items-start gap-4 bg-card p-5">
               <div className="grid h-12 w-12 shrink-0 place-items-center rounded-lg bg-brand-soft text-brand">

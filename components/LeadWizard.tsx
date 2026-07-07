@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { submitNetlifyForm } from "@/lib/netlify";
 import { RodoCheckbox } from "./RodoCheckbox";
-import { site } from "@/lib/site";
+import { getPhoneDisplay } from "@/lib/contact-obfuscation";
 
 type PropertyType = "Mieszkanie" | "Dom" | "Lokal usługowy";
 
@@ -65,7 +65,7 @@ export function LeadWizard() {
       toast.success("Dziękujemy! Odezwiemy się w ciągu 24h.");
     } catch {
       setStatus("error");
-      toast.error(`Ups, coś poszło nie tak. Zadzwoń pod ${site.phoneDisplay}.`);
+      toast.error(`Ups, coś poszło nie tak. Zadzwoń pod ${getPhoneDisplay()}.`);
     }
   };
 

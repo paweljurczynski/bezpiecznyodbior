@@ -6,6 +6,7 @@ import { CheckCircle2, Phone, ArrowLeft, Wrench, ArrowRight } from "lucide-react
 import { services } from "@/lib/services";
 import { LeadWizard } from "@/components/LeadWizard";
 import { JsonLd, breadcrumbSchema } from "@/components/JsonLd";
+import { ObfuscatedPhoneLink } from "@/components/ObfuscatedContact";
 import { Button } from "@/components/ui/button";
 import { site } from "@/lib/site";
 import { BLUR_PLACEHOLDER } from "@/lib/image";
@@ -78,9 +79,9 @@ export default async function ServiceDetailPage({ params }: Props) {
                 </a>
               </Button>
               <Button asChild size="lg" variant="outline">
-                <a href={`tel:${site.phone}`}>
-                  <Phone className="mr-2 h-4 w-4" /> {site.phoneDisplay}
-                </a>
+                <ObfuscatedPhoneLink>
+                  <Phone className="mr-2 h-4 w-4" />
+                </ObfuscatedPhoneLink>
               </Button>
             </div>
           </div>
@@ -194,9 +195,9 @@ export default async function ServiceDetailPage({ params }: Props) {
               ))}
             </ul>
             <Button asChild size="lg" variant="cta" className="mt-6 w-full">
-              <a href={`tel:${site.phone}`}>
-                <Phone className="mr-2 h-4 w-4" /> Zadzwoń: {site.phoneDisplay}
-              </a>
+              <ObfuscatedPhoneLink>
+                <Phone className="mr-2 h-4 w-4" /> Zadzwoń:{" "}
+              </ObfuscatedPhoneLink>
             </Button>
           </div>
         </div>

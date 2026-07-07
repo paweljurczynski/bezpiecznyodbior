@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { Building2, Home as HomeIcon, Thermometer, Compass, Scale, Ruler, Zap, Check, ArrowRight } from "lucide-react";
+import { ObfuscatedPhoneLink } from "@/components/ObfuscatedContact";
 import { Button } from "@/components/ui/button";
 import { LeadWizard } from "@/components/LeadWizard";
 import { JsonLd, breadcrumbSchema } from "@/components/JsonLd";
-import { site } from "@/lib/site";
 import { BLUR_PLACEHOLDER } from "@/lib/image";
 
 export const metadata: Metadata = {
@@ -254,7 +254,7 @@ export default function OfertaPage() {
               <Link href="/kontakt">Zamów bezpłatną wycenę <ArrowRight className="ml-2 h-4 w-4" /></Link>
             </Button>
             <Button asChild size="lg" variant="outline" className="border-brand-foreground/30 bg-transparent text-brand-foreground hover:bg-brand-foreground/10">
-              <a href={`tel:${site.phone}`}>Zadzwoń: {site.phoneDisplay}</a>
+              <ObfuscatedPhoneLink>Zadzwoń: </ObfuscatedPhoneLink>
             </Button>
           </div>
         </div>

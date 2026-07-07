@@ -9,6 +9,7 @@ import { LeadWizard } from "@/components/LeadWizard";
 import { GoogleReviewsBadge } from "@/components/GoogleReviewsBadge";
 import { JsonLd, faqSchema, breadcrumbSchema } from "@/components/JsonLd";
 import { BLUR_PLACEHOLDER } from "@/lib/image";
+import { ObfuscatedPhoneLink } from "@/components/ObfuscatedContact";
 import { Button } from "@/components/ui/button";
 import { site } from "@/lib/site";
 
@@ -75,9 +76,9 @@ export default function KrakowLandingPage() {
                 <a href="#wycena">Bezpłatna wycena</a>
               </Button>
               <Button asChild size="lg" variant="outline">
-                <a href={`tel:${site.phone}`}>
-                  <Phone className="h-4 w-4" /> {site.phoneDisplay}
-                </a>
+                <ObfuscatedPhoneLink>
+                  <Phone className="h-4 w-4" />
+                </ObfuscatedPhoneLink>
               </Button>
             </div>
             <div className="mt-5">

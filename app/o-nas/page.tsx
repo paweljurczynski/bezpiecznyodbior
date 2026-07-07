@@ -6,6 +6,7 @@ import {
 } from "lucide-react";
 import { JsonLd, breadcrumbSchema, organizationSchema } from "@/components/JsonLd";
 import { GoogleReviewsBadge } from "@/components/GoogleReviewsBadge";
+import { ObfuscatedPhoneLink } from "@/components/ObfuscatedContact";
 import { Button } from "@/components/ui/button";
 import { site } from "@/lib/site";
 
@@ -176,7 +177,7 @@ export default function ONasPage() {
               <Link href="/kontakt">Zarezerwuj termin odbioru</Link>
             </Button>
             <Button asChild size="lg" variant="outline" className="border-white/40 bg-white/10 text-white backdrop-blur-sm hover:bg-white/20">
-              <a href={`tel:${site.phone}`}>Zadzwoń: {site.phoneDisplay}</a>
+              <ObfuscatedPhoneLink>Zadzwoń: </ObfuscatedPhoneLink>
             </Button>
           </div>
         </div>
