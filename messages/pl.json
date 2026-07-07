@@ -1,0 +1,490 @@
+{
+  "nav": {
+    "offer": "Oferta",
+    "about": "O nas",
+    "shop": "Sklep",
+    "blog": "Blog",
+    "contact": "Kontakt",
+    "krakowLanding": "Odbiory mieszkań Kraków",
+    "quote": "Zamów wycenę",
+    "quoteMobile": "Zamów bezpłatną wycenę",
+    "menu": "Menu"
+  },
+  "footer": {
+    "tagline": "Profesjonalne odbiory techniczne mieszkań i domów w województwach małopolskim, śląskim i podkarpackim.",
+    "navigation": "Nawigacja",
+    "services": "Usługi",
+    "contact": "Kontakt",
+    "privacy": "Polityka prywatności",
+    "reviews": "{rating} ({count}+ opinii)",
+    "workingHours": "Godziny pracy",
+    "copyright": "© {year} {legalName}. Wszelkie prawa zastrzeżone.",
+    "taglineShort": "Odbiory techniczne · Termowizja · Doradztwo inwestycyjne"
+  },
+  "common": {
+    "home": "Start",
+    "learnMore": "Dowiedz się więcej",
+    "learnMoreChecklist": "Dowiedz się co sprawdzamy",
+    "backToOffer": "Wróć do oferty",
+    "freeQuote": "Bezpłatna wycena",
+    "freeQuoteOrder": "Zamów bezpłatną wycenę",
+    "callUs": "Zadzwoń:",
+    "optional": "(opcjonalnie)",
+    "required": "wymagane",
+    "seeOffer": "Zobacz ofertę",
+    "seeDetails": "Zobacz szczegóły",
+    "seeFullOffer": "Zobacz pełną ofertę",
+    "bookHandover": "Zarezerwuj termin odbioru",
+    "checkOffer": "Sprawdź ofertę",
+    "reviewsOnGoogle": "{count} opinii w Google",
+    "seeReviews": "Zobacz opinie →",
+    "reviewsCompact": "({count} opinii)",
+    "ratingReviews": "{rating} / 5 · {count}+ opinii"
+  },
+  "forms": {
+    "contactTabs": {
+      "contact": "Napisz do nas",
+      "quote": "Zamów wycenę odbioru"
+    },
+    "contact": {
+      "name": "Imię i nazwisko",
+      "phone": "Telefon",
+      "email": "Email",
+      "message": "Wiadomość",
+      "messagePlaceholder": "Opisz czego potrzebujesz…",
+      "phonePlaceholder": "+48 500 000 000",
+      "emailPlaceholder": "jan.kowalski@firma.pl",
+      "submit": "Wyślij wiadomość",
+      "successTitle": "Wiadomość wysłana",
+      "successMessage": "Odezwiemy się najszybciej jak to możliwe.",
+      "toastSuccess": "Dziękujemy! Odezwiemy się wkrótce.",
+      "toastError": "Ups, coś poszło nie tak. Zadzwoń pod {phone}.",
+      "sending": "Wysyłanie…"
+    },
+    "leadWizard": {
+      "title": "Zamów odbiór w 3 krokach",
+      "subtitle": "Krótki formularz — odpowiadamy w 24 godziny.",
+      "propertyType": "Rodzaj nieruchomości",
+      "propertyTypes": {
+        "apartment": "Mieszkanie",
+        "house": "Dom",
+        "commercial": "Lokal usługowy"
+      },
+      "propertyHints": {
+        "apartment": "Rynek pierwotny lub wtórny",
+        "house": "Jednorodzinny, szeregówka, bliźniak",
+        "commercial": "Biuro, gastronomia, handel"
+      },
+      "area": "Metraż",
+      "areas": {
+        "upTo40": "do 40 m²",
+        "40to60": "40–60 m²",
+        "60to90": "60–90 m²",
+        "90to150": "90–150 m²",
+        "over150": "powyżej 150 m²"
+      },
+      "location": "Lokalizacja (miasto)",
+      "locationPlaceholder": "np. Kraków",
+      "date": "Planowana data odbioru",
+      "attachments": "Załączniki",
+      "attachmentsHint": "(opcjonalnie — rzut, projekt, inne)",
+      "attachmentsDropzone": "Kliknij lub przeciągnij pliki",
+      "attachmentsFormats": "PDF, JPG, PNG, DOC — maks. 10 MB każdy",
+      "filesSelectedOne": "{count} plik wybrany",
+      "filesSelectedFew": "{count} pliki wybrane",
+      "filesSelectedMany": "{count} plików wybranych",
+      "name": "Imię",
+      "phone": "Telefon",
+      "email": "Email",
+      "phonePlaceholder": "+48 500 000 000",
+      "emailPlaceholder": "jan.kowalski@firma.pl",
+      "back": "Wstecz",
+      "next": "Dalej",
+      "submit": "Zamów bezpłatną wycenę",
+      "sending": "Wysyłanie…",
+      "successTitle": "Zgłoszenie przyjęte",
+      "successMessage": "Nasz inżynier oddzwoni w ciągu 24 godzin z bezpłatną wyceną odbioru.",
+      "toastSuccess": "Dziękujemy! Odezwiemy się w ciągu 24h.",
+      "toastMissingContact": "Uzupełnij dane kontaktowe.",
+      "toastError": "Ups, coś poszło nie tak. Zadzwoń pod {phone}."
+    },
+    "exitIntent": {
+      "title": "Planujesz odbiór mieszkania?",
+      "description": "Zamów szybki kontakt inżyniera — bezpłatnie i bez zobowiązań. Zadzwonimy w ciągu godziny.",
+      "placeholder": "Numer telefonu lub email",
+      "submit": "Zamawiam szybki kontakt",
+      "disclaimer": "Nie wysyłamy spamu. Możesz zrezygnować w każdej chwili.",
+      "successTitle": "Dziękujemy! Skontaktujemy się wkrótce.",
+      "toastMissingContact": "Podaj numer telefonu lub email.",
+      "toastError": "Ups, coś poszło nie tak. Spróbuj ponownie."
+    },
+    "botField": "Nie wypełniaj:"
+  },
+  "cookie": {
+    "text": "Używamy plików cookie do analizy ruchu (Google Analytics) i poprawy jakości strony. Szczegóły w",
+    "privacyLink": "polityce prywatności",
+    "reject": "Odrzuć",
+    "accept": "Akceptuję"
+  },
+  "rodo": {
+    "text": "Wyrażam zgodę na przetwarzanie moich danych osobowych przez Bezpieczny Odbiór w celu obsługi zapytania. Szczegóły w",
+    "privacyLink": "polityce prywatności"
+  },
+  "languageSwitcher": {
+    "pl": "PL",
+    "en": "EN"
+  },
+  "home": {
+    "hero": {
+      "badge": "Małopolskie · Śląskie · Podkarpackie",
+      "title": "Profesjonalne odbiory techniczne",
+      "titleHighlight": "mieszkań i domów",
+      "description": "Kompleksowe kontrole inżynierskie nieruchomości zgodne z Polskimi Normami, umową deweloperską i projektami architektonicznymi. Kamera termowizyjna w standardzie.",
+      "imageAlt": "Wnętrze nowego mieszkania — odbiór techniczny",
+      "statsHandovers": "Odbiorów",
+      "statsRating": "Ocena klientów",
+      "statsResponse": "Czas odpowiedzi"
+    },
+    "steps": {
+      "title": "Jak to działa",
+      "subtitle": "Prosty, przejrzysty proces w trzech krokach.",
+      "step1Title": "1. Umów wizytę",
+      "step1Desc": "Wypełnij prosty formularz — oddzwaniamy w 24h z bezpłatną wyceną.",
+      "step2Title": "2. Przesłanie dokumentów",
+      "step2Desc": "Przekazujesz umowę deweloperską i projekty. Analizujemy je przed wizytą.",
+      "step3Title": "3. Odbiór techniczny",
+      "step3Desc": "Rzetelna kontrola na miejscu, protokół i wsparcie w kontakcie z deweloperem."
+    },
+    "news": {
+      "eyebrow": "Aktualność",
+      "title": "Nowość: Pakiet — audyt prawny umowy + odbiór techniczny",
+      "description": "Kompleksowe bezpieczeństwo Twojej inwestycji w jednej usłudze."
+    },
+    "whyUs": {
+      "title": "Dlaczego my",
+      "subtitle": "Łączymy inżynierską precyzję z doświadczeniem w setkach odbiorów w całej Polsce południowej.",
+      "normsTitle": "Zgodność z Polskimi Normami",
+      "normsDesc": "Weryfikujemy każdy element zgodnie z aktualnymi normami budowlanymi, warunkami technicznymi i umową deweloperską.",
+      "equipmentTitle": "Specjalistyczny sprzęt",
+      "equipmentDesc": "Kamera termowizyjna, wilgotnościomierze, poziomice laserowe i mierniki wysokiej klasy.",
+      "reportTitle": "Szczegółowy raport",
+      "reportDesc": "Kompletny protokół z wykrytymi wadami, zdjęciami i podstawą prawną roszczeń — gotowy tego samego dnia.",
+      "engineersTitle": "Doświadczeni inżynierowie",
+      "engineersDesc": "Zespół z uprawnieniami budowlanymi i setkami zrealizowanych odbiorów w całej Małopolsce."
+    },
+    "testimonials": {
+      "title": "Opinie klientów",
+      "subtitle": "Zaufali nam kupujący mieszkania w całej Polsce południowej."
+    },
+    "faq": {
+      "title": "Najczęstsze pytania",
+      "subtitle": "Odpowiedzi na pytania, które zadają nam klienci przed każdym odbiorem."
+    }
+  },
+  "contact": {
+    "title": "Skontaktuj się z nami",
+    "subtitle": "Oferujemy szybkie odpowiedzi na Twoje zapytania. Bezpłatna wycena bez zobowiązań.",
+    "serviceArea": "Obszar działania",
+    "serviceAreaValue": "Województwo małopolskie, śląskie i podkarpackie",
+    "workingHours": "Godziny pracy",
+    "socialMedia": "Media społecznościowe",
+    "formTitle": "Skontaktuj się z nami",
+    "formSubtitle": "Napisz ogólne zapytanie lub zamów bezpłatną wycenę odbioru technicznego.",
+    "mapTitle": "Mapa — Bezpieczny Odbiór Kraków"
+  },
+  "about": {
+    "heroTitle": "Ponad 5 lat doświadczenia w odbiorach technicznych",
+    "heroDescription": "{siteName} to zespół inżynierów i architektów pasjonujących się inspekcjami nieruchomości. Zapewniamy bezpieczeństwo Twojej inwestycji w województwach małopolskim, śląskim i podkarpackim.",
+    "heroImageAlt": "Wnętrze nowego mieszkania — odbiór techniczny",
+    "stats": {
+      "experience": "lat doświadczenia",
+      "handovers": "zrealizowanych odbiorów",
+      "rating": "ocena w Google",
+      "regions": "województwa"
+    },
+    "whoWeAre": {
+      "title": "Kim jesteśmy",
+      "paragraph1": "Firma powstała z pasji do nieruchomości oraz z potrzeby zapewnienia klientom pewności, że mieszkania, które kupują — zarówno te nowe od dewelopera, jak i z rynku wtórnego — są wolne od wad technicznych.",
+      "paragraph2": "Dbamy o to, aby każdy odbiór techniczny przebiegał sprawnie i bez stresu, a klienci mogli cieszyć się bezpiecznym i komfortowym mieszkaniem, w pełni odpowiadającym ich oczekiwaniom.",
+      "paragraph3": "Do tej pory służyliśmy setkom klientów, pomagając im w odbiorach mieszkań i domów z rynku pierwotnego i wtórnego w regionach małopolskim, śląskim i podkarpackim. Nasze zaangażowanie w jakość usług przynosi nam głównie pozytywne opinie, co napędza nas do dalszego działania."
+    },
+    "values": {
+      "reliabilityTitle": "Rzetelność i zgodność z normami",
+      "reliabilityDesc": "Każdy odbiór prowadzimy zgodnie z Polskimi Normami budowlanymi, warunkami technicznymi i umową deweloperską. Nie pomijamy żadnego elementu.",
+      "teamTitle": "Doświadczony zespół",
+      "teamDesc": "Zespół inżynierów i architektów z uprawnieniami budowlanymi. Dogłębna wiedza o materiałach budowlanych i technologiach sprawia, że wychwytujemy wady, które umykają niespecjalistom.",
+      "reviewsTitle": "Pozytywne opinie klientów",
+      "reviewsDesc": "Nasze zaangażowanie w jakość usług procentuje ponad 100 opiniami w Google ze średnią 5.0/5. To najlepszy dowód na naszą skuteczność.",
+      "regionsTitle": "Trzy województwa",
+      "regionsDesc": "Realizujemy odbiory w województwach małopolskim, śląskim i podkarpackim. Dojeżdżamy do klienta — nie wymaga się od Ciebie żadnego przemieszczania."
+    },
+    "team": {
+      "title": "Nasz zespół",
+      "description": "Zespół inżynierów i architektów pasjonujących się inspekcjami nieruchomości. Dzięki dogłębnej wiedzy o materiałach budowlanych i technologiach oferujemy rzetelne analizy stanu technicznego budynków, zapewniając bezpieczeństwo i pewność naszym klientom.",
+      "badges": {
+        "licence": "Uprawnienia budowlane",
+        "thermal": "Kamera termowizyjna",
+        "moisture": "Wilgotnościomierze",
+        "laser": "Poziomice laserowe"
+      }
+    },
+    "cta": {
+      "title": "Nie zwlekaj — zadbaj o bezpieczeństwo swojej inwestycji",
+      "description": "Skontaktuj się z nami i zarezerwuj termin odbioru technicznego. Bezpłatna wycena w 24h."
+    }
+  },
+  "offer": {
+    "title": "Oferta i usługi",
+    "subtitle": "Cztery usługi bazowe i trzy dodatkowe — pełen katalog wsparcia inżynierskiego dla kupujących nieruchomości.",
+    "heroImageAlt": "Inspektor techniczny podczas odbioru nieruchomości",
+    "basicServices": "Usługi podstawowe",
+    "newServices": "Nowe usługi",
+    "newServicesSubtitle": "Rozszerzony katalog dla wymagających klientów.",
+    "badgeNew": "NOWOŚĆ",
+    "cta": {
+      "title": "Nie wiesz, którą usługę wybrać?",
+      "description": "Zadzwoń lub napisz — dobierzemy zakres dopasowany do Twojej nieruchomości i budżetu."
+    },
+    "services": {
+      "developer": {
+        "tag": "Rynek pierwotny",
+        "title": "Odbiory nieruchomości od dewelopera",
+        "desc": "Rzetelna kontrola stanu deweloperskiego zgodnie z umową, projektem i normami budowlanymi. Sprawdzamy geometrię pomieszczeń, tynki, posadzki, stolarkę, instalacje i wentylację.",
+        "bullets": [
+          "Weryfikacja zgodności z umową deweloperską i PN",
+          "Kontrola pionów, poziomów, kątów i geometrii",
+          "Sprawdzenie instalacji elektrycznej, hydraulicznej i wentylacji",
+          "Kompletny protokół z fotografiami i podstawą prawną"
+        ],
+        "imageAlt": "Pomiar wilgotności podczas odbioru technicznego mieszkania"
+      },
+      "secondary": {
+        "tag": "Rynek wtórny",
+        "title": "Odbiory nieruchomości z rynku wtórnego",
+        "desc": "Techniczna ocena stanu mieszkania używanego przed zakupem. Wykrywamy ukryte wady, oceniamy koszty ewentualnego remontu i ryzyka konstrukcyjne.",
+        "bullets": [
+          "Ocena stanu instalacji i konstrukcji",
+          "Wykrycie zawilgoceń i mostków termicznych",
+          "Szacunkowe koszty koniecznych napraw",
+          "Rekomendacje negocjacyjne przed zakupem"
+        ],
+        "imageAlt": "Protokół odbioru technicznego nieruchomości"
+      },
+      "thermal": {
+        "tag": "Kamera termowizyjna",
+        "title": "Badania termowizyjne",
+        "desc": "Bezinwazyjna diagnostyka strat ciepła, mostków termicznych, zawilgoceń i błędów wykonawczych — z profesjonalnym raportem termograficznym.",
+        "bullets": [
+          "Wykrywanie mostków termicznych i nieszczelności",
+          "Lokalizacja zawilgoceń i wycieków",
+          "Ocena jakości izolacji ścian i stropów",
+          "Raport z termogramami i analizą"
+        ],
+        "imageAlt": "Badanie termowizyjne kamerą FLIR"
+      },
+      "advisory": {
+        "tag": "Doradztwo",
+        "title": "Doradztwo inwestycyjne i nadzór nad ekipami wykończeniowymi",
+        "desc": "Wsparcie na każdym etapie inwestycji — od wyboru nieruchomości po nadzór nad ekipami remontowymi. Chronimy Twój budżet i harmonogram.",
+        "bullets": [
+          "Ocena inwestycji przed zakupem",
+          "Nadzór inżynierski nad wykonawcami",
+          "Kontrola jakości wykończenia",
+          "Konsultacje techniczne i budżetowe"
+        ],
+        "imageAlt": "Dwoje ludzi analizujących rzuty architektoniczne"
+      },
+      "premiumLegal": {
+        "title": "Pakiet: Sprawdzenie umowy przez prawnika + Odbiór techniczny",
+        "desc": "Kompletny pakiet bezpieczeństwa prawno-technicznego. Doświadczony prawnik analizuje umowę deweloperską pod kątem klauzul niedozwolonych, ryzyk i zapisów wymagających negocjacji.",
+        "bullets": [
+          "Pełny audyt prawny umowy deweloperskiej",
+          "Identyfikacja klauzul niedozwolonych i ryzyk",
+          "Rekomendacje negocjacyjne przed podpisaniem",
+          "Rygorystyczny odbiór techniczny nieruchomości",
+          "Jednolity raport prawno-inżynierski"
+        ]
+      },
+      "surveys": {
+        "title": "Inwentaryzacje architektoniczne",
+        "desc": "Precyzyjne mapowanie układu konstrukcyjnego, pomiary i weryfikacja cyfrowych rzutów dla projektantów wnętrz i potrzeb remontowych.",
+        "bullets": [
+          "Pomiary laserowe z dokładnością do milimetra",
+          "Cyfrowe rzuty w formatach DWG i PDF",
+          "Weryfikacja rzeczywistych wymiarów względem projektu",
+          "Dokumentacja instalacji i elementów konstrukcyjnych"
+        ]
+      },
+      "energy": {
+        "title": "Audyty i świadectwa energetyczne",
+        "desc": "Oficjalne świadectwa charakterystyki energetycznej oraz ocena termiczna nieruchomości — wymagane przy sprzedaży i wynajmie.",
+        "bullets": [
+          "Certyfikat energetyczny zgodny z przepisami",
+          "Ocena efektywności energetycznej budynku",
+          "Rekomendacje modernizacyjne obniżające koszty",
+          "Wsparcie przy sprzedaży i wynajmie"
+        ]
+      }
+    }
+  },
+  "offerDetail": {
+    "checklistTitleHandover": "Co sprawdzamy podczas odbioru?",
+    "checklistTitleSurvey": "Co sprawdzamy podczas badania?",
+    "checklistSubtitle": "Sprawdzenie zgodności wykonania zgodnie z Polskimi Normami oraz standardem przy użyciu specjalistycznych narzędzi.",
+    "toolsTitle": "Narzędzia i metody",
+    "toolsSubtitle": "Korzystamy z profesjonalnego sprzętu pomiarowego i diagnostycznego, aby zapewnić rzetelną ocenę stanu technicznego nieruchomości.",
+    "deliverablesTitle": "Co otrzymujesz?",
+    "orderTitle": "Zamów {price}",
+    "orderSubtitle": "Wypełnij formularz — bezpłatną wycenę otrzymasz w ciągu 24 godzin.",
+    "whyUsTitle": "Dlaczego Bezpieczny Odbiór?",
+    "whyUsItems": [
+      "Ponad {count}+ pozytywnych opinii na Google",
+      "Certyfikowani inżynierowie z uprawnieniami budowlanymi",
+      "Kamera termowizyjna FLIR w każdym odbiorze",
+      "Protokół PDF gotowy tego samego dnia",
+      "Wsparcie po odbiorze — pomoc przy reklamacjach"
+    ]
+  },
+  "krakow": {
+    "badge": "Kraków i okolice",
+    "title": "Odbiór mieszkania Kraków — techniczny przegląd inżyniera",
+    "description": "Realizujemy odbiory techniczne mieszkań i domów w każdej dzielnicy Krakowa — od Prądnika Białego, przez Krowodrzę i Bronowice, po Podgórze i Nową Hutę. Ponad 5 lat lokalnego doświadczenia i {count}+ opinii 5★ na Google.",
+    "highlights": [
+      "Znajomość lokalnych deweloperów",
+      "Odbiory w 2–5 dni roboczych",
+      "Kamera termowizyjna FLIR",
+      "Protokół PDF tego samego dnia"
+    ],
+    "imageAlt": "Panorama Krakowa",
+    "reviewQuote": "„Odbiór mieszkania w Krakowie (Prądnik Biały) spełnił wszystkie oczekiwania. Profesjonalny raport.\"",
+    "districts": {
+      "title": "Wykonujemy odbiory w każdej dzielnicy Krakowa",
+      "subtitle": "Znamy specyfikę lokalnych inwestycji, standard wykonawczy deweloperów oraz najczęstsze problemy techniczne w poszczególnych rejonach miasta."
+    },
+    "developers": {
+      "title": "Znamy standardy pracy krakowskich deweloperów",
+      "description": "W ciągu ostatnich 5 lat wykonaliśmy odbiory w inwestycjach największych deweloperów w Krakowie. Wiemy, na co zwrócić szczególną uwagę u konkretnego wykonawcy — od jakości tynków, przez posadzki, po stolarkę okienną.",
+      "disclaimer": "* Lista deweloperów ma charakter informacyjny — nie stanowi partnerstwa handlowego. Wykonujemy niezależne odbiory techniczne w interesie kupujących."
+    },
+    "order": {
+      "title": "Zamów odbiór w Krakowie",
+      "subtitle": "Wypełnij formularz — bezpłatną wycenę otrzymasz w ciągu 24 godzin."
+    },
+    "whyUs": {
+      "title": "Dlaczego warto wybrać nas w Krakowie?",
+      "items": [
+        "Ponad 5 lat obsługi krakowskiego rynku nieruchomości",
+        "{count}+ pozytywnych opinii na Google",
+        "Znajomość specyfiki krakowskich inwestycji deweloperskich",
+        "Protokół gotowy tego samego dnia w formacie PDF",
+        "Wsparcie po odbiorze — pomoc przy kontakcie z deweloperem"
+      ]
+    },
+    "faq": {
+      "title": "Najczęstsze pytania — odbiór mieszkania w Krakowie",
+      "subtitle": "Odpowiedzi na pytania, które klienci zadają nam najczęściej przed odbiorem w Krakowie."
+    }
+  },
+  "privacy": {
+    "eyebrow": "Dokument prawny",
+    "title": "Polityka prywatności",
+    "lastUpdated": "Data ostatniej aktualizacji:",
+    "sections": {
+      "1": {
+        "title": "1. Administrator danych",
+        "content": "Administratorem Państwa danych osobowych jest firma {legalName} z siedzibą przy ul. {street}, {postalCode} {city}. Kontakt w sprawach ochrony danych: {email}."
+      },
+      "2": {
+        "title": "2. Cele i podstawy przetwarzania",
+        "intro": "Państwa dane osobowe przetwarzamy w następujących celach:",
+        "items": [
+          "obsługa zapytań ofertowych i przygotowanie wyceny (art. 6 ust. 1 lit. b RODO — czynności zmierzające do zawarcia umowy);",
+          "realizacja umów o odbiór techniczny i pokrewne usługi (art. 6 ust. 1 lit. b RODO);",
+          "dochodzenie ewentualnych roszczeń (art. 6 ust. 1 lit. f RODO);",
+          "analiza ruchu na stronie za pomocą Google Analytics (art. 6 ust. 1 lit. a RODO — wyłącznie po Państwa zgodzie)."
+        ]
+      },
+      "3": {
+        "title": "3. Odbiorcy danych",
+        "content": "Państwa dane mogą być przekazywane naszym zaufanym podwykonawcom: dostawcom hostingu (Netlify), narzędzi analitycznych (Google Analytics — po zgodzie), obsługi księgowej oraz prawnej. Wszyscy odbiorcy zobowiązani są do zachowania poufności i ochrony danych zgodnie z RODO."
+      },
+      "4": {
+        "title": "4. Okres przechowywania",
+        "content": "Dane kontaktowe przechowujemy przez okres niezbędny do udzielenia odpowiedzi (do 12 miesięcy), a w przypadku zawarcia umowy — przez okres jej realizacji oraz 5 lat od zakończenia (obowiązki księgowe i podatkowe)."
+      },
+      "5": {
+        "title": "5. Państwa prawa",
+        "intro": "Zgodnie z RODO przysługuje Państwu prawo do:",
+        "items": [
+          "dostępu do treści danych oraz otrzymania ich kopii;",
+          "sprostowania, usunięcia lub ograniczenia przetwarzania;",
+          "przenoszenia danych;",
+          "wniesienia sprzeciwu wobec przetwarzania;",
+          "cofnięcia zgody w dowolnym momencie (nie wpływa na zgodność z prawem przetwarzania dokonanego przed cofnięciem);",
+          "wniesienia skargi do Prezesa Urzędu Ochrony Danych Osobowych."
+        ]
+      },
+      "6": {
+        "title": "6. Pliki cookies",
+        "content": "Serwis wykorzystuje pliki cookies niezbędne do prawidłowego działania oraz — po Państwa zgodzie — cookies analityczne Google Analytics (z anonimizacją IP). Zgodę można w każdej chwili wycofać, czyszcząc dane przeglądarki."
+      },
+      "7": {
+        "title": "7. Przekazywanie danych do państw trzecich",
+        "content": "W związku z korzystaniem z Google Analytics dane mogą być przekazywane poza EOG na podstawie standardowych klauzul umownych zatwierdzonych przez Komisję Europejską."
+      },
+      "8": {
+        "title": "8. Zautomatyzowane podejmowanie decyzji",
+        "content": "Nie stosujemy zautomatyzowanego podejmowania decyzji ani profilowania w rozumieniu art. 22 RODO."
+      },
+      "9": {
+        "title": "9. Kontakt",
+        "content": "W sprawach związanych z ochroną danych osobowych prosimy o kontakt pod adresem {email} lub telefonicznie: {phone}."
+      }
+    }
+  },
+  "metadata": {
+    "home": {
+      "title": "Odbiór techniczny mieszkania Kraków | Bezpieczny Odbiór",
+      "description": "Odbiory techniczne mieszkań w Krakowie. Kamera termowizyjna, Polskie Normy, 100+ opinii 5★. Bezpłatna wycena w 24h.",
+      "keywords": ""
+    },
+    "contact": {
+      "title": "Kontakt",
+      "description": "Skontaktuj się z nami telefonicznie lub mailowo. Bezpłatna wycena odbioru technicznego w 24h. Małopolskie, Śląskie, Podkarpackie.",
+      "keywords": ""
+    },
+    "about": {
+      "title": "O nas — Kim jesteśmy",
+      "description": "Bezpieczny Odbiór to zespół inżynierów i architektów z ponad 5-letnim doświadczeniem w odbiorach technicznych mieszkań i domów. Obsługujemy Małopolskę, Śląsk i Podkarpacie.",
+      "keywords": ""
+    },
+    "offer": {
+      "title": "Oferta i usługi",
+      "description": "Odbiory od dewelopera i z rynku wtórnego, badania termowizyjne, doradztwo inwestycyjne, pakiet z audytem prawnym, inwentaryzacje architektoniczne i świadectwa energetyczne.",
+      "keywords": ""
+    },
+    "offerDetail": {
+      "title": "Usługa",
+      "description": "Profesjonalny odbiór techniczny nieruchomości w Krakowie i Małopolsce.",
+      "keywords": ""
+    },
+    "krakow": {
+      "title": "Odbiór mieszkania Kraków — techniczny przegląd inżyniera",
+      "description": "Odbiór mieszkania Kraków — profesjonalny przegląd techniczny z kamerą termowizyjną w każdej dzielnicy. Bezpłatna wycena w 24h.",
+      "keywords": ""
+    },
+    "privacy": {
+      "title": "Polityka prywatności",
+      "description": "Polityka prywatności serwisu Bezpieczny Odbiór — zasady przetwarzania danych osobowych, cookies i praw użytkowników zgodnie z RODO.",
+      "keywords": ""
+    }
+  },
+  "hours": {
+    "weekdays": "Poniedziałek – Piątek",
+    "weekdaysTime": "08:00 – 18:00",
+    "saturday": "Sobota",
+    "saturdayTime": "09:00 – 14:00",
+    "sunday": "Niedziela",
+    "sundayTime": "kontakt telefoniczny"
+  }
+}

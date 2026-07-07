@@ -1,7 +1,18 @@
 "use client";
 
-import { useState } from "react";
-import { Building2, Home, Warehouse, ChevronLeft, ChevronRight, CheckCircle2, Loader2, Paperclip, X } from "lucide-react";
+import { useMemo, useState } from "react";
+import { useLocale, useTranslations } from "next-intl";
+import {
+  Building2,
+  Home,
+  Warehouse,
+  ChevronLeft,
+  ChevronRight,
+  CheckCircle2,
+  Loader2,
+  Paperclip,
+  X,
+} from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -9,11 +20,10 @@ import { Label } from "@/components/ui/label";
 import { submitNetlifyForm } from "@/lib/netlify";
 import { RodoCheckbox } from "./RodoCheckbox";
 import { getPhoneDisplay } from "@/lib/contact-obfuscation";
-
-type PropertyType = "Mieszkanie" | "Dom" | "Lokal usługowy";
+import type { Locale } from "@/i18n/routing";
 
 type LeadData = {
-  propertyType: PropertyType | "";
+  propertyType: string;
   area: string;
   location: string;
   date: string;
@@ -22,22 +32,39 @@ type LeadData = {
   email: string;
 };
 
-const propertyTypes: { value: PropertyType; icon: typeof Home; hint: string }[] = [
-  { value: "Mieszkanie", icon: Building2, hint: "Rynek pierwotny lub wtórny" },
-  { value: "Dom", icon: Home, hint: "Jednorodzinny, szeregówka, bliźniak" },
-  { value: "Lokal usługowy", icon: Warehouse, hint: "Biuro, gastronomia, handel" },
-];
-
-const sizes = ["do 40 m²", "40–60 m²", "60–90 m²", "90–150 m²", "powyżej 150 m²"];
-
 export function LeadWizard() {
+  const locale = useLocale() as Locale;
+  const t = useTranslations("forms.leadWizard");
+  const tCommon = useTranslations("common");
+  const tForms = useTranslations("forms");
   const [step, setStep] = useState<1 | 2 | 3>(1);
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
   const [files, setFiles] = useState<File[]>([]);
+
+  const propertyTypes = useMemo(
+    () => [
+      { value: t("propertyTypes.apartment"), icon: Building2, hint: t("propertyHints.apartment") },
+      { value: t("propertyTypes.house"), icon: Home, hint: t("propertyHints.house") },
+      { value: t("propertyTypes.commercial"), icon: Warehouse, hint: t("propertyHints.commercial") },
+    ],
+    [t]
+  );
+
+  const sizes = useMemo(
+    () => [
+      t("areas.upTo40"),
+      t("areas.40to60"),
+      t("areas.60to90"),
+      t("areas.90to150"),
+      t("areas.over150"),
+    ],
+    [t]
+  );
+
   const [data, setData] = useState<LeadData>({
     propertyType: "",
     area: "",
-    location: "Kraków",
+    location: locale === "en" ? "Kraków" : "Kraków",
     date: "",
     name: "",
     phone: "",
@@ -55,19 +82,28 @@ export function LeadWizard() {
   const submit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!data.phone || !data.email) {
-      toast.error("Uzupełnij dane kontaktowe.");
+      toast.error(t("toastMissingContact"));
       return;
     }
     setStatus("sending");
     try {
       await submitNetlifyForm(e.currentTarget, files);
       setStatus("success");
-      toast.success("Dziękujemy! Odezwiemy się w ciągu 24h.");
+      toast.success(t("toastSuccess"));
     } catch {
       setStatus("error");
-      toast.error(`Ups, coś poszło nie tak. Zadzwoń pod ${getPhoneDisplay()}.`);
+      toast.error(t("toastError", { phone: getPhoneDisplay() }));
     }
   };
+
+  const fileCountLabel =
+    files.length === 0
+      ? t("attachmentsDropzone")
+      : files.length === 1
+        ? t("filesSelectedOne", { count: files.length })
+        : files.length < 5
+          ? t("filesSelectedFew", { count: files.length })
+          : t("filesSelectedMany", { count: files.length });
 
   if (status === "success") {
     return (
@@ -75,10 +111,8 @@ export function LeadWizard() {
         <div className="mx-auto grid h-14 w-14 place-items-center rounded-full bg-cta/20 text-cta">
           <CheckCircle2 className="h-8 w-8" />
         </div>
-        <h3 className="mt-4 text-2xl font-bold">Zgłoszenie przyjęte</h3>
-        <p className="mt-2 text-muted-foreground">
-          Nasz inżynier oddzwoni w ciągu 24 godzin z bezpłatną wyceną odbioru.
-        </p>
+        <h3 className="mt-4 text-2xl font-bold">{t("successTitle")}</h3>
+        <p className="mt-2 text-muted-foreground">{t("successMessage")}</p>
       </div>
     );
   }
@@ -89,7 +123,9 @@ export function LeadWizard() {
       <input type="hidden" name="propertyType" value={data.propertyType} />
       <input type="hidden" name="area" value={data.area} />
       <p hidden>
-        <label>Nie wypełniaj: <input name="bot-field" /></label>
+        <label>
+          {tForms("botField")} <input name="bot-field" />
+        </label>
       </p>
 
       <div className="mb-6 flex items-center">
@@ -100,15 +136,13 @@ export function LeadWizard() {
                 step > s
                   ? "border-2 border-cta/50 bg-cta/15 text-cta/70"
                   : step === s
-                  ? "bg-cta text-cta-foreground"
-                  : "border border-border text-muted-foreground"
+                    ? "bg-cta text-cta-foreground"
+                    : "border border-border text-muted-foreground"
               }`}
             >
               {s}
             </div>
-            {s < 3 && (
-              <div className={`h-px flex-1 ${step > s ? "bg-cta/50" : "bg-border"}`} />
-            )}
+            {s < 3 && <div className={`h-px flex-1 ${step > s ? "bg-cta/50" : "bg-border"}`} />}
           </div>
         ))}
       </div>
@@ -116,7 +150,7 @@ export function LeadWizard() {
       {step === 1 && (
         <div className="space-y-5">
           <div>
-            <Label className="mb-3 block">Rodzaj nieruchomości</Label>
+            <Label className="mb-3 block">{t("propertyType")}</Label>
             <div className="grid grid-cols-3 gap-1.5 sm:gap-2">
               {propertyTypes.map(({ value, icon: Icon, hint }) => {
                 const active = data.propertyType === value;
@@ -125,29 +159,31 @@ export function LeadWizard() {
                     type="button"
                     key={value}
                     onClick={() => update("propertyType", value)}
-                    className={`flex flex-col items-center justify-center gap-1.5 rounded-lg border p-2.5 sm:p-4 text-xs sm:text-sm font-medium transition-colors cursor-pointer ${
+                    className={`flex cursor-pointer flex-col items-center justify-center gap-1.5 rounded-lg border p-2.5 text-xs font-medium transition-colors sm:p-4 sm:text-sm ${
                       active
                         ? "border-cta/50 bg-cta/5 text-cta"
                         : "border-border hover:border-cta/30"
                     }`}
                   >
-                    <Icon className="h-5 w-5 sm:h-6 sm:w-6 shrink-0" />
+                    <Icon className="h-5 w-5 shrink-0 sm:h-6 sm:w-6" />
                     <span className="text-center leading-tight">{value}</span>
-                    <span className="hidden sm:block text-xs font-normal text-muted-foreground text-center">{hint}</span>
+                    <span className="hidden text-center text-xs font-normal text-muted-foreground sm:block">
+                      {hint}
+                    </span>
                   </button>
                 );
               })}
             </div>
           </div>
           <div>
-            <Label className="mb-3 block">Metraż</Label>
+            <Label className="mb-3 block">{t("area")}</Label>
             <div className="flex flex-wrap gap-2">
               {sizes.map((s) => (
                 <button
                   type="button"
                   key={s}
                   onClick={() => update("area", s)}
-                  className={`rounded-full border px-4 py-2 text-sm transition-colors cursor-pointer ${
+                  className={`cursor-pointer rounded-full border px-4 py-2 text-sm transition-colors ${
                     data.area === s
                       ? "border-cta bg-cta text-cta-foreground"
                       : "border-border hover:border-cta/30"
@@ -164,18 +200,20 @@ export function LeadWizard() {
       {step === 2 && (
         <div className="space-y-4">
           <div>
-            <Label htmlFor="location">Lokalizacja (miasto)</Label>
+            <Label htmlFor="location">{t("location")}</Label>
             <Input
               id="location"
               name="location"
-              placeholder="np. Kraków"
+              placeholder={t("locationPlaceholder")}
               value={data.location}
               onChange={(e) => update("location", e.target.value)}
               className="mt-2"
             />
           </div>
           <div>
-            <Label htmlFor="date">Planowana data odbioru <span className="text-muted-foreground font-normal">(opcjonalnie)</span></Label>
+            <Label htmlFor="date">
+              {t("date")} <span className="font-normal text-muted-foreground">{tCommon("optional")}</span>
+            </Label>
             <Input
               id="date"
               name="date"
@@ -187,18 +225,17 @@ export function LeadWizard() {
             />
           </div>
           <div>
-            <Label>Załączniki <span className="text-muted-foreground font-normal">(opcjonalnie — rzut, projekt, inne)</span></Label>
+            <Label>
+              {t("attachments")}{" "}
+              <span className="font-normal text-muted-foreground">{t("attachmentsHint")}</span>
+            </Label>
             <label
               htmlFor="files"
               className="mt-2 flex cursor-pointer flex-col items-center justify-center gap-1.5 rounded-lg border-2 border-dashed border-border p-5 transition-colors hover:border-cta/30"
             >
               <Paperclip className="h-5 w-5 text-muted-foreground" />
-              <span className="text-sm text-muted-foreground">
-                {files.length > 0
-                  ? `${files.length} plik${files.length === 1 ? "" : files.length < 5 ? "i" : "ów"} wybranych`
-                  : "Kliknij lub przeciągnij pliki"}
-              </span>
-              <span className="text-xs text-muted-foreground/70">PDF, JPG, PNG, DOC — maks. 10 MB każdy</span>
+              <span className="text-sm text-muted-foreground">{fileCountLabel}</span>
+              <span className="text-xs text-muted-foreground/70">{t("attachmentsFormats")}</span>
               <input
                 id="files"
                 type="file"
@@ -231,7 +268,9 @@ export function LeadWizard() {
       {step === 3 && (
         <div className="space-y-4">
           <div>
-            <Label htmlFor="name">Imię <span className="text-muted-foreground font-normal">(opcjonalnie)</span></Label>
+            <Label htmlFor="name">
+              {t("name")} <span className="font-normal text-muted-foreground">{tCommon("optional")}</span>
+            </Label>
             <Input
               id="name"
               name="name"
@@ -242,26 +281,26 @@ export function LeadWizard() {
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
             <div>
-              <Label htmlFor="phone">Telefon</Label>
+              <Label htmlFor="phone">{t("phone")}</Label>
               <Input
                 id="phone"
                 name="phone"
                 type="tel"
                 required
-                placeholder="+48 500 000 000"
+                placeholder={t("phonePlaceholder")}
                 value={data.phone}
                 onChange={(e) => update("phone", e.target.value)}
                 className="mt-2"
               />
             </div>
             <div>
-              <Label htmlFor="email">Email</Label>
+              <Label htmlFor="email">{t("email")}</Label>
               <Input
                 id="email"
                 name="email"
                 type="email"
                 required
-                placeholder="jan.kowalski@firma.pl"
+                placeholder={t("emailPlaceholder")}
                 value={data.email}
                 onChange={(e) => update("email", e.target.value)}
                 className="mt-2"
@@ -279,7 +318,7 @@ export function LeadWizard() {
             variant="ghost"
             onClick={() => setStep((s) => Math.max(1, s - 1) as 1 | 2 | 3)}
           >
-            <ChevronLeft className="mr-1 h-4 w-4" /> Wstecz
+            <ChevronLeft className="mr-1 h-4 w-4" /> {t("back")}
           </Button>
         ) : (
           <span />
@@ -291,14 +330,16 @@ export function LeadWizard() {
             onClick={() => canNext && setStep((s) => Math.min(3, s + 1) as 1 | 2 | 3)}
             disabled={!canNext}
           >
-            Dalej <ChevronRight className="ml-1 h-4 w-4" />
+            {t("next")} <ChevronRight className="ml-1 h-4 w-4" />
           </Button>
         ) : (
           <Button type="submit" variant="cta" disabled={status === "sending"}>
             {status === "sending" ? (
-              <><Loader2 className="h-4 w-4 animate-spin" /> Wysyłanie…</>
+              <>
+                <Loader2 className="h-4 w-4 animate-spin" /> {t("sending")}
+              </>
             ) : (
-              "Zamów bezpłatną wycenę"
+              t("submit")
             )}
           </Button>
         )}

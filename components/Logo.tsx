@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { site } from "@/lib/site";
 
 type Props = {
@@ -34,7 +34,7 @@ export function Logo({ size = 40, withText = true, className = "", href = "/", o
   }
 
   return (
-    <Link href={href} onClick={onClick} className={`flex items-center gap-2 ${className}`} aria-label={site.name}>
+    <Link href="/" onClick={onClick} className={`flex items-center gap-2 ${className}`} aria-label={site.name}>
       {content}
     </Link>
   );

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import { CheckCircle2, Loader2 } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
@@ -19,6 +20,8 @@ type FormData = {
 };
 
 export function ContactForm() {
+  const t = useTranslations("forms.contact");
+  const tForms = useTranslations("forms");
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
   const [data, setData] = useState<FormData>({ name: "", phone: "", email: "", message: "" });
 
@@ -31,10 +34,10 @@ export function ContactForm() {
     try {
       await submitNetlifyForm(e.currentTarget);
       setStatus("success");
-      toast.success("Dziękujemy! Odezwiemy się wkrótce.");
+      toast.success(t("toastSuccess"));
     } catch {
       setStatus("error");
-      toast.error(`Ups, coś poszło nie tak. Zadzwoń pod ${getPhoneDisplay()}.`);
+      toast.error(t("toastError", { phone: getPhoneDisplay() }));
     }
   };
 
@@ -44,10 +47,8 @@ export function ContactForm() {
         <div className="mx-auto grid h-14 w-14 place-items-center rounded-full bg-cta/20 text-cta">
           <CheckCircle2 className="h-8 w-8" />
         </div>
-        <h3 className="mt-4 text-2xl font-bold">Wiadomość wysłana</h3>
-        <p className="mt-2 text-muted-foreground">
-          Odezwiemy się najszybciej jak to możliwe.
-        </p>
+        <h3 className="mt-4 text-2xl font-bold">{t("successTitle")}</h3>
+        <p className="mt-2 text-muted-foreground">{t("successMessage")}</p>
       </div>
     );
   }
@@ -56,11 +57,13 @@ export function ContactForm() {
     <form name="contact" onSubmit={submit} className="surface-panel space-y-4 p-6 md:p-8">
       <input type="hidden" name="form-name" value="contact" />
       <p hidden>
-        <label>Nie wypełniaj: <input name="bot-field" /></label>
+        <label>
+          {tForms("botField")} <input name="bot-field" />
+        </label>
       </p>
 
       <div>
-        <Label htmlFor="name">Imię i nazwisko</Label>
+        <Label htmlFor="name">{t("name")}</Label>
         <Input
           id="name"
           name="name"
@@ -73,26 +76,26 @@ export function ContactForm() {
 
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
-          <Label htmlFor="phone">Telefon</Label>
+          <Label htmlFor="phone">{t("phone")}</Label>
           <Input
             id="phone"
             name="phone"
             type="tel"
             required
-            placeholder="+48 500 000 000"
+            placeholder={t("phonePlaceholder")}
             value={data.phone}
             onChange={(e) => update("phone", e.target.value)}
             className="mt-2"
           />
         </div>
         <div>
-          <Label htmlFor="email">Email</Label>
+          <Label htmlFor="email">{t("email")}</Label>
           <Input
             id="email"
             name="email"
             type="email"
             required
-            placeholder="jan.kowalski@firma.pl"
+            placeholder={t("emailPlaceholder")}
             value={data.email}
             onChange={(e) => update("email", e.target.value)}
             className="mt-2"
@@ -101,13 +104,13 @@ export function ContactForm() {
       </div>
 
       <div>
-        <Label htmlFor="message">Wiadomość</Label>
+        <Label htmlFor="message">{t("message")}</Label>
         <Textarea
           id="message"
           name="message"
           required
           rows={4}
-          placeholder="Opisz czego potrzebujesz…"
+          placeholder={t("messagePlaceholder")}
           value={data.message}
           onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => update("message", e.target.value)}
           className="mt-2 resize-none"
@@ -118,9 +121,11 @@ export function ContactForm() {
 
       <Button type="submit" variant="cta" className="w-full" disabled={status === "sending"}>
         {status === "sending" ? (
-          <><Loader2 className="h-4 w-4 animate-spin" /> Wysyłanie…</>
+          <>
+            <Loader2 className="h-4 w-4 animate-spin" /> {t("sending")}
+          </>
         ) : (
-          "Wyślij wiadomość"
+          t("submit")
         )}
       </Button>
     </form>

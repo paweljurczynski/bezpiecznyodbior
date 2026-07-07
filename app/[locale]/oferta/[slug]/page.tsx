@@ -1,50 +1,80 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CheckCircle2, Phone, ArrowLeft, Wrench, ArrowRight } from "lucide-react";
-import { services } from "@/lib/services";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import { Link, getPathname } from "@/i18n/navigation";
+import { getServices } from "@/lib/content";
 import { LeadWizard } from "@/components/LeadWizard";
 import { JsonLd, breadcrumbSchema } from "@/components/JsonLd";
 import { ObfuscatedPhoneLink } from "@/components/ObfuscatedContact";
 import { Button } from "@/components/ui/button";
+import { buildServiceAlternates, baseOpenGraph } from "@/lib/metadata-i18n";
+import { getAllServiceSlugs } from "@/lib/service-slugs";
 import { site } from "@/lib/site";
+import { routing } from "@/i18n/routing";
+import type { Locale } from "@/i18n/routing";
 import { BLUR_PLACEHOLDER } from "@/lib/image";
 
-type Props = { params: Promise<{ slug: string }> };
+type Props = { params: Promise<{ locale: string; slug: string }> };
 
-export async function generateStaticParams() {
-  return services.map((s) => ({ slug: s.slug }));
+export function generateStaticParams() {
+  return routing.locales.flatMap((locale) =>
+    getAllServiceSlugs(locale).map((slug) => ({ locale, slug }))
+  );
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { slug } = await params;
-  const service = services.find((s) => s.slug === slug);
+  const { locale, slug } = await params;
+  const typedLocale = locale as Locale;
+  const service = getServices(typedLocale).find((s) => s.slug === slug);
   if (!service) return {};
+
+  const pathname = getPathname({
+    locale: typedLocale,
+    href: { pathname: "/oferta/[slug]", params: { slug } },
+  });
+  const title = `${service.title} | ${site.name}`;
+
   return {
     title: service.title,
     description: service.description,
-    alternates: { canonical: `/oferta/${service.slug}` },
-    openGraph: {
-      title: `${service.title} | ${site.name}`,
-      description: service.description,
-      url: `${site.url}/oferta/${service.slug}`,
-    },
+    alternates: buildServiceAlternates(typedLocale, slug),
+    openGraph: baseOpenGraph(typedLocale, title, service.description, `${site.url}${pathname}`),
   };
 }
 
 export default async function ServiceDetailPage({ params }: Props) {
-  const { slug } = await params;
-  const service = services.find((s) => s.slug === slug);
+  const { locale, slug } = await params;
+  setRequestLocale(locale);
+
+  const typedLocale = locale as Locale;
+  const service = getServices(typedLocale).find((s) => s.slug === slug);
   if (!service) notFound();
+
+  const t = await getTranslations({ locale, namespace: "offerDetail" });
+  const tCommon = await getTranslations({ locale, namespace: "common" });
+  const tNav = await getTranslations({ locale, namespace: "nav" });
+
+  const checklistTitle =
+    service.icon === "thermal" ? t("checklistTitleSurvey") : t("checklistTitleHandover");
+
+  const whyUsItems = (t.raw("whyUsItems") as string[]).map((item) =>
+    item.replace("{count}", String(site.reviews.count))
+  );
+
+  const servicePath = getPathname({
+    locale: typedLocale,
+    href: { pathname: "/oferta/[slug]", params: { slug: service.slug } },
+  });
 
   return (
     <>
       <JsonLd
         data={breadcrumbSchema([
-          { name: "Start", item: "/" },
-          { name: "Oferta", item: "/oferta" },
-          { name: service.title, item: `/oferta/${service.slug}` },
+          { name: tCommon("home"), item: getPathname({ locale: typedLocale, href: "/" }) },
+          { name: tNav("offer"), item: getPathname({ locale: typedLocale, href: "/oferta" }) },
+          { name: service.title, item: servicePath },
         ])}
       />
 
@@ -55,7 +85,7 @@ export default async function ServiceDetailPage({ params }: Props) {
               href="/oferta"
               className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-brand"
             >
-              <ArrowLeft className="h-3.5 w-3.5" /> Wróć do oferty
+              <ArrowLeft className="h-3.5 w-3.5" /> {tCommon("backToOffer")}
             </Link>
             <div className="mt-4 flex items-center gap-2">
               <span className="rounded-full border border-border bg-background/80 px-3 py-1 text-xs font-semibold text-brand">
@@ -75,7 +105,7 @@ export default async function ServiceDetailPage({ params }: Props) {
             <div className="mt-8 flex flex-wrap gap-3">
               <Button asChild size="lg" variant="cta">
                 <a href="#wycena">
-                  Bezpłatna wycena <ArrowRight className="ml-2 h-4 w-4" />
+                  {tCommon("freeQuote")} <ArrowRight className="ml-2 h-4 w-4" />
                 </a>
               </Button>
               <Button asChild size="lg" variant="outline">
@@ -106,19 +136,12 @@ export default async function ServiceDetailPage({ params }: Props) {
 
       <section className="container-page py-16">
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="text-3xl font-bold text-brand md:text-4xl">
-            Co sprawdzamy podczas {service.slug === "badania-termowizyjne" ? "badania" : "odbioru"}?
-          </h2>
-          <p className="mt-4 text-muted-foreground">
-            Sprawdzenie zgodności wykonania zgodnie z Polskimi Normami oraz standardem przy użyciu specjalistycznych narzędzi.
-          </p>
+          <h2 className="text-3xl font-bold text-brand md:text-4xl">{checklistTitle}</h2>
+          <p className="mt-4 text-muted-foreground">{t("checklistSubtitle")}</p>
         </div>
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {service.checklist.map((item, index) => (
-            <div
-              key={item.title}
-              className="surface-panel flex gap-4 bg-card p-6"
-            >
+            <div key={item.title} className="surface-panel flex gap-4 bg-card p-6">
               <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand text-sm font-bold text-brand-foreground">
                 {String(index + 1).padStart(2, "0")}
               </span>
@@ -135,12 +158,8 @@ export default async function ServiceDetailPage({ params }: Props) {
         <div className="container-page">
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
             <div>
-              <h2 className="text-3xl font-bold text-brand md:text-4xl">
-                Narzędzia i metody
-              </h2>
-              <p className="mt-4 text-muted-foreground">
-                Korzystamy z profesjonalnego sprzętu pomiarowego i diagnostycznego, aby zapewnić rzetelną ocenę stanu technicznego nieruchomości.
-              </p>
+              <h2 className="text-3xl font-bold text-brand md:text-4xl">{t("toolsTitle")}</h2>
+              <p className="mt-4 text-muted-foreground">{t("toolsSubtitle")}</p>
               <ul className="mt-6 space-y-3">
                 {service.tools.map((tool) => (
                   <li key={tool} className="flex items-start gap-3">
@@ -153,7 +172,7 @@ export default async function ServiceDetailPage({ params }: Props) {
               </ul>
             </div>
             <div className="rounded-2xl border border-brand/20 bg-brand p-8 text-brand-foreground">
-              <h3 className="text-xl font-bold">Co otrzymujesz?</h3>
+              <h3 className="text-xl font-bold">{t("deliverablesTitle")}</h3>
               <ul className="mt-5 space-y-3">
                 {service.bullets.map((bullet) => (
                   <li key={bullet} className="flex items-start gap-3 text-sm">
@@ -170,24 +189,18 @@ export default async function ServiceDetailPage({ params }: Props) {
       <section id="wycena" className="container-page py-16">
         <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
           <div>
-            <h2 className="text-3xl font-bold text-brand md:text-4xl">Zamów {service.price}</h2>
-            <p className="mt-4 text-muted-foreground">
-              Wypełnij formularz — bezpłatną wycenę otrzymasz w ciągu 24 godzin.
-            </p>
+            <h2 className="text-3xl font-bold text-brand md:text-4xl">
+              {t("orderTitle", { price: service.price })}
+            </h2>
+            <p className="mt-4 text-muted-foreground">{t("orderSubtitle")}</p>
             <div className="mt-6">
               <LeadWizard />
             </div>
           </div>
           <div className="rounded-2xl border border-border bg-card p-8 shadow-elegant">
-            <h3 className="text-xl font-bold text-brand">Dlaczego Bezpieczny Odbiór?</h3>
+            <h3 className="text-xl font-bold text-brand">{t("whyUsTitle")}</h3>
             <ul className="mt-5 space-y-3">
-              {[
-                `Ponad ${site.reviews.count}+ pozytywnych opinii na Google`,
-                "Certyfikowani inżynierowie z uprawnieniami budowlanymi",
-                "Kamera termowizyjna FLIR w każdym odbiorze",
-                "Protokół PDF gotowy tego samego dnia",
-                "Wsparcie po odbiorze — pomoc przy reklamacjach",
-              ].map((item) => (
+              {whyUsItems.map((item) => (
                 <li key={item} className="flex items-start gap-3 text-sm">
                   <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-cta" />
                   {item}
@@ -196,7 +209,7 @@ export default async function ServiceDetailPage({ params }: Props) {
             </ul>
             <Button asChild size="lg" variant="cta" className="mt-6 w-full">
               <ObfuscatedPhoneLink>
-                <Phone className="mr-2 h-4 w-4" /> Zadzwoń:{" "}
+                <Phone className="mr-2 h-4 w-4" /> {tCommon("callUs")}{" "}
               </ObfuscatedPhoneLink>
             </Button>
           </div>

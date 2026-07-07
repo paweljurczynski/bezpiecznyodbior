@@ -1,4 +1,6 @@
 import { site } from "@/lib/site";
+import { getSiteCopy } from "@/lib/content";
+import type { Locale } from "@/i18n/routing";
 
 type Props = { data: Record<string, unknown> | Record<string, unknown>[] };
 
@@ -11,7 +13,8 @@ export function JsonLd({ data }: Props) {
   );
 }
 
-export function localBusinessSchema() {
+export function localBusinessSchema(locale: Locale = "pl") {
+  const copy = getSiteCopy(locale);
   return {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
@@ -35,7 +38,7 @@ export function localBusinessSchema() {
       latitude: 50.0916,
       longitude: 19.9459,
     },
-    areaServed: site.regions.map((r) => ({ "@type": "AdministrativeArea", name: r })),
+    areaServed: copy.regions.map((r) => ({ "@type": "AdministrativeArea", name: r })),
     openingHoursSpecification: [
       {
         "@type": "OpeningHoursSpecification",
@@ -61,7 +64,7 @@ export function localBusinessSchema() {
   };
 }
 
-export function organizationSchema() {
+export function organizationSchema(locale: Locale = "pl") {
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -73,7 +76,7 @@ export function organizationSchema() {
       telephone: site.phone,
       contactType: "customer service",
       areaServed: "PL",
-      availableLanguage: ["Polish"],
+      availableLanguage: locale === "en" ? ["Polish", "English"] : ["Polish"],
     },
   };
 }

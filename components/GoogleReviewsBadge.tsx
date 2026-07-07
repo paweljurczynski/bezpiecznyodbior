@@ -1,3 +1,4 @@
+import { getTranslations } from "next-intl/server";
 import { Star } from "lucide-react";
 import { site } from "@/lib/site";
 
@@ -31,7 +32,9 @@ function GoogleLogoSvg({ className }: { className?: string }) {
 
 type Variant = "full" | "compact";
 
-export function GoogleReviewsBadge({ variant = "full" }: { variant?: Variant }) {
+export async function GoogleReviewsBadge({ variant = "full" }: { variant?: Variant }) {
+  const t = await getTranslations("common");
+
   if (variant === "compact") {
     return (
       <a
@@ -46,11 +49,9 @@ export function GoogleReviewsBadge({ variant = "full" }: { variant?: Variant }) 
             <Star key={i} className="h-3 w-3 fill-current" />
           ))}
         </div>
-        <span className="font-semibold text-foreground">
-          {site.reviews.rating.toFixed(1)}
-        </span>
+        <span className="font-semibold text-foreground">{site.reviews.rating.toFixed(1)}</span>
         <span className="text-muted-foreground">
-          ({site.reviews.count} opinii)
+          {t("reviewsCompact", { count: site.reviews.count })}
         </span>
       </a>
     );
@@ -71,16 +72,14 @@ export function GoogleReviewsBadge({ variant = "full" }: { variant?: Variant }) 
               <Star key={i} className="h-4 w-4 fill-current" />
             ))}
           </div>
-          <span className="text-sm font-bold text-foreground">
-            {site.reviews.rating.toFixed(1)}/5
-          </span>
+          <span className="text-sm font-bold text-foreground">{site.reviews.rating.toFixed(1)}/5</span>
         </div>
         <p className="mt-0.5 text-xs text-muted-foreground">
-          {site.reviews.count} opinii w Google
+          {t("reviewsOnGoogle", { count: site.reviews.count })}
         </p>
       </div>
       <span className="ml-2 text-xs font-medium text-brand underline-offset-2 group-hover:underline">
-        Zobacz opinie →
+        {t("seeReviews")}
       </span>
     </a>
   );

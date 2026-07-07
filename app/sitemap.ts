@@ -1,28 +1,45 @@
 import type { MetadataRoute } from "next";
+import { getPathname } from "@/i18n/navigation";
 import { site } from "@/lib/site";
 import { posts } from "@/lib/posts";
-import { services } from "@/lib/services";
+import { getAllServiceSlugs } from "@/lib/service-slugs";
+import type { Locale } from "@/i18n/routing";
+
+const localizedPages = [
+  "/",
+  "/oferta",
+  "/kontakt",
+  "/o-nas",
+  "/odbiory-mieszkan-krakow",
+  "/polityka-prywatnosci",
+] as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
+  const locales: Locale[] = ["pl", "en"];
 
-  const staticRoutes: MetadataRoute.Sitemap = [
-    { url: `${site.url}/`, lastModified: now, changeFrequency: "weekly", priority: 1 },
-    { url: `${site.url}/oferta`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${site.url}/o-nas`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
-    { url: `${site.url}/odbiory-mieszkan-krakow`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+  const localizedRoutes: MetadataRoute.Sitemap = localizedPages.flatMap((page) =>
+    locales.map((locale) => ({
+      url: `${site.url}${getPathname({ locale, href: page })}`,
+      lastModified: now,
+      changeFrequency: page === "/" ? "weekly" : page === "/polityka-prywatnosci" ? "yearly" : "monthly",
+      priority: page === "/" ? 1 : page === "/oferta" ? 0.9 : page === "/polityka-prywatnosci" ? 0.3 : 0.8,
+    }))
+  );
+
+  const plOnlyRoutes: MetadataRoute.Sitemap = [
     { url: `${site.url}/sklep`, lastModified: now, changeFrequency: "weekly", priority: 0.7 },
     { url: `${site.url}/blog`, lastModified: now, changeFrequency: "weekly", priority: 0.7 },
-    { url: `${site.url}/kontakt`, lastModified: now, changeFrequency: "yearly", priority: 0.6 },
-    { url: `${site.url}/polityka-prywatnosci`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
   ];
 
-  const serviceRoutes: MetadataRoute.Sitemap = services.map((s) => ({
-    url: `${site.url}/oferta/${s.slug}`,
-    lastModified: now,
-    changeFrequency: "monthly",
-    priority: 0.8,
-  }));
+  const serviceRoutes: MetadataRoute.Sitemap = locales.flatMap((locale) =>
+    getAllServiceSlugs(locale).map((slug) => ({
+      url: `${site.url}${getPathname({ locale, href: { pathname: "/oferta/[slug]", params: { slug } } })}`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    }))
+  );
 
   const blogRoutes: MetadataRoute.Sitemap = posts.map((p) => ({
     url: `${site.url}/blog/${p.slug}`,
@@ -31,5 +48,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...staticRoutes, ...serviceRoutes, ...blogRoutes];
+  return [...localizedRoutes, ...plOnlyRoutes, ...serviceRoutes, ...blogRoutes];
 }

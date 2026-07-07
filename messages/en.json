@@ -1,0 +1,491 @@
+{
+  "nav": {
+    "offer": "Services",
+    "about": "About us",
+    "shop": "Shop",
+    "blog": "Blog",
+    "contact": "Contact",
+    "krakowLanding": "Kraków apartment handovers",
+    "quote": "Get a quote",
+    "quoteMobile": "Get a free quote",
+    "menu": "Menu"
+  },
+  "footer": {
+    "tagline": "Professional technical handovers of apartments and houses in Małopolska, Silesia, and Subcarpathia.",
+    "navigation": "Navigation",
+    "services": "Services",
+    "contact": "Contact",
+    "privacy": "Privacy policy",
+    "reviews": "{rating} ({count}+ reviews)",
+    "workingHours": "Working hours",
+    "copyright": "© {year} {legalName}. All rights reserved.",
+    "taglineShort": "Technical handovers · Thermal imaging · Investment advisory"
+  },
+  "common": {
+    "home": "Home",
+    "learnMore": "Learn more",
+    "learnMoreChecklist": "See what we inspect",
+    "backToOffer": "Back to services",
+    "freeQuote": "Free quote",
+    "freeQuoteOrder": "Get a free quote",
+    "callUs": "Call:",
+    "optional": "(optional)",
+    "required": "required",
+    "seeOffer": "View services",
+    "seeDetails": "See details",
+    "seeFullOffer": "View full services",
+    "bookHandover": "Book a handover",
+    "checkOffer": "Browse services",
+    "reviewsOnGoogle": "{count} reviews on Google",
+    "seeReviews": "See reviews →",
+    "reviewsCompact": "({count} reviews)",
+    "ratingReviews": "{rating} / 5 · {count}+ reviews"
+  },
+  "forms": {
+    "contactTabs": {
+      "contact": "Write to us",
+      "quote": "Request a handover quote"
+    },
+    "contact": {
+      "name": "Full name",
+      "phone": "Phone",
+      "email": "Email",
+      "message": "Message",
+      "messagePlaceholder": "Describe what you need…",
+      "phonePlaceholder": "+48 500 000 000",
+      "emailPlaceholder": "jan.kowalski@firma.pl",
+      "submit": "Send message",
+      "successTitle": "Message sent",
+      "successMessage": "We will get back to you as soon as possible.",
+      "toastSuccess": "Thank you! We will be in touch shortly.",
+      "toastError": "Something went wrong. Please call {phone}.",
+      "sending": "Sending…"
+    },
+    "leadWizard": {
+      "title": "Book a handover in 3 steps",
+      "subtitle": "Short form — we respond within 24 hours.",
+      "propertyType": "Property type",
+      "propertyTypes": {
+        "apartment": "Apartment",
+        "house": "House",
+        "commercial": "Commercial unit"
+      },
+      "propertyHints": {
+        "apartment": "Primary or secondary market",
+        "house": "Detached, terraced, semi-detached",
+        "commercial": "Office, hospitality, retail"
+      },
+      "area": "Floor area",
+      "areas": {
+        "upTo40": "up to 40 m²",
+        "40to60": "40–60 m²",
+        "60to90": "60–90 m²",
+        "90to150": "90–150 m²",
+        "over150": "over 150 m²"
+      },
+      "location": "Location (city)",
+      "locationPlaceholder": "e.g. Kraków",
+      "date": "Planned handover date",
+      "attachments": "Attachments",
+      "attachmentsHint": "(optional — floor plan, design, other)",
+      "attachmentsDropzone": "Click or drag files here",
+      "attachmentsFormats": "PDF, JPG, PNG, DOC — max. 10 MB each",
+      "filesSelectedOne": "{count} file selected",
+      "filesSelectedFew": "{count} files selected",
+      "filesSelectedMany": "{count} files selected",
+      "name": "First name",
+      "phone": "Phone",
+      "email": "Email",
+      "phonePlaceholder": "+48 500 000 000",
+      "emailPlaceholder": "jan.kowalski@firma.pl",
+      "back": "Back",
+      "next": "Next",
+      "submit": "Get a free quote",
+      "sending": "Sending…",
+      "successTitle": "Enquiry received",
+      "successMessage": "Our engineer will call you within 24 hours with a free handover quote.",
+      "toastSuccess": "Thank you! We will be in touch within 24 hours.",
+      "toastMissingContact": "Please complete your contact details.",
+      "toastError": "Something went wrong. Please call {phone}."
+    },
+    "exitIntent": {
+      "title": "Planning an apartment handover?",
+      "description": "Request a quick call from an engineer — free and with no obligation. We will call within one hour.",
+      "placeholder": "Phone number or email",
+      "submit": "Request a quick callback",
+      "disclaimer": "We do not send spam. You can opt out at any time.",
+      "successTitle": "Thank you! We will be in touch shortly.",
+      "toastMissingContact": "Please enter a phone number or email.",
+      "toastError": "Something went wrong. Please try again."
+    },
+    "botField": "Do not fill in:"
+  },
+  "cookie": {
+    "text": "We use cookies for traffic analysis (Google Analytics) and to improve the website. Details in our",
+    "privacyLink": "privacy policy",
+    "reject": "Reject",
+    "accept": "Accept"
+  },
+  "rodo": {
+    "text": "I consent to the processing of my personal data by Bezpieczny Odbiór for the purpose of handling my enquiry. Details in the",
+    "privacyLink": "privacy policy"
+  },
+  "languageSwitcher": {
+    "pl": "PL",
+    "en": "EN"
+  },
+  "home": {
+    "hero": {
+      "badge": "Małopolska · Silesia · Subcarpathia",
+      "title": "Professional technical handovers",
+      "titleHighlight": "of apartments and houses",
+      "description": "Comprehensive engineering inspections of properties compliant with Polish Standards, the developer agreement, and architectural designs. Thermal imaging included as standard.",
+      "imageAlt": "Interior of a new apartment — technical handover",
+      "statsHandovers": "Handovers",
+      "statsRating": "Client rating",
+      "statsResponse": "Response time"
+    },
+    "steps": {
+      "title": "How it works",
+      "subtitle": "A simple, transparent process in three steps.",
+      "step1Title": "1. Book a visit",
+      "step1Desc": "Fill in a short form — we call back within 24 hours with a free quote.",
+      "step2Title": "2. Submit documents",
+      "step2Desc": "You provide the developer agreement and designs. We review them before the visit.",
+      "step3Title": "3. Technical handover",
+      "step3Desc": "Thorough on-site inspection, protocol, and support in contact with the developer."
+    },
+    "news": {
+      "eyebrow": "News",
+      "title": "New: Package — legal contract audit + technical handover",
+      "description": "Comprehensive protection for your investment in one service."
+    },
+    "whyUs": {
+      "title": "Why us",
+      "subtitle": "We combine engineering precision with experience from hundreds of handovers across southern Poland.",
+      "normsTitle": "Compliance with Polish Standards",
+      "normsDesc": "We verify every element against current building standards, technical conditions, and the developer agreement.",
+      "equipmentTitle": "Specialist equipment",
+      "equipmentDesc": "Thermal imaging camera, moisture meters, laser levels, and high-grade measuring instruments.",
+      "reportTitle": "Detailed report",
+      "reportDesc": "Complete protocol with identified defects, photos, and legal basis for claims — ready on the same day.",
+      "engineersTitle": "Experienced engineers",
+      "engineersDesc": "A team with building qualifications and hundreds of completed handovers across Małopolska."
+    },
+    "testimonials": {
+      "title": "Client reviews",
+      "subtitle": "Buyers across southern Poland have trusted us with their apartment handovers."
+    },
+    "faq": {
+      "title": "Frequently asked questions",
+      "subtitle": "Answers to questions our clients ask before every handover."
+    }
+  },
+  "contact": {
+    "title": "Contact us",
+    "subtitle": "We respond quickly to your enquiries. Free quote with no obligation.",
+    "serviceArea": "Service area",
+    "serviceAreaValue": "Małopolska, Silesia, and Subcarpathia voivodeships",
+    "workingHours": "Working hours",
+    "socialMedia": "Social media",
+    "formTitle": "Contact us",
+    "formSubtitle": "Send a general enquiry or request a free technical handover quote.",
+    "mapTitle": "Map — Bezpieczny Odbiór Kraków"
+  },
+  "about": {
+    "heroTitle": "Over 5 years of experience in technical handovers",
+    "heroDescription": "{siteName} is a team of engineers and architects passionate about property inspections. We protect your investment in Małopolska, Silesia, and Subcarpathia.",
+    "heroImageAlt": "Interior of a new apartment — technical handover",
+    "stats": {
+      "experience": "years of experience",
+      "handovers": "completed handovers",
+      "rating": "Google rating",
+      "regions": "voivodeships"
+    },
+    "whoWeAre": {
+      "title": "Who we are",
+      "paragraph1": "The company was founded from a passion for property and the need to give clients certainty that the apartments they buy — whether new from a developer or from the secondary market — are free from technical defects.",
+      "paragraph2": "We ensure that every technical handover runs smoothly and without stress, so clients can enjoy a safe and comfortable home that fully meets their expectations.",
+      "paragraph3": "To date we have served hundreds of clients, helping them with handovers of apartments and houses from the primary and secondary markets in Małopolska, Silesia, and Subcarpathia. Our commitment to service quality earns us overwhelmingly positive reviews, which drives us to keep going."
+    },
+    "values": {
+      "reliabilityTitle": "Reliability and compliance with standards",
+      "reliabilityDesc": "We conduct every handover in accordance with Polish building standards, technical conditions, and the developer agreement. We do not skip a single element.",
+      "teamTitle": "Experienced team",
+      "teamDesc": "A team of engineers and architects with building qualifications. Deep knowledge of building materials and technologies means we catch defects that non-specialists miss.",
+      "reviewsTitle": "Positive client reviews",
+      "reviewsDesc": "Our commitment to service quality is reflected in over 100 Google reviews with an average of 5.0/5. That is the best proof of our effectiveness.",
+      "regionsTitle": "Three voivodeships",
+      "regionsDesc": "We carry out handovers in Małopolska, Silesia, and Subcarpathia. We come to you — no travel required on your part."
+    },
+    "team": {
+      "title": "Our team",
+      "description": "A team of engineers and architects passionate about property inspections. Thanks to deep knowledge of building materials and technologies, we provide reliable technical assessments of buildings, giving our clients safety and confidence.",
+      "badges": {
+        "licence": "Building qualifications",
+        "thermal": "Thermal imaging camera",
+        "moisture": "Moisture meters",
+        "laser": "Laser levels"
+      }
+    },
+    "cta": {
+      "title": "Don't wait — protect your investment",
+      "description": "Contact us and book a technical handover. Free quote within 24 hours."
+    }
+  },
+  "offer": {
+    "title": "Services",
+    "subtitle": "Four core services and three additional ones — a full catalogue of engineering support for property buyers.",
+    "heroImageAlt": "Technical inspector during a property handover",
+    "basicServices": "Core services",
+    "newServices": "New services",
+    "newServicesSubtitle": "Extended catalogue for demanding clients.",
+    "badgeNew": "NEW",
+    "cta": {
+      "title": "Not sure which service to choose?",
+      "description": "Call or write — we will match the scope to your property and budget."
+    },
+    "services": {
+      "developer": {
+        "tag": "Primary market",
+        "title": "Developer property handovers",
+        "desc": "Thorough inspection of developer finish in accordance with the agreement, design, and building standards. We check room geometry, plaster, floor finishes, joinery, installations, and ventilation.",
+        "bullets": [
+          "Verification of compliance with developer agreement and Polish Standards",
+          "Plumb, level, angle, and geometry checks",
+          "Electrical, plumbing, and ventilation inspection",
+          "Complete protocol with photos and legal basis"
+        ],
+        "imageAlt": "Moisture measurement during a technical apartment handover"
+      },
+      "secondary": {
+        "tag": "Secondary market",
+        "title": "Secondary market property inspections",
+        "desc": "Technical assessment of a used apartment before purchase. We detect hidden defects, estimate renovation costs, and identify structural risks.",
+        "bullets": [
+          "Assessment of installations and structure",
+          "Detection of damp and thermal bridges",
+          "Estimated cost of necessary repairs",
+          "Negotiation recommendations before purchase"
+        ],
+        "imageAlt": "Technical property handover protocol"
+      },
+      "thermal": {
+        "tag": "Thermal imaging",
+        "title": "Thermal imaging surveys",
+        "desc": "Non-invasive diagnostics of heat loss, thermal bridges, damp, and workmanship defects — with a professional thermographic report.",
+        "bullets": [
+          "Detection of thermal bridges and air leakage",
+          "Location of damp and leaks",
+          "Assessment of wall and ceiling insulation quality",
+          "Report with thermograms and analysis"
+        ],
+        "imageAlt": "Thermal imaging survey with FLIR camera"
+      },
+      "advisory": {
+        "tag": "Advisory",
+        "title": "Investment advisory and finishing crew supervision",
+        "desc": "Support at every stage of your investment — from property selection to supervision of renovation crews. We protect your budget and schedule.",
+        "bullets": [
+          "Investment assessment before purchase",
+          "Engineering supervision of contractors",
+          "Finish quality control",
+          "Technical and budget consultations"
+        ],
+        "imageAlt": "Two people reviewing architectural drawings"
+      },
+      "premiumLegal": {
+        "title": "Package: Contract review by a solicitor + Technical inspection",
+        "desc": "Complete legal and technical protection. An experienced solicitor analyses the developer agreement for prohibited clauses, risks, and terms requiring negotiation.",
+        "bullets": [
+          "Full legal audit of the developer agreement",
+          "Identification of prohibited clauses and risks",
+          "Negotiation recommendations before signing",
+          "Rigorous technical property inspection",
+          "Unified legal and engineering report"
+        ]
+      },
+      "surveys": {
+        "title": "Architectural surveys",
+        "desc": "Precise mapping of structural layout, measurements, and verification of digital plans for interior designers and renovation needs.",
+        "bullets": [
+          "Laser measurements accurate to the millimetre",
+          "Digital plans in DWG and PDF formats",
+          "Verification of actual dimensions against design",
+          "Documentation of installations and structural elements"
+        ]
+      },
+      "energy": {
+        "title": "Energy audits and performance certificates",
+        "desc": "Official energy performance certificates and thermal assessment of properties — required for sale and rental.",
+        "bullets": [
+          "Energy certificate compliant with regulations",
+          "Building energy efficiency assessment",
+          "Modernisation recommendations to reduce costs",
+          "Support with sale and rental"
+        ]
+      }
+    }
+  },
+  "offerDetail": {
+    "checklistTitleHandover": "What do we inspect during the handover?",
+    "checklistTitleSurvey": "What do we inspect during the survey?",
+    "checklistSubtitle": "Verification of workmanship compliance with Polish Standards and specification using specialist tools.",
+    "toolsTitle": "Tools and methods",
+    "toolsSubtitle": "We use professional measuring and diagnostic equipment to provide a reliable assessment of the property's technical condition.",
+    "deliverablesTitle": "What you receive",
+    "orderTitle": "Order {price}",
+    "orderSubtitle": "Fill in the form — you will receive a free quote within 24 hours.",
+    "whyUsTitle": "Why Bezpieczny Odbiór?",
+    "whyUsItems": [
+      "Over {count}+ positive reviews on Google",
+      "Certified engineers with building qualifications",
+      "FLIR thermal imaging camera at every handover",
+      "PDF protocol ready on the same day",
+      "Post-handover support — help with claims"
+    ]
+  },
+  "krakow": {
+    "badge": "Kraków and surrounding area",
+    "title": "Apartment handover Kraków — engineer's technical inspection",
+    "description": "We carry out technical handovers of apartments and houses in every district of Kraków — from Prądnik Biały, through Krowodrza and Bronowice, to Podgórze and Nowa Huta. Over 5 years of local experience and {count}+ 5★ reviews on Google.",
+    "highlights": [
+      "Knowledge of local developers",
+      "Handovers within 2–5 business days",
+      "FLIR thermal imaging camera",
+      "PDF protocol on the same day"
+    ],
+    "imageAlt": "Panorama of Kraków",
+    "reviewQuote": "\"The apartment handover in Kraków (Prądnik Biały) met all expectations. Professional report.\"",
+    "districts": {
+      "title": "We carry out handovers in every district of Kraków",
+      "subtitle": "We know the specifics of local investments, developer workmanship standards, and the most common technical issues in each area of the city."
+    },
+    "developers": {
+      "title": "We know the standards of Kraków developers",
+      "description": "Over the past 5 years we have carried out handovers in investments by the largest developers in Kraków. We know what to pay particular attention to with each contractor — from plaster quality and floor finishes to window joinery.",
+      "disclaimer": "* The developer list is for information only — it does not constitute a commercial partnership. We carry out independent technical handovers in the interest of buyers."
+    },
+    "order": {
+      "title": "Book a handover in Kraków",
+      "subtitle": "Fill in the form — you will receive a free quote within 24 hours."
+    },
+    "whyUs": {
+      "title": "Why choose us in Kraków?",
+      "items": [
+        "Over 5 years serving the Kraków property market",
+        "{count}+ positive reviews on Google",
+        "Knowledge of Kraków developer investment specifics",
+        "Protocol ready on the same day in PDF format",
+        "Post-handover support — help contacting the developer"
+      ]
+    },
+    "faq": {
+      "title": "FAQ — apartment handover in Kraków",
+      "subtitle": "Answers to questions clients ask us most often before a handover in Kraków."
+    }
+  },
+  "privacy": {
+    "disclaimer": "In case of discrepancies, the Polish version prevails.",
+    "eyebrow": "Legal document",
+    "title": "Privacy policy",
+    "lastUpdated": "Last updated:",
+    "sections": {
+      "1": {
+        "title": "1. Data controller",
+        "content": "The controller of your personal data is {legalName}, registered at {street}, {postalCode} {city}. Contact for data protection matters: {email}."
+      },
+      "2": {
+        "title": "2. Purposes and legal bases of processing",
+        "intro": "We process your personal data for the following purposes:",
+        "items": [
+          "handling enquiries and preparing quotes (Art. 6(1)(b) GDPR — steps prior to entering into a contract);",
+          "performance of technical handover and related service contracts (Art. 6(1)(b) GDPR);",
+          "pursuing potential claims (Art. 6(1)(f) GDPR);",
+          "website traffic analysis using Google Analytics (Art. 6(1)(a) GDPR — only with your consent)."
+        ]
+      },
+      "3": {
+        "title": "3. Data recipients",
+        "content": "Your data may be shared with our trusted subcontractors: hosting providers (Netlify), analytics tools (Google Analytics — with consent), accounting, and legal services. All recipients are obliged to maintain confidentiality and protect data in accordance with the GDPR."
+      },
+      "4": {
+        "title": "4. Retention period",
+        "content": "We retain contact data for the period necessary to respond (up to 12 months), and in the case of a contract — for the duration of performance and 5 years after completion (accounting and tax obligations)."
+      },
+      "5": {
+        "title": "5. Your rights",
+        "intro": "Under the GDPR, you have the right to:",
+        "items": [
+          "access your data and receive a copy;",
+          "rectification, erasure, or restriction of processing;",
+          "data portability;",
+          "object to processing;",
+          "withdraw consent at any time (without affecting the lawfulness of processing before withdrawal);",
+          "lodge a complaint with the President of the Personal Data Protection Office (UODO)."
+        ]
+      },
+      "6": {
+        "title": "6. Cookies",
+        "content": "The website uses cookies necessary for proper operation and — with your consent — Google Analytics cookies (with IP anonymisation). Consent can be withdrawn at any time by clearing browser data."
+      },
+      "7": {
+        "title": "7. Transfers to third countries",
+        "content": "Due to the use of Google Analytics, data may be transferred outside the EEA on the basis of standard contractual clauses approved by the European Commission."
+      },
+      "8": {
+        "title": "8. Automated decision-making",
+        "content": "We do not use automated decision-making or profiling within the meaning of Art. 22 GDPR."
+      },
+      "9": {
+        "title": "9. Contact",
+        "content": "For matters relating to personal data protection, please contact us at {email} or by phone: {phone}."
+      }
+    }
+  },
+  "metadata": {
+    "home": {
+      "title": "Apartment handover inspection Kraków | Bezpieczny Odbiór",
+      "description": "Technical apartment handovers in Kraków. Thermal imaging camera, Polish Standards, 100+ 5★ reviews. Free quote within 24h.",
+      "keywords": "apartment inspection Krakow,technical handover,developer handover,thermal imaging Krakow,property inspection Poland"
+    },
+    "contact": {
+      "title": "Contact",
+      "description": "Contact us by phone or email. Free handover quote within 24h. Małopolska, Silesia, and Subcarpathia.",
+      "keywords": ""
+    },
+    "about": {
+      "title": "About us",
+      "description": "Bezpieczny Odbiór is a team of engineers and architects with over 5 years of experience in technical apartment and house handovers across southern Poland.",
+      "keywords": ""
+    },
+    "offer": {
+      "title": "Services",
+      "description": "Developer and secondary market handovers, thermal imaging, investment advisory, legal audit packages, architectural surveys, and energy certificates.",
+      "keywords": ""
+    },
+    "offerDetail": {
+      "title": "Service",
+      "description": "Professional technical property handover in Kraków and Małopolska.",
+      "keywords": ""
+    },
+    "krakow": {
+      "title": "Apartment inspection Kraków — engineer-led technical review",
+      "description": "Apartment handover in Kraków — professional technical inspection with thermal imaging in every district. Free quote within 24h.",
+      "keywords": ""
+    },
+    "privacy": {
+      "title": "Privacy policy",
+      "description": "Privacy policy of Bezpieczny Odbiór — personal data processing, cookies, and user rights under GDPR.",
+      "keywords": ""
+    }
+  },
+  "hours": {
+    "weekdays": "Monday – Friday",
+    "weekdaysTime": "08:00 – 18:00",
+    "saturday": "Saturday",
+    "saturdayTime": "09:00 – 14:00",
+    "sunday": "Sunday",
+    "sundayTime": "phone contact available"
+  }
+}

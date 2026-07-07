@@ -1,18 +1,20 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import { ContactForm } from "./ContactForm";
 import { LeadWizard } from "./LeadWizard";
 
 const tabs = [
-  { id: "contact", label: "Napisz do nas" },
-  { id: "quote", label: "Zamów wycenę odbioru" },
+  { id: "contact", key: "contact" },
+  { id: "quote", key: "quote" },
 ] as const;
 
 type Tab = (typeof tabs)[number]["id"];
 
 export function ContactFormTabs() {
   const [active, setActive] = useState<Tab>("contact");
+  const t = useTranslations("forms.contactTabs");
 
   return (
     <div>
@@ -28,7 +30,7 @@ export function ContactFormTabs() {
                 : "text-muted-foreground hover:bg-background/60 hover:text-foreground"
             }`}
           >
-            {tab.label}
+            {t(tab.key)}
           </button>
         ))}
       </div>

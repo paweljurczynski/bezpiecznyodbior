@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import Script from "next/script";
 import { Cookie } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -12,6 +13,7 @@ const gaId = process.env.NEXT_PUBLIC_GA_ID;
 type Consent = "accepted" | "rejected" | null;
 
 export function CookieBanner() {
+  const t = useTranslations("cookie");
   const [consent, setConsent] = useState<Consent>(null);
   const [ready, setReady] = useState(false);
 
@@ -50,18 +52,18 @@ export function CookieBanner() {
                 <Cookie className="h-5 w-5" />
               </div>
               <p className="flex-1 text-sm text-muted-foreground">
-                Używamy plików cookie do analizy ruchu (Google Analytics) i poprawy jakości strony. Szczegóły w{" "}
+                {t("text")}{" "}
                 <Link href="/polityka-prywatnosci" className="font-semibold text-brand hover:underline">
-                  polityce prywatności
+                  {t("privacyLink")}
                 </Link>
                 .
               </p>
               <div className="flex flex-col gap-2 sm:flex-row">
                 <Button type="button" variant="outline" size="sm" onClick={() => set("rejected")}>
-                  Odrzuć
+                  {t("reject")}
                 </Button>
                 <Button type="button" size="sm" variant="cta" onClick={() => set("accepted")}>
-                  Akceptuję
+                  {t("accept")}
                 </Button>
               </div>
             </div>
