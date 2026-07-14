@@ -1,33 +1,40 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, Clock, Tag, Phone, ArrowRight } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import { setRequestLocale } from "next-intl/server";
+import { Link, getPathname } from "@/i18n/navigation";
 import { posts } from "@/lib/posts";
 import { JsonLd, breadcrumbSchema, articleSchema } from "@/components/JsonLd";
 import { ObfuscatedPhoneLink } from "@/components/ObfuscatedContact";
 import { Button } from "@/components/ui/button";
 import { site } from "@/lib/site";
+import type { Locale } from "@/i18n/routing";
 
-type Props = { params: Promise<{ slug: string }> };
+type Props = { params: Promise<{ locale: string; slug: string }> };
 
 export function generateStaticParams() {
   return posts.map((p) => ({ slug: p.slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { slug } = await params;
+  const { locale, slug } = await params;
+  if (locale !== "pl") return {};
   const post = posts.find((p) => p.slug === slug);
   if (!post) return {};
+  const pathname = getPathname({
+    locale: "pl",
+    href: { pathname: "/blog/[slug]", params: { slug: post.slug } },
+  });
   return {
     title: post.title,
     description: post.excerpt,
-    alternates: { canonical: `/blog/${post.slug}` },
+    alternates: { canonical: `${site.url}${pathname}` },
     openGraph: {
       title: `${post.title} | ${site.name}`,
       description: post.excerpt,
-      url: `${site.url}/blog/${post.slug}`,
+      url: `${site.url}${pathname}`,
     },
   };
 }
@@ -41,7 +48,10 @@ function formatDate(dateStr: string) {
 }
 
 export default async function BlogPostPage({ params }: Props) {
-  const { slug } = await params;
+  const { locale, slug } = await params;
+  if (locale !== "pl") notFound();
+  setRequestLocale(locale as Locale);
+
   const post = posts.find((p) => p.slug === slug);
   if (!post) notFound();
 
@@ -129,7 +139,7 @@ export default async function BlogPostPage({ params }: Props) {
                     .map((p) => (
                       <li key={p.slug}>
                         <Link
-                          href={`/blog/${p.slug}`}
+                          href={{ pathname: "/blog/[slug]", params: { slug: p.slug } }}
                           className="text-sm font-medium text-brand hover:underline"
                         >
                           {p.title}

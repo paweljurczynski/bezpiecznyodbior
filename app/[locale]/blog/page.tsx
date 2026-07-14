@@ -1,22 +1,32 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { notFound } from "next/navigation";
 import { ArrowRight, Clock, Tag } from "lucide-react";
+import { setRequestLocale } from "next-intl/server";
+import { Link, getPathname } from "@/i18n/navigation";
 import { posts } from "@/lib/posts";
 import { JsonLd, breadcrumbSchema } from "@/components/JsonLd";
 import { site } from "@/lib/site";
+import type { Locale } from "@/i18n/routing";
 
-export const metadata: Metadata = {
-  title: "Blog — Porady Ekspertów",
-  description:
-    "Porady i wskazówki dotyczące odbioru technicznego mieszkania od dewelopera. Dowiedz się, na co zwrócić uwagę podczas odbioru nieruchomości.",
-  alternates: { canonical: "/blog" },
-  openGraph: {
-    title: "Blog — Porady Ekspertów | Bezpieczny Odbiór",
+type Props = { params: Promise<{ locale: string }> };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  if (locale !== "pl") return {};
+  const pathname = getPathname({ locale: "pl", href: "/blog" });
+  return {
+    title: "Blog — Porady Ekspertów",
     description:
-      "Porady i wskazówki dotyczące odbioru technicznego mieszkania od dewelopera.",
-    url: `${site.url}/blog`,
-  },
-};
+      "Porady i wskazówki dotyczące odbioru technicznego mieszkania od dewelopera. Dowiedz się, na co zwrócić uwagę podczas odbioru nieruchomości.",
+    alternates: { canonical: `${site.url}${pathname}` },
+    openGraph: {
+      title: "Blog — Porady Ekspertów | Bezpieczny Odbiór",
+      description:
+        "Porady i wskazówki dotyczące odbioru technicznego mieszkania od dewelopera.",
+      url: `${site.url}${pathname}`,
+    },
+  };
+}
 
 function formatDate(dateStr: string) {
   return new Date(dateStr).toLocaleDateString("pl-PL", {
@@ -26,7 +36,11 @@ function formatDate(dateStr: string) {
   });
 }
 
-export default function BlogPage() {
+export default async function BlogPage({ params }: Props) {
+  const { locale } = await params;
+  if (locale !== "pl") notFound();
+  setRequestLocale(locale as Locale);
+
   return (
     <>
       <JsonLd
@@ -50,7 +64,11 @@ export default function BlogPage() {
       <section className="container-page py-16">
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {posts.map((post) => (
-            <Link key={post.slug} href={`/blog/${post.slug}`} className="group block">
+            <Link
+              key={post.slug}
+              href={{ pathname: "/blog/[slug]", params: { slug: post.slug } }}
+              className="group block"
+            >
               <article className="flex h-full flex-col rounded-2xl border border-border bg-card p-8 shadow-sm transition-shadow hover:shadow-elegant">
                 <div className="flex items-center gap-3 text-xs text-muted-foreground">
                   <span className="flex items-center gap-1.5">

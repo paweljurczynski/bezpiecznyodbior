@@ -1,4 +1,3 @@
-import NextLink from "next/link";
 import { Facebook, Instagram, Mail, Phone, MapPin, Star } from "lucide-react";
 import { getTranslations, getLocale } from "next-intl/server";
 import { ObfuscatedEmailLink, ObfuscatedPhoneLink } from "@/components/ObfuscatedContact";
@@ -73,14 +72,14 @@ export async function Footer() {
             {locale === "pl" && (
               <>
                 <li>
-                  <NextLink href="/sklep" className="hover:text-brand">
+                  <Link href="/sklep" className="hover:text-brand">
                     {tNav("shop")}
-                  </NextLink>
+                  </Link>
                 </li>
                 <li>
-                  <NextLink href="/blog" className="hover:text-brand">
+                  <Link href="/blog" className="hover:text-brand">
                     {tNav("blog")}
-                  </NextLink>
+                  </Link>
                 </li>
               </>
             )}

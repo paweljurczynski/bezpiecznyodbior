@@ -28,8 +28,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
   );
 
   const plOnlyRoutes: MetadataRoute.Sitemap = [
-    { url: `${site.url}/sklep`, lastModified: now, changeFrequency: "weekly", priority: 0.7 },
-    { url: `${site.url}/blog`, lastModified: now, changeFrequency: "weekly", priority: 0.7 },
+    {
+      url: `${site.url}${getPathname({ locale: "pl", href: "/sklep" })}`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.7,
+    },
+    {
+      url: `${site.url}${getPathname({ locale: "pl", href: "/blog" })}`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.7,
+    },
   ];
 
   const serviceRoutes: MetadataRoute.Sitemap = locales.flatMap((locale) =>
@@ -42,7 +52,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   );
 
   const blogRoutes: MetadataRoute.Sitemap = posts.map((p) => ({
-    url: `${site.url}/blog/${p.slug}`,
+    url: `${site.url}${getPathname({ locale: "pl", href: { pathname: "/blog/[slug]", params: { slug: p.slug } } })}`,
     lastModified: now,
     changeFrequency: "yearly",
     priority: 0.6,

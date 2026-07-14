@@ -18,6 +18,9 @@ export const routing = defineRouting({
       pl: "/polityka-prywatnosci",
       en: "/privacy-policy",
     },
+    "/sklep": "/sklep",
+    "/blog": "/blog",
+    "/blog/[slug]": "/blog/[slug]",
   },
 });
 

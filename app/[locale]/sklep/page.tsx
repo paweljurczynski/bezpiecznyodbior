@@ -1,13 +1,25 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import { BookOpen, CheckCircle2, Clock, Sparkles } from "lucide-react";
+import { setRequestLocale } from "next-intl/server";
+import { getPathname } from "@/i18n/navigation";
 import { WaitlistForm } from "@/components/WaitlistForm";
+import { site } from "@/lib/site";
+import type { Locale } from "@/i18n/routing";
 
-export const metadata: Metadata = {
-  title: "Sklep i edukacja — E-booki",
-  description:
-    "E-booki o odbiorach technicznych i umowach deweloperskich. Zapisz się na listę oczekujących i odbierz 20% zniżki w dniu premiery.",
-  alternates: { canonical: "/sklep" },
-};
+type Props = { params: Promise<{ locale: string }> };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  if (locale !== "pl") return {};
+  const pathname = getPathname({ locale: "pl", href: "/sklep" });
+  return {
+    title: "Sklep i edukacja — E-booki",
+    description:
+      "E-booki o odbiorach technicznych i umowach deweloperskich. Zapisz się na listę oczekujących i odbierz 20% zniżki w dniu premiery.",
+    alternates: { canonical: `${site.url}${pathname}` },
+  };
+}
 
 const ebooks = [
   {
@@ -34,7 +46,11 @@ const ebooks = [
   },
 ];
 
-export default function SklepPage() {
+export default async function SklepPage({ params }: Props) {
+  const { locale } = await params;
+  if (locale !== "pl") notFound();
+  setRequestLocale(locale as Locale);
+
   return (
     <>
       <section className="border-b border-border bg-gradient-to-b from-brand-soft/50 to-background">

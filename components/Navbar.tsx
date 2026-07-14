@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import NextLink from "next/link";
 import { useTranslations, useLocale } from "next-intl";
 import { Menu, X, Phone } from "lucide-react";
 import { ObfuscatedPhoneLink } from "@/components/ObfuscatedContact";
@@ -19,8 +18,8 @@ const localizedLinks = [
 ];
 
 const plOnlyLinks = [
-  { href: "/sklep", key: "shop" },
-  { href: "/blog", key: "blog" },
+  { href: "/sklep" as const, key: "shop" },
+  { href: "/blog" as const, key: "blog" },
 ];
 
 export function Navbar() {
@@ -53,7 +52,7 @@ export function Navbar() {
           ))}
           {locale === "pl" &&
             plOnlyLinks.map((link) => (
-              <NextLink
+              <Link
                 key={link.href}
                 href={link.href}
                 className={cn(
@@ -63,7 +62,7 @@ export function Navbar() {
                 aria-current={isActive(link.href) ? "page" : undefined}
               >
                 {t(link.key)}
-              </NextLink>
+              </Link>
             ))}
         </nav>
 
@@ -109,7 +108,7 @@ export function Navbar() {
             ))}
             {locale === "pl" &&
               plOnlyLinks.map((link) => (
-                <NextLink
+                <Link
                   key={link.href}
                   href={link.href}
                   onClick={() => setOpen(false)}
@@ -119,7 +118,7 @@ export function Navbar() {
                   )}
                 >
                   {t(link.key)}
-                </NextLink>
+                </Link>
               ))}
             <Button asChild variant="cta" className="mt-2">
               <Link href="/kontakt" onClick={() => setOpen(false)}>
