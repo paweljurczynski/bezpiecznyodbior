@@ -17,6 +17,7 @@ import { Link, getPathname } from "@/i18n/navigation";
 import { ObfuscatedPhoneLink } from "@/components/ObfuscatedContact";
 import { Button } from "@/components/ui/button";
 import { LeadWizard } from "@/components/LeadWizard";
+import { PageHero } from "@/components/PageHero";
 import { JsonLd, breadcrumbSchema } from "@/components/JsonLd";
 import { BLUR_PLACEHOLDER } from "@/lib/image";
 import { getServices } from "@/lib/content";
@@ -77,25 +78,16 @@ export default async function OfertaPage({ params }: Props) {
         ])}
       />
 
-      <section className="relative overflow-hidden border-b border-border">
-        <Image
-          src="/oferta-hero.jpg"
-          alt={t("heroImageAlt")}
-          fill
-          priority
-          fetchPriority="high"
-          quality={70}
-          sizes="100vw"
-          className="object-cover object-center"
-        />
-        <div className="absolute inset-0 bg-black/60" />
-        <div className="container-page relative py-16 text-center md:py-20">
-          <h1 className="mx-auto max-w-3xl text-4xl font-extrabold text-white md:text-5xl">
-            {t("title")}
-          </h1>
-          <p className="mx-auto mt-4 max-w-2xl text-white/80">{t("subtitle")}</p>
-        </div>
-      </section>
+      <PageHero
+        imageSrc="/oferta-hero.jpg"
+        imageAlt={t("heroImageAlt")}
+        contentClassName="py-16 text-center md:py-20"
+      >
+        <h1 className="mx-auto max-w-3xl text-4xl font-extrabold text-white md:text-5xl">
+          {t("title")}
+        </h1>
+        <p className="mx-auto mt-4 max-w-2xl text-white/80">{t("subtitle")}</p>
+      </PageHero>
 
       <section className="container-page py-16">
         <h2 className="text-2xl font-bold text-brand md:text-3xl">{t("basicServices")}</h2>

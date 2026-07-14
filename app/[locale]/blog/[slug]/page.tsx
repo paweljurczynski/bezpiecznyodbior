@@ -9,6 +9,7 @@ import { posts } from "@/lib/posts";
 import { JsonLd, breadcrumbSchema, articleSchema } from "@/components/JsonLd";
 import { ObfuscatedPhoneLink } from "@/components/ObfuscatedContact";
 import { Button } from "@/components/ui/button";
+import { PageHero } from "@/components/PageHero";
 import { site } from "@/lib/site";
 import type { Locale } from "@/i18n/routing";
 
@@ -68,30 +69,31 @@ export default async function BlogPostPage({ params }: Props) {
         ]}
       />
 
-      <section className="border-b border-border bg-gradient-to-b from-brand-soft/50 to-background">
-        <div className="container-page py-12 md:py-16">
-          <Link
-            href="/blog"
-            className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-brand"
-          >
-            <ArrowLeft className="h-3.5 w-3.5" /> Wróć do bloga
-          </Link>
-          <div className="mt-4 flex flex-wrap items-center gap-4 text-xs text-muted-foreground">
-            <span className="flex items-center gap-1.5">
-              <Tag className="h-3.5 w-3.5" />
-              {post.category}
-            </span>
-            <span className="flex items-center gap-1.5">
-              <Clock className="h-3.5 w-3.5" />
-              {post.readingTime}
-            </span>
-            <time dateTime={post.date}>{formatDate(post.date)}</time>
-          </div>
-          <h1 className="mt-4 max-w-3xl text-3xl font-extrabold leading-tight text-brand md:text-4xl">
-            {post.title}
-          </h1>
+      <PageHero
+        imageAlt="Wnętrze nowego mieszkania — odbiór techniczny"
+        contentClassName="py-12 md:py-16"
+      >
+        <Link
+          href="/blog"
+          className="inline-flex items-center gap-1.5 text-sm text-white/70 hover:text-white"
+        >
+          <ArrowLeft className="h-3.5 w-3.5" /> Wróć do bloga
+        </Link>
+        <div className="mt-4 flex flex-wrap items-center gap-4 text-xs text-white/70">
+          <span className="flex items-center gap-1.5">
+            <Tag className="h-3.5 w-3.5" />
+            {post.category}
+          </span>
+          <span className="flex items-center gap-1.5">
+            <Clock className="h-3.5 w-3.5" />
+            {post.readingTime}
+          </span>
+          <time dateTime={post.date}>{formatDate(post.date)}</time>
         </div>
-      </section>
+        <h1 className="mt-4 max-w-3xl text-3xl font-extrabold leading-tight text-white md:text-4xl">
+          {post.title}
+        </h1>
+      </PageHero>
 
       <section className="container-page py-12">
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1fr_280px]">

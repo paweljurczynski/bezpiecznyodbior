@@ -4,6 +4,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { getPathname } from "@/i18n/navigation";
 import { ContactEmailCard, ContactPhoneCard } from "@/components/ObfuscatedContact";
 import { ContactFormTabs } from "@/components/ContactFormTabs";
+import { PageHero } from "@/components/PageHero";
 import { JsonLd, breadcrumbSchema } from "@/components/JsonLd";
 import { buildAlternates, baseOpenGraph } from "@/lib/metadata-i18n";
 import { site } from "@/lib/site";
@@ -35,6 +36,7 @@ export default async function KontaktPage({ params }: Props) {
 
   const t = await getTranslations({ locale, namespace: "contact" });
   const tCommon = await getTranslations({ locale, namespace: "common" });
+  const tHome = await getTranslations({ locale, namespace: "home" });
   const tHours = await getTranslations({ locale, namespace: "hours" });
   const typedLocale = locale as Locale;
 
@@ -53,14 +55,12 @@ export default async function KontaktPage({ params }: Props) {
         ])}
       />
 
-      <section className="border-b border-border bg-gradient-to-b from-brand-soft/50 to-background">
-        <div className="container-page py-16 text-center md:py-20">
-          <h1 className="mx-auto max-w-3xl text-4xl font-extrabold text-brand md:text-5xl">
-            {t("title")}
-          </h1>
-          <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">{t("subtitle")}</p>
-        </div>
-      </section>
+      <PageHero imageAlt={tHome("hero.imageAlt")} contentClassName="py-16 text-center md:py-20">
+        <h1 className="mx-auto max-w-3xl text-4xl font-extrabold text-white md:text-5xl">
+          {t("title")}
+        </h1>
+        <p className="mx-auto mt-4 max-w-2xl text-white/80">{t("subtitle")}</p>
+      </PageHero>
 
       <section className="container-page py-16">
         <div className="grid min-w-0 gap-10 lg:grid-cols-[1fr_1.2fr]">

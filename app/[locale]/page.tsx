@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import {
   ShieldCheck,
   Thermometer,
@@ -17,6 +16,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { getPathname } from "@/i18n/navigation";
 import { LeadWizard } from "@/components/LeadWizard";
+import { PageHero } from "@/components/PageHero";
 import { FaqAccordion } from "@/components/FaqAccordion";
 import { GoogleReviewsBadge } from "@/components/GoogleReviewsBadge";
 import { Button } from "@/components/ui/button";
@@ -71,19 +71,7 @@ export default async function HomePage({ params }: Props) {
 
   return (
     <>
-      <section className="relative overflow-hidden border-b border-border">
-        <Image
-          src="/hero-apartment.png"
-          alt={t("hero.imageAlt")}
-          fill
-          priority
-          fetchPriority="high"
-          quality={70}
-          sizes="100vw"
-          className="object-cover object-center"
-        />
-        <div className="absolute inset-0 bg-black/60" />
-        <div className="container-page relative grid gap-12 py-16 md:grid-cols-2 md:py-24">
+      <PageHero imageAlt={t("hero.imageAlt")} contentClassName="grid gap-12 py-16 md:grid-cols-2 md:py-24">
           <div className="flex flex-col justify-center text-white">
             <span className="inline-flex w-fit items-center gap-2 rounded-full border border-white/30 bg-white/10 px-3 py-1 text-xs font-semibold backdrop-blur-sm">
               <Sparkles className="h-3.5 w-3.5" /> {t("hero.badge")}
@@ -131,8 +119,7 @@ export default async function HomePage({ params }: Props) {
             </div>
             <LeadWizard />
           </div>
-        </div>
-      </section>
+      </PageHero>
 
       <section className="bg-surface py-20">
         <div className="container-page">

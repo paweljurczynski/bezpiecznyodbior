@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { getPathname } from "@/i18n/navigation";
 import { ObfuscatedEmailLink, ObfuscatedPhoneLink } from "@/components/ObfuscatedContact";
+import { PageHero } from "@/components/PageHero";
 import { buildAlternates, baseOpenGraph } from "@/lib/metadata-i18n";
 import { site } from "@/lib/site";
 import type { Locale } from "@/i18n/routing";
@@ -35,6 +36,7 @@ export default async function PolitykaPrywatnosciPage({ params }: Props) {
   setRequestLocale(locale);
 
   const t = await getTranslations({ locale, namespace: "privacy" });
+  const tHome = await getTranslations({ locale, namespace: "home" });
   const typedLocale = locale as Locale;
   const dateLocale = typedLocale === "en" ? "en-GB" : "pl-PL";
 
@@ -57,23 +59,26 @@ export default async function PolitykaPrywatnosciPage({ params }: Props) {
   const [section9Between, section9AfterPhone] = section9Rest.split(PHONE_MARKER);
 
   return (
-    <section className="container-page py-16 sm:py-24">
-      <div className="mx-auto max-w-3xl">
-        {typedLocale === "en" && (
-          <p className="mb-6 rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-900">
-            {t("disclaimer")}
-          </p>
-        )}
-
-        <p className="section-eyebrow">{t("eyebrow")}</p>
-        <h1 className="mt-2 text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">
+    <>
+      <PageHero imageAlt={tHome("hero.imageAlt")} contentClassName="py-16 text-center md:py-20">
+        <p className="section-eyebrow text-white/70">{t("eyebrow")}</p>
+        <h1 className="mt-2 text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
           {t("title")}
         </h1>
-        <p className="mt-4 text-sm text-slate-500">
+        <p className="mt-4 text-sm text-white/70">
           {t("lastUpdated")} {new Date().toLocaleDateString(dateLocale)}
         </p>
+      </PageHero>
 
-        <div className="prose prose-slate mt-10 max-w-none space-y-8 text-slate-700">
+      <section className="container-page py-16 sm:py-24">
+        <div className="mx-auto max-w-3xl">
+          {typedLocale === "en" && (
+            <p className="mb-6 rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-900">
+              {t("disclaimer")}
+            </p>
+          )}
+
+        <div className="prose prose-slate max-w-none space-y-8 text-slate-700">
           <div>
             <h2 className="text-2xl font-bold text-slate-900">{t("sections.1.title")}</h2>
             <p className="mt-3">
@@ -141,5 +146,6 @@ export default async function PolitykaPrywatnosciPage({ params }: Props) {
         </div>
       </div>
     </section>
+    </>
   );
 }

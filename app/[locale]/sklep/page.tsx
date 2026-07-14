@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { BookOpen, CheckCircle2, Clock, Sparkles } from "lucide-react";
 import { setRequestLocale } from "next-intl/server";
 import { getPathname } from "@/i18n/navigation";
+import { PageHero } from "@/components/PageHero";
 import { WaitlistForm } from "@/components/WaitlistForm";
 import { site } from "@/lib/site";
 import type { Locale } from "@/i18n/routing";
@@ -53,19 +54,20 @@ export default async function SklepPage({ params }: Props) {
 
   return (
     <>
-      <section className="border-b border-border bg-gradient-to-b from-brand-soft/50 to-background">
-        <div className="container-page py-16 text-center md:py-20">
-          <span className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-3 py-1 text-xs font-semibold text-brand">
-            <Sparkles className="h-3.5 w-3.5" /> Wkrótce dostępne
-          </span>
-          <h1 className="mx-auto mt-5 max-w-3xl text-4xl font-extrabold text-brand md:text-5xl">
-            Sklep i edukacja
-          </h1>
-          <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
-            Przygotowujemy e-booki, w których dzielimy się wiedzą z setek odbiorów. Zapisz się na listę oczekujących i otrzymaj 20% zniżki w dniu premiery.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        imageAlt="Wnętrze nowego mieszkania — odbiór techniczny"
+        contentClassName="py-16 text-center md:py-20"
+      >
+        <span className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-3 py-1 text-xs font-semibold text-white backdrop-blur-sm">
+          <Sparkles className="h-3.5 w-3.5" /> Wkrótce dostępne
+        </span>
+        <h1 className="mx-auto mt-5 max-w-3xl text-4xl font-extrabold text-white md:text-5xl">
+          Sklep i edukacja
+        </h1>
+        <p className="mx-auto mt-4 max-w-2xl text-white/80">
+          Przygotowujemy e-booki, w których dzielimy się wiedzą z setek odbiorów. Zapisz się na listę oczekujących i otrzymaj 20% zniżki w dniu premiery.
+        </p>
+      </PageHero>
 
       <section className="container-page py-16">
         <div className="grid gap-8 md:grid-cols-2">

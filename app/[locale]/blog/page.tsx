@@ -5,6 +5,7 @@ import { setRequestLocale } from "next-intl/server";
 import { Link, getPathname } from "@/i18n/navigation";
 import { posts } from "@/lib/posts";
 import { JsonLd, breadcrumbSchema } from "@/components/JsonLd";
+import { PageHero } from "@/components/PageHero";
 import { site } from "@/lib/site";
 import type { Locale } from "@/i18n/routing";
 
@@ -50,16 +51,17 @@ export default async function BlogPage({ params }: Props) {
         ])}
       />
 
-      <section className="border-b border-border bg-gradient-to-b from-brand-soft/50 to-background">
-        <div className="container-page py-16 text-center md:py-20">
-          <h1 className="text-4xl font-extrabold text-brand md:text-5xl">
-            Porady Ekspertów
-          </h1>
-          <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
-            Wskazówki i wiedza od inżynierów — dowiedz się, jak skutecznie odebrać mieszkanie od dewelopera.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        imageAlt="Wnętrze nowego mieszkania — odbiór techniczny"
+        contentClassName="py-16 text-center md:py-20"
+      >
+        <h1 className="text-4xl font-extrabold text-white md:text-5xl">
+          Porady Ekspertów
+        </h1>
+        <p className="mx-auto mt-4 max-w-2xl text-white/80">
+          Wskazówki i wiedza od inżynierów — dowiedz się, jak skutecznie odebrać mieszkanie od dewelopera.
+        </p>
+      </PageHero>
 
       <section className="container-page py-16">
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">

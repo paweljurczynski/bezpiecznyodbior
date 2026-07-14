@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import {
   Users,
   ShieldCheck,
@@ -12,6 +11,7 @@ import {
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link, getPathname } from "@/i18n/navigation";
 import { JsonLd, breadcrumbSchema, organizationSchema } from "@/components/JsonLd";
+import { PageHero } from "@/components/PageHero";
 import { GoogleReviewsBadge } from "@/components/GoogleReviewsBadge";
 import { ObfuscatedPhoneLink } from "@/components/ObfuscatedContact";
 import { Button } from "@/components/ui/button";
@@ -79,19 +79,7 @@ export default async function ONasPage({ params }: Props) {
       />
       <JsonLd data={organizationSchema(typedLocale)} />
 
-      <section className="relative overflow-hidden">
-        <Image
-          src="/hero-apartment.png"
-          alt={t("heroImageAlt")}
-          fill
-          priority
-          fetchPriority="high"
-          quality={70}
-          sizes="100vw"
-          className="object-cover object-center"
-        />
-        <div className="absolute inset-0 bg-black/60" />
-        <div className="container-page relative py-20 text-center md:py-28">
+      <PageHero imageAlt={t("heroImageAlt")} contentClassName="py-20 text-center md:py-28">
           <h1 className="mx-auto max-w-3xl text-4xl font-extrabold text-white md:text-5xl">
             {t("heroTitle")}
           </h1>
@@ -113,8 +101,7 @@ export default async function ONasPage({ params }: Props) {
               </Link>
             </Button>
           </div>
-        </div>
-      </section>
+      </PageHero>
 
       <section className="bg-brand py-12">
         <div className="container-page">

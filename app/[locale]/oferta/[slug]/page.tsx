@@ -9,6 +9,7 @@ import { LeadWizard } from "@/components/LeadWizard";
 import { JsonLd, breadcrumbSchema } from "@/components/JsonLd";
 import { ObfuscatedPhoneLink } from "@/components/ObfuscatedContact";
 import { Button } from "@/components/ui/button";
+import { PageHero } from "@/components/PageHero";
 import { buildServiceAlternates, baseOpenGraph } from "@/lib/metadata-i18n";
 import { getAllServiceSlugs } from "@/lib/service-slugs";
 import { site } from "@/lib/site";
@@ -55,6 +56,7 @@ export default async function ServiceDetailPage({ params }: Props) {
   const t = await getTranslations({ locale, namespace: "offerDetail" });
   const tCommon = await getTranslations({ locale, namespace: "common" });
   const tNav = await getTranslations({ locale, namespace: "nav" });
+  const tHome = await getTranslations({ locale, namespace: "home" });
 
   const checklistTitle =
     service.icon === "thermal" ? t("checklistTitleSurvey") : t("checklistTitleHandover");
@@ -78,61 +80,67 @@ export default async function ServiceDetailPage({ params }: Props) {
         ])}
       />
 
-      <section className="relative overflow-hidden border-b border-border bg-gradient-to-b from-brand-soft/50 to-background">
-        <div className="container-page grid gap-12 py-16 lg:grid-cols-2 lg:items-center lg:py-24">
-          <div>
-            <Link
-              href="/oferta"
-              className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-brand"
-            >
-              <ArrowLeft className="h-3.5 w-3.5" /> {tCommon("backToOffer")}
-            </Link>
-            <div className="mt-4 flex items-center gap-2">
-              <span className="rounded-full border border-border bg-background/80 px-3 py-1 text-xs font-semibold text-brand">
-                {service.tag}
+      <PageHero
+        imageAlt={tHome("hero.imageAlt")}
+        contentClassName="grid gap-12 py-16 lg:grid-cols-2 lg:items-center lg:py-24"
+      >
+        <div>
+          <Link
+            href="/oferta"
+            className="inline-flex items-center gap-1.5 text-sm text-white/70 hover:text-white"
+          >
+            <ArrowLeft className="h-3.5 w-3.5" /> {tCommon("backToOffer")}
+          </Link>
+          <div className="mt-4 flex items-center gap-2">
+            <span className="rounded-full border border-white/30 bg-white/10 px-3 py-1 text-xs font-semibold text-white backdrop-blur-sm">
+              {service.tag}
+            </span>
+            {service.badge && (
+              <span className="rounded-full bg-cta px-3 py-1 text-xs font-bold uppercase tracking-wider text-cta-foreground">
+                {service.badge}
               </span>
-              {service.badge && (
-                <span className="rounded-full bg-cta px-3 py-1 text-xs font-bold uppercase tracking-wider text-cta-foreground">
-                  {service.badge}
-                </span>
-              )}
-            </div>
-            <h1 className="mt-4 text-4xl font-extrabold leading-tight text-brand md:text-5xl">
-              {service.title}
-            </h1>
-            <p className="mt-5 text-lg text-muted-foreground">{service.description}</p>
-            <p className="mt-3 text-2xl font-bold text-brand">{service.price}</p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Button asChild size="lg" variant="cta">
-                <a href="#wycena">
-                  {tCommon("freeQuote")} <ArrowRight className="ml-2 h-4 w-4" />
-                </a>
-              </Button>
-              <Button asChild size="lg" variant="outline">
-                <ObfuscatedPhoneLink>
-                  <Phone className="mr-2 h-4 w-4" />
-                </ObfuscatedPhoneLink>
-              </Button>
-            </div>
+            )}
           </div>
-
-          <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-elegant">
-            <div className="relative aspect-[4/3] w-full">
-              <Image
-                src={service.image}
-                alt={service.imageAlt}
-                fill
-                priority
-                fetchPriority="high"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                placeholder="blur"
-                blurDataURL={BLUR_PLACEHOLDER}
-                className="object-cover"
-              />
-            </div>
+          <h1 className="mt-4 text-4xl font-extrabold leading-tight text-white md:text-5xl">
+            {service.title}
+          </h1>
+          <p className="mt-5 text-lg text-white/80">{service.description}</p>
+          <p className="mt-3 text-2xl font-bold text-white">{service.price}</p>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Button asChild size="lg" variant="cta">
+              <a href="#wycena">
+                {tCommon("freeQuote")} <ArrowRight className="ml-2 h-4 w-4" />
+              </a>
+            </Button>
+            <Button
+              asChild
+              size="lg"
+              variant="outline"
+              className="border-white/40 bg-white/10 text-white backdrop-blur-sm hover:bg-white/20"
+            >
+              <ObfuscatedPhoneLink>
+                <Phone className="mr-2 h-4 w-4" />
+              </ObfuscatedPhoneLink>
+            </Button>
           </div>
         </div>
-      </section>
+
+        <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-elegant">
+          <div className="relative aspect-[4/3] w-full">
+            <Image
+              src={service.image}
+              alt={service.imageAlt}
+              fill
+              priority
+              fetchPriority="high"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              placeholder="blur"
+              blurDataURL={BLUR_PLACEHOLDER}
+              className="object-cover"
+            />
+          </div>
+        </div>
+      </PageHero>
 
       <section className="container-page py-16">
         <div className="mx-auto max-w-3xl text-center">
