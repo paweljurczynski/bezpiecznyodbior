@@ -170,9 +170,9 @@ export const services: Service[] = [
     title: "Pakiet Premium: Prawnik + Odbiór techniczny",
     short: "Sprawdzenie umowy deweloperskiej przez prawnika + odbiór techniczny w jednym pakiecie.",
     description:
-      "Kompleksowa ochrona inwestora — analiza umowy deweloperskiej przez radcę prawnego specjalizującego się w prawie budowlanym oraz pełny odbiór techniczny nieruchomości.",
+      "Kompleksowa ochrona inwestora — analiza umowy deweloperskiej przez adwokata specjalizującego się w prawie budowlanym oraz pełny odbiór techniczny nieruchomości.",
     bullets: [
-      "Analiza umowy deweloperskiej przez radcę prawnego",
+      "Analiza umowy deweloperskiej przez adwokata",
       "Wskazanie klauzul niedozwolonych i ryzyk",
       "Pełny odbiór techniczny mieszkania lub domu",
       "Wsparcie prawne przy negocjacjach z deweloperem",
@@ -191,7 +191,7 @@ export const services: Service[] = [
       "Kamera termowizyjna FLIR",
       "Laser krzyżowy",
       "Wilgotnościomierz cyfrowy",
-      "Analiza prawna przez radcę prawnego",
+      "Analiza prawna przez adwokata",
     ],
     image: "/oferta-deweloper-mieszkanie.jpg",
     imageAlt: "Pakiet Premium — analiza prawna i odbiór techniczny",

@@ -65,6 +65,6 @@ export const krakowFaq: FaqItem[] = [
   {
     question: "Czy współpracujecie z prawnikami przy odbiorach?",
     answer:
-      "Tak — oferujemy Pakiet Premium łączący sprawdzenie umowy deweloperskiej przez radcę prawnego specjalizującego się w prawie budowlanym z pełnym odbiorem technicznym. To najbezpieczniejsza opcja dla kupujących pierwsze mieszkanie.",
+      "Tak — oferujemy Pakiet Premium łączący sprawdzenie umowy deweloperskiej przez adwokata specjalizującego się w prawie budowlanym z pełnym odbiorem technicznym. To najbezpieczniejsza opcja dla kupujących pierwsze mieszkanie.",
   },
 ];
