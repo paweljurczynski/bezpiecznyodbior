@@ -57,7 +57,7 @@ export const services: Service[] = [
     image: "/oferta-deweloper-mieszkanie.jpg",
     imageAlt: "Pomiar wilgotności podczas odbioru technicznego mieszkania",
     tag: "Rynek pierwotny",
-    price: "od 299 zł",
+    price: "od 700 zł",
     icon: "key",
   },
   {

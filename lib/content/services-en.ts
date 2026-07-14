@@ -37,7 +37,7 @@ export const servicesEn: Service[] = [
     image: "/oferta-deweloper-mieszkanie.jpg",
     imageAlt: "Moisture measurement during a technical apartment handover",
     tag: "Primary market",
-    price: "from 299 PLN",
+    price: "from 700 PLN",
     icon: "key",
   },
   {

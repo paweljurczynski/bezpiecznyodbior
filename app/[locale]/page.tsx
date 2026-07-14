@@ -21,6 +21,7 @@ import { FaqAccordion } from "@/components/FaqAccordion";
 import { GoogleReviewsBadge } from "@/components/GoogleReviewsBadge";
 import { Button } from "@/components/ui/button";
 import { getFaqItems, getTestimonials } from "@/lib/content";
+import { JsonLd, faqSchema } from "@/components/JsonLd";
 import { buildAlternates, baseOpenGraph, baseTwitter } from "@/lib/metadata-i18n";
 import { site } from "@/lib/site";
 import type { Locale } from "@/i18n/routing";
@@ -72,6 +73,7 @@ export default async function HomePage({ params }: Props) {
 
   return (
     <>
+      <JsonLd data={faqSchema(faqItems)} />
       <PageHero imageAlt={t("hero.imageAlt")} contentClassName="grid gap-12 py-16 md:grid-cols-2 md:py-24">
           <div className="flex flex-col justify-center text-white">
             <span className="inline-flex w-fit items-center gap-2 rounded-full border border-white/30 bg-white/10 px-3 py-1 text-xs font-semibold backdrop-blur-sm">

@@ -38,7 +38,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const title = `${service.title} | ${site.name}`;
 
   return {
-    title: service.title,
+    title,
     description: service.description,
     alternates: buildServiceAlternates(typedLocale, slug),
     openGraph: baseOpenGraph(typedLocale, title, service.description, `${site.url}${pathname}`),
