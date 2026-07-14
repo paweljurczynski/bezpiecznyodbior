@@ -3,7 +3,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { getPathname } from "@/i18n/navigation";
 import { ObfuscatedEmailLink, ObfuscatedPhoneLink } from "@/components/ObfuscatedContact";
 import { PageHero } from "@/components/PageHero";
-import { buildAlternates, baseOpenGraph } from "@/lib/metadata-i18n";
+import { buildAlternates, baseOpenGraph, baseTwitter } from "@/lib/metadata-i18n";
 import { site } from "@/lib/site";
 import type { Locale } from "@/i18n/routing";
 
@@ -27,6 +27,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     ...(keywords ? { keywords } : {}),
     alternates: buildAlternates(typedLocale, "/polityka-prywatnosci"),
     openGraph: baseOpenGraph(typedLocale, title, description, `${site.url}${pathname}`),
+    twitter: baseTwitter(title, description),
     robots: { index: true, follow: true },
   };
 }

@@ -6,7 +6,7 @@ import { ContactEmailCard, ContactPhoneCard } from "@/components/ObfuscatedConta
 import { ContactFormTabs } from "@/components/ContactFormTabs";
 import { PageHero } from "@/components/PageHero";
 import { JsonLd, breadcrumbSchema } from "@/components/JsonLd";
-import { buildAlternates, baseOpenGraph } from "@/lib/metadata-i18n";
+import { buildAlternates, baseOpenGraph, baseTwitter } from "@/lib/metadata-i18n";
 import { site } from "@/lib/site";
 import type { Locale } from "@/i18n/routing";
 
@@ -27,6 +27,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     ...(keywords ? { keywords } : {}),
     alternates: buildAlternates(typedLocale, "/kontakt"),
     openGraph: baseOpenGraph(typedLocale, title, description, `${site.url}${pathname}`),
+    twitter: baseTwitter(title, description),
   };
 }
 

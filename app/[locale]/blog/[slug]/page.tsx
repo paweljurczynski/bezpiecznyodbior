@@ -10,13 +10,14 @@ import { JsonLd, breadcrumbSchema, articleSchema } from "@/components/JsonLd";
 import { ObfuscatedPhoneLink } from "@/components/ObfuscatedContact";
 import { Button } from "@/components/ui/button";
 import { PageHero } from "@/components/PageHero";
+import { baseOpenGraph, baseTwitter } from "@/lib/metadata-i18n";
 import { site } from "@/lib/site";
 import type { Locale } from "@/i18n/routing";
 
 type Props = { params: Promise<{ locale: string; slug: string }> };
 
 export function generateStaticParams() {
-  return posts.map((p) => ({ slug: p.slug }));
+  return posts.map((p) => ({ locale: "pl", slug: p.slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -28,15 +29,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     locale: "pl",
     href: { pathname: "/blog/[slug]", params: { slug: post.slug } },
   });
+  const ogTitle = `${post.title} | ${site.name}`;
+  const url = `${site.url}${pathname}`;
+  const imagePath = `/blog/${post.slug}/opengraph-image`;
   return {
     title: post.title,
     description: post.excerpt,
-    alternates: { canonical: `${site.url}${pathname}` },
-    openGraph: {
-      title: `${post.title} | ${site.name}`,
-      description: post.excerpt,
-      url: `${site.url}${pathname}`,
-    },
+    alternates: { canonical: url },
+    openGraph: baseOpenGraph("pl", ogTitle, post.excerpt, url, imagePath),
+    twitter: baseTwitter(ogTitle, post.excerpt, imagePath),
   };
 }
 

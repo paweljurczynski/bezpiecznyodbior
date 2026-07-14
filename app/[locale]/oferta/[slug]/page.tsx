@@ -10,7 +10,7 @@ import { JsonLd, breadcrumbSchema } from "@/components/JsonLd";
 import { ObfuscatedPhoneLink } from "@/components/ObfuscatedContact";
 import { Button } from "@/components/ui/button";
 import { PageHero } from "@/components/PageHero";
-import { buildServiceAlternates, baseOpenGraph } from "@/lib/metadata-i18n";
+import { buildServiceAlternates, baseOpenGraph, baseTwitter } from "@/lib/metadata-i18n";
 import { getAllServiceSlugs } from "@/lib/service-slugs";
 import { site } from "@/lib/site";
 import { routing } from "@/i18n/routing";
@@ -42,6 +42,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: service.description,
     alternates: buildServiceAlternates(typedLocale, slug),
     openGraph: baseOpenGraph(typedLocale, title, service.description, `${site.url}${pathname}`),
+    twitter: baseTwitter(title, service.description),
   };
 }
 

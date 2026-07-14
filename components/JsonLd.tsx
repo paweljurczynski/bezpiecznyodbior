@@ -1,3 +1,4 @@
+import { getOgImageUrl } from "@/lib/metadata-i18n";
 import { site } from "@/lib/site";
 import { getSiteCopy } from "@/lib/content";
 import type { Locale } from "@/i18n/routing";
@@ -20,7 +21,7 @@ export function localBusinessSchema(locale: Locale = "pl") {
     "@type": "LocalBusiness",
     "@id": `${site.url}/#business`,
     name: site.legalName,
-    image: `${site.url}/og.jpg`,
+    image: getOgImageUrl(),
     url: site.url,
     telephone: site.phone,
     email: site.email,
@@ -111,7 +112,7 @@ export function articleSchema(post: {
     datePublished: post.date,
     dateModified: post.date,
     url: `${site.url}/blog/${post.slug}`,
-    image: `${site.url}/og.jpg`,
+    image: getOgImageUrl(`/blog/${post.slug}/opengraph-image`),
     inLanguage: "pl-PL",
     publisher: {
       "@type": "Organization",

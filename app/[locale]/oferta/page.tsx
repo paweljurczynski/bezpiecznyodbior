@@ -21,7 +21,7 @@ import { PageHero } from "@/components/PageHero";
 import { JsonLd, breadcrumbSchema } from "@/components/JsonLd";
 import { BLUR_PLACEHOLDER } from "@/lib/image";
 import { getServices } from "@/lib/content";
-import { buildAlternates, baseOpenGraph } from "@/lib/metadata-i18n";
+import { buildAlternates, baseOpenGraph, baseTwitter } from "@/lib/metadata-i18n";
 import type { Service } from "@/lib/services";
 import { site } from "@/lib/site";
 import type { Locale } from "@/i18n/routing";
@@ -53,6 +53,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     ...(keywords ? { keywords } : {}),
     alternates: buildAlternates(typedLocale, "/oferta"),
     openGraph: baseOpenGraph(typedLocale, title, description, `${site.url}${pathname}`),
+    twitter: baseTwitter(title, description),
   };
 }
 

@@ -9,6 +9,10 @@ export const size = { width: 1200, height: 630 };
 
 type Props = { params: Promise<{ slug: string }> };
 
+export function generateStaticParams() {
+  return posts.map((p) => ({ locale: "pl", slug: p.slug }));
+}
+
 export default async function OgImage({ params }: Props) {
   const { slug } = await params;
   const post = posts.find((p) => p.slug === slug);

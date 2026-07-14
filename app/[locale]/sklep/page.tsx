@@ -5,6 +5,7 @@ import { setRequestLocale } from "next-intl/server";
 import { getPathname } from "@/i18n/navigation";
 import { PageHero } from "@/components/PageHero";
 import { WaitlistForm } from "@/components/WaitlistForm";
+import { baseOpenGraph, baseTwitter } from "@/lib/metadata-i18n";
 import { site } from "@/lib/site";
 import type { Locale } from "@/i18n/routing";
 
@@ -14,11 +15,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   if (locale !== "pl") return {};
   const pathname = getPathname({ locale: "pl", href: "/sklep" });
+  const title = "Sklep i edukacja — E-booki";
+  const description =
+    "E-booki o odbiorach technicznych i umowach deweloperskich. Zapisz się na listę oczekujących i odbierz 20% zniżki w dniu premiery.";
+  const url = `${site.url}${pathname}`;
   return {
-    title: "Sklep i edukacja — E-booki",
-    description:
-      "E-booki o odbiorach technicznych i umowach deweloperskich. Zapisz się na listę oczekujących i odbierz 20% zniżki w dniu premiery.",
-    alternates: { canonical: `${site.url}${pathname}` },
+    title,
+    description,
+    alternates: { canonical: url },
+    openGraph: baseOpenGraph("pl", `${title} | ${site.name}`, description, url),
+    twitter: baseTwitter(`${title} | ${site.name}`, description),
   };
 }
 

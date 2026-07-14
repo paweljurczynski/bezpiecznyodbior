@@ -6,6 +6,7 @@ import { Link, getPathname } from "@/i18n/navigation";
 import { posts } from "@/lib/posts";
 import { JsonLd, breadcrumbSchema } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
+import { baseOpenGraph, baseTwitter } from "@/lib/metadata-i18n";
 import { site } from "@/lib/site";
 import type { Locale } from "@/i18n/routing";
 
@@ -15,17 +16,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   if (locale !== "pl") return {};
   const pathname = getPathname({ locale: "pl", href: "/blog" });
+  const title = "Blog — Porady Ekspertów";
+  const description =
+    "Porady i wskazówki dotyczące odbioru technicznego mieszkania od dewelopera. Dowiedz się, na co zwrócić uwagę podczas odbioru nieruchomości.";
+  const url = `${site.url}${pathname}`;
   return {
-    title: "Blog — Porady Ekspertów",
-    description:
-      "Porady i wskazówki dotyczące odbioru technicznego mieszkania od dewelopera. Dowiedz się, na co zwrócić uwagę podczas odbioru nieruchomości.",
-    alternates: { canonical: `${site.url}${pathname}` },
-    openGraph: {
-      title: "Blog — Porady Ekspertów | Bezpieczny Odbiór",
-      description:
-        "Porady i wskazówki dotyczące odbioru technicznego mieszkania od dewelopera.",
-      url: `${site.url}${pathname}`,
-    },
+    title,
+    description,
+    alternates: { canonical: url },
+    openGraph: baseOpenGraph("pl", `${title} | ${site.name}`, description, url),
+    twitter: baseTwitter(`${title} | ${site.name}`, description),
   };
 }
 
