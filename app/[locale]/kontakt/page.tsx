@@ -63,8 +63,8 @@ export default async function KontaktPage({ params }: Props) {
       </section>
 
       <section className="container-page py-16">
-        <div className="grid gap-10 lg:grid-cols-[1fr_1.2fr]">
-          <div className="space-y-4">
+        <div className="grid min-w-0 gap-10 lg:grid-cols-[1fr_1.2fr]">
+          <div className="min-w-0 space-y-4">
             <ContactPhoneCard />
             <ContactEmailCard />
 
@@ -142,7 +142,7 @@ export default async function KontaktPage({ params }: Props) {
             </div>
           </div>
 
-          <div>
+          <div className="min-w-0">
             <h2 className="text-2xl font-bold text-brand">{t("formTitle")}</h2>
             <p className="mt-2 text-sm text-muted-foreground">{t("formSubtitle")}</p>
             <div className="mt-6">
