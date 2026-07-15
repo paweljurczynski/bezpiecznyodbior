@@ -9,7 +9,7 @@ export const faqItemsEn: FaqItem[] = [
   {
     question: "How long does a technical handover take?",
     answer:
-      "A standard apartment handover takes 2 to 4 hours depending on floor area and the number of defects found. For single-family houses, we plan 3–5 hours. You will receive the protocol as a PDF on the same day.",
+      "A standard apartment handover takes 2 to 4 hours depending on floor area and the number of defects found. For single-family houses, we plan 3–5 hours. You will receive the protocol as a PDF within 48 hours.",
   },
   {
     question: "Is it worth ordering a handover with thermal imaging?",
@@ -37,7 +37,7 @@ export const krakowFaqEn: FaqItem[] = [
   {
     question: "How long does a technical apartment handover take?",
     answer:
-      "A standard apartment handover in Kraków takes 2 to 4 hours depending on floor area and the number of defects found. For single-family houses, we plan 3–5 hours. You will receive the protocol as a PDF on the same day.",
+      "A standard apartment handover in Kraków takes 2 to 4 hours depending on floor area and the number of defects found. For single-family houses, we plan 3–5 hours. You will receive the protocol as a PDF within 48 hours.",
   },
   {
     question: "Is it worth ordering a handover with thermal imaging?",

@@ -92,7 +92,7 @@ export default async function OgImage() {
           </div>
 
           <span style={{ color: "#aaaaaa", fontSize: 26, fontWeight: 400 }}>
-            Kraków i Małopolska · Kamera termowizyjna · Raport tego samego dnia
+            Kraków i Małopolska · Kamera termowizyjna · Raport w 48h
           </span>
         </div>
 

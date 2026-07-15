@@ -33,7 +33,7 @@ export function getSiteCopy(locale: Locale) {
     return {
       tagline: "Professional technical handovers of apartments and houses",
       description:
-        "Technical apartment handovers in Kraków. Thermal imaging camera, Polish Standards, protocol ready the same day.",
+        "Technical apartment handovers in Kraków. Thermal imaging camera, Polish Standards, protocol ready within 48 hours.",
       hours: [
         { day: "Monday – Friday", time: "08:00 – 18:00" },
         { day: "Saturday", time: "09:00 – 14:00" },
@@ -45,7 +45,7 @@ export function getSiteCopy(locale: Locale) {
   return {
     tagline: "Profesjonalne odbiory techniczne mieszkań i domów",
     description:
-      "Odbiory techniczne mieszkań w Krakowie. Kamera termowizyjna, Polskie Normy, protokół gotowy tego samego dnia.",
+      "Odbiory techniczne mieszkań w Krakowie. Kamera termowizyjna, Polskie Normy, protokół gotowy w 48h.",
     hours: [
       { day: "Poniedziałek – Piątek", time: "08:00 – 18:00" },
       { day: "Sobota", time: "09:00 – 14:00" },

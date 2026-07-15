@@ -10,7 +10,7 @@ export const faqItems: FaqItem[] = [
   },
   {
     question: "Jak długo trwa odbiór techniczny?",
-    answer: "Standardowy odbiór mieszkania trwa od 2 do 4 godzin w zależności od metrażu i liczby wykrytych usterek. Dla domów jednorodzinnych planujemy 3–5 godzin. Protokół otrzymasz tego samego dnia w formie PDF.",
+    answer: "Standardowy odbiór mieszkania trwa od 2 do 4 godzin w zależności od metrażu i liczby wykrytych usterek. Dla domów jednorodzinnych planujemy 3–5 godzin. Protokół otrzymasz w ciągu 48 godzin w formie PDF.",
   },
   {
     question: "Czy warto zamówić odbiór z kamerą termowizyjną?",
@@ -35,7 +35,7 @@ export const krakowFaq: FaqItem[] = [
   {
     question: "Jak długo trwa odbiór techniczny mieszkania?",
     answer:
-      "Standardowy odbiór mieszkania w Krakowie trwa od 2 do 4 godzin w zależności od metrażu i liczby wykrytych usterek. Dla domów jednorodzinnych planujemy 3–5 godzin. Protokół otrzymasz jeszcze tego samego dnia w formie PDF.",
+      "Standardowy odbiór mieszkania w Krakowie trwa od 2 do 4 godzin w zależności od metrażu i liczby wykrytych usterek. Dla domów jednorodzinnych planujemy 3–5 godzin. Protokół otrzymasz w ciągu 48 godzin w formie PDF.",
   },
   {
     question: "Czy warto zamawiać odbiór z kamerą termowizyjną?",

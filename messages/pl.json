@@ -168,7 +168,7 @@
       "equipmentTitle": "Specjalistyczny sprzęt",
       "equipmentDesc": "Kamera termowizyjna, wilgotnościomierze, poziomice laserowe i mierniki wysokiej klasy.",
       "reportTitle": "Szczegółowy raport",
-      "reportDesc": "Kompletny protokół z wykrytymi wadami, zdjęciami i podstawą prawną roszczeń — gotowy tego samego dnia.",
+      "reportDesc": "Kompletny protokół z wykrytymi wadami, zdjęciami i podstawą prawną roszczeń — gotowy w 48h.",
       "engineersTitle": "Doświadczeni inżynierowie",
       "engineersDesc": "Zespół z uprawnieniami budowlanymi i setkami zrealizowanych odbiorów w całej Małopolsce."
     },
@@ -261,12 +261,12 @@
       "secondary": {
         "tag": "Rynek wtórny",
         "title": "Odbiory nieruchomości z rynku wtórnego",
-        "desc": "Techniczna ocena stanu mieszkania używanego przed zakupem. Wykrywamy ukryte wady, oceniamy koszty ewentualnego remontu i ryzyka konstrukcyjne.",
+        "desc": "Techniczna ocena stanu mieszkania używanego przed zakupem. Wykrywamy ukryte wady i wskazujemy punkty negocjacyjne przed zakupem.",
         "bullets": [
-          "Ocena stanu instalacji i konstrukcji",
-          "Wykrycie zawilgoceń i mostków termicznych",
-          "Szacunkowe koszty koniecznych napraw",
-          "Rekomendacje negocjacyjne przed zakupem"
+          "Ocena stanu instalacji i wykończenia",
+          "Wykrywanie ukrytych wad (wilgoć, uszkodzenia okładzin)",
+          "Badanie termowizyjne — wykrywanie strat ciepła",
+          "Wycena szacunkowa kosztów remontu — usługa dodatkowa"
         ],
         "imageAlt": "Protokół odbioru technicznego nieruchomości"
       },
@@ -280,7 +280,7 @@
           "Ocena jakości izolacji ścian i stropów",
           "Raport z termogramami i analizą"
         ],
-        "imageAlt": "Badanie termowizyjne kamerą FLIR"
+        "imageAlt": "Badanie termowizyjne nieruchomości"
       },
       "advisory": {
         "tag": "Doradztwo",
@@ -340,8 +340,8 @@
     "whyUsItems": [
       "Ponad {count}+ pozytywnych opinii na Google",
       "Certyfikowani inżynierowie z uprawnieniami budowlanymi",
-      "Kamera termowizyjna FLIR w każdym odbiorze",
-      "Protokół PDF gotowy tego samego dnia",
+      "Kamera termowizyjna w każdym odbiorze",
+      "Protokół PDF gotowy w 48h",
       "Wsparcie po odbiorze — pomoc przy reklamacjach"
     ]
   },
@@ -352,8 +352,8 @@
     "highlights": [
       "Znajomość lokalnych deweloperów",
       "Odbiory w 2–5 dni roboczych",
-      "Kamera termowizyjna FLIR",
-      "Protokół PDF tego samego dnia"
+      "Kamera termowizyjna",
+      "Protokół PDF gotowy w 48h"
     ],
     "imageAlt": "Panorama Krakowa",
     "reviewQuote": "„Odbiór mieszkania w Krakowie (Prądnik Biały) spełnił wszystkie oczekiwania. Profesjonalny raport.\"",
@@ -376,7 +376,7 @@
         "Ponad 5 lat obsługi krakowskiego rynku nieruchomości",
         "{count}+ pozytywnych opinii na Google",
         "Znajomość specyfiki krakowskich inwestycji deweloperskich",
-        "Protokół gotowy tego samego dnia w formacie PDF",
+        "Protokół gotowy w 48h w formacie PDF",
         "Wsparcie po odbiorze — pomoc przy kontakcie z deweloperem"
       ]
     },

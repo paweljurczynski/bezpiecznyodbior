@@ -168,7 +168,7 @@
       "equipmentTitle": "Specialist equipment",
       "equipmentDesc": "Thermal imaging camera, moisture meters, laser levels, and high-grade measuring instruments.",
       "reportTitle": "Detailed report",
-      "reportDesc": "Complete protocol with identified defects, photos, and legal basis for claims — ready on the same day.",
+      "reportDesc": "Complete protocol with identified defects, photos, and legal basis for claims — ready within 48 hours.",
       "engineersTitle": "Experienced engineers",
       "engineersDesc": "A team with building qualifications and hundreds of completed handovers across Małopolska."
     },
@@ -261,12 +261,12 @@
       "secondary": {
         "tag": "Secondary market",
         "title": "Secondary market property inspections",
-        "desc": "Technical assessment of a used apartment before purchase. We detect hidden defects, estimate renovation costs, and identify structural risks.",
+        "desc": "Technical assessment of a used apartment before purchase. We detect hidden defects and identify negotiation points before you buy.",
         "bullets": [
-          "Assessment of installations and structure",
-          "Detection of damp and thermal bridges",
-          "Estimated cost of necessary repairs",
-          "Negotiation recommendations before purchase"
+          "Assessment of installations and finishes",
+          "Detection of hidden defects (moisture, finish damage)",
+          "Thermal imaging survey — detection of heat loss",
+          "Estimated renovation cost valuation — additional service"
         ],
         "imageAlt": "Technical property handover protocol"
       },
@@ -280,7 +280,7 @@
           "Assessment of wall and ceiling insulation quality",
           "Report with thermograms and analysis"
         ],
-        "imageAlt": "Thermal imaging survey with FLIR camera"
+        "imageAlt": "Thermal imaging survey of a property"
       },
       "advisory": {
         "tag": "Advisory",
@@ -340,8 +340,8 @@
     "whyUsItems": [
       "Over {count}+ positive reviews on Google",
       "Certified engineers with building qualifications",
-      "FLIR thermal imaging camera at every handover",
-      "PDF protocol ready on the same day",
+      "Thermal imaging camera at every handover",
+      "PDF protocol ready within 48 hours",
       "Post-handover support — help with claims"
     ]
   },
@@ -352,8 +352,8 @@
     "highlights": [
       "Knowledge of local developers",
       "Handovers within 2–5 business days",
-      "FLIR thermal imaging camera",
-      "PDF protocol on the same day"
+      "Thermal imaging camera",
+      "PDF protocol ready within 48 hours"
     ],
     "imageAlt": "Panorama of Kraków",
     "reviewQuote": "\"The apartment handover in Kraków (Prądnik Biały) met all expectations. Professional report.\"",
@@ -376,7 +376,7 @@
         "Over 5 years serving the Kraków property market",
         "{count}+ positive reviews on Google",
         "Knowledge of Kraków developer investment specifics",
-        "Protocol ready on the same day in PDF format",
+        "Protocol ready within 48 hours in PDF format",
         "Post-handover support — help contacting the developer"
       ]
     },
