@@ -71,7 +71,7 @@ export const services: Service[] = [
       "Wykrywanie ukrytych wad (wilgoć, uszkodzenia okładzin)",
       "Badanie termowizyjne — wykrywanie strat ciepła",
       "Wycena szacunkowa kosztów remontu — usługa dodatkowa",
-      "Raport w formacie PDF w 24 godziny",
+      "Raport w formacie PDF w 48h",
     ],
     checklist: [
       { title: "Ściany i sufity", description: "Widoczne uszkodzenia, odstające okładziny, ślady zawilgoceń" },

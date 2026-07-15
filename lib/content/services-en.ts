@@ -51,7 +51,7 @@ export const servicesEn: Service[] = [
       "Detection of hidden defects (moisture, finish damage)",
       "Thermal imaging survey — detection of heat loss",
       "Estimated renovation cost valuation — additional service",
-      "PDF report within 24 hours",
+      "PDF report within 48 hours",
     ],
     checklist: [
       { title: "Walls and ceilings", description: "Visible damage, delaminating finishes, signs of damp" },
