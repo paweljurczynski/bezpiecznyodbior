@@ -213,7 +213,7 @@ export default async function OfertaPage({ params }: Props) {
               variant="outline"
               className="border-brand-foreground/30 bg-transparent text-brand-foreground hover:bg-brand-foreground/10"
             >
-              <ObfuscatedPhoneLink>{tCommon("callUs")} </ObfuscatedPhoneLink>
+              <ObfuscatedPhoneLink location="offer_cta">{tCommon("callUs")} </ObfuscatedPhoneLink>
             </Button>
           </div>
         </div>

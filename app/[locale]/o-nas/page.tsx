@@ -182,7 +182,7 @@ export default async function ONasPage({ params }: Props) {
               variant="outline"
               className="border-white/40 bg-white/10 text-white backdrop-blur-sm hover:bg-white/20"
             >
-              <ObfuscatedPhoneLink>{tCommon("callUs")} </ObfuscatedPhoneLink>
+              <ObfuscatedPhoneLink location="about_cta">{tCommon("callUs")} </ObfuscatedPhoneLink>
             </Button>
           </div>
         </div>

@@ -111,7 +111,7 @@ export default async function KrakowLandingPage({ params }: Props) {
               variant="outline"
               className="border-white/40 bg-white/10 text-white backdrop-blur-sm hover:bg-white/20"
             >
-              <ObfuscatedPhoneLink>
+              <ObfuscatedPhoneLink location="landing_cta">
                 <Phone className="h-4 w-4" />
               </ObfuscatedPhoneLink>
             </Button>

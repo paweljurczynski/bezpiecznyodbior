@@ -1,10 +1,9 @@
 "use client";
 
 import { useParams } from "next/navigation";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { getServiceIdFromSlug, getServiceSlug } from "@/lib/service-slugs";
-import { cn } from "@/lib/utils";
 import type { Locale } from "@/i18n/routing";
 
 const staticPages = [
@@ -23,10 +22,10 @@ export function LanguageSwitcher() {
   const pathname = usePathname();
   const router = useRouter();
   const params = useParams<{ slug?: string }>();
+  const t = useTranslations("languageSwitcher");
+  const nextLocale: Locale = locale === "pl" ? "en" : "pl";
 
-  const switchLocale = (nextLocale: Locale) => {
-    if (nextLocale === locale) return;
-
+  const switchLocale = () => {
     if (params.slug) {
       const serviceId = getServiceIdFromSlug(params.slug);
       if (serviceId) {
@@ -47,28 +46,13 @@ export function LanguageSwitcher() {
   if (!canSwitch) return null;
 
   return (
-    <div className="flex items-center gap-1 text-sm font-semibold">
-      <button
-        type="button"
-        onClick={() => switchLocale("pl")}
-        className={cn(
-          "cursor-pointer rounded px-1.5 py-0.5 transition-colors",
-          locale === "pl" ? "text-foreground" : "text-muted-foreground hover:text-foreground"
-        )}
-      >
-        PL
-      </button>
-      <span className="text-muted-foreground/50">|</span>
-      <button
-        type="button"
-        onClick={() => switchLocale("en")}
-        className={cn(
-          "cursor-pointer rounded px-1.5 py-0.5 transition-colors",
-          locale === "en" ? "text-foreground" : "text-muted-foreground hover:text-foreground"
-        )}
-      >
-        EN
-      </button>
-    </div>
+    <button
+      type="button"
+      onClick={switchLocale}
+      className="cursor-pointer rounded px-1.5 py-0.5 text-sm font-semibold text-muted-foreground transition-colors hover:text-foreground"
+      aria-label={t("switchTo", { locale: t(nextLocale) })}
+    >
+      {t(nextLocale)}
+    </button>
   );
 }

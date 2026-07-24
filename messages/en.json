@@ -8,7 +8,8 @@
     "krakowLanding": "Kraków apartment handovers",
     "quote": "Get a quote",
     "quoteMobile": "Get a free quote",
-    "menu": "Menu"
+    "menu": "Menu",
+    "call": "Call"
   },
   "footer": {
     "tagline": "Professional technical handovers of apartments and houses in Małopolska, Silesia, and Subcarpathia.",
@@ -132,7 +133,8 @@
   },
   "languageSwitcher": {
     "pl": "PL",
-    "en": "EN"
+    "en": "EN",
+    "switchTo": "Switch to {locale}"
   },
   "home": {
     "hero": {

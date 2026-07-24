@@ -125,7 +125,7 @@ export default async function BlogPostPage({ params }: Props) {
                 </Link>
               </Button>
               <Button asChild size="default" variant="outline" className="mt-2 w-full border-brand-foreground/30 bg-transparent text-brand-foreground hover:bg-brand-foreground/10">
-                <ObfuscatedPhoneLink>
+                <ObfuscatedPhoneLink location="blog_sidebar">
                   <Phone className="mr-2 h-4 w-4" />
                 </ObfuscatedPhoneLink>
               </Button>

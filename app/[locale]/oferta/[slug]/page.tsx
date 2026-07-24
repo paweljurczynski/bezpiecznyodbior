@@ -119,7 +119,7 @@ export default async function ServiceDetailPage({ params }: Props) {
               variant="outline"
               className="border-white/40 bg-white/10 text-white backdrop-blur-sm hover:bg-white/20"
             >
-              <ObfuscatedPhoneLink>
+              <ObfuscatedPhoneLink location="service_hero">
                 <Phone className="mr-2 h-4 w-4" />
               </ObfuscatedPhoneLink>
             </Button>
@@ -217,7 +217,7 @@ export default async function ServiceDetailPage({ params }: Props) {
               ))}
             </ul>
             <Button asChild size="lg" variant="cta" className="mt-6 w-full">
-              <ObfuscatedPhoneLink>
+              <ObfuscatedPhoneLink location="service_sidebar">
                 <Phone className="mr-2 h-4 w-4" /> {tCommon("callUs")}{" "}
               </ObfuscatedPhoneLink>
             </Button>

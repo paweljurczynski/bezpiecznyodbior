@@ -140,7 +140,7 @@ export default async function PolitykaPrywatnosciPage({ params }: Props) {
               {section9BeforeEmail}
               <ObfuscatedEmailLink className="font-semibold text-brand-600 hover:underline" />{" "}
               {section9Between}
-              <ObfuscatedPhoneLink className="font-semibold text-brand-600 hover:underline" />
+              <ObfuscatedPhoneLink location="privacy" className="font-semibold text-brand-600 hover:underline" />
               {section9AfterPhone}
             </p>
           </div>

@@ -22,7 +22,7 @@ export function Logo({ size = 40, withText = true, className = "", href = "/", o
         style={{ width: size, height: size }}
       />
       {withText && (
-        <span className="font-display text-lg font-bold tracking-tight text-brand">
+        <span className="hidden font-display text-lg font-bold tracking-tight text-brand md:inline">
           {site.name}
         </span>
       )}

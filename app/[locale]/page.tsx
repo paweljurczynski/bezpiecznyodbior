@@ -74,7 +74,7 @@ export default async function HomePage({ params }: Props) {
   return (
     <>
       <JsonLd data={faqSchema(faqItems)} />
-      <PageHero imageAlt={t("hero.imageAlt")} contentClassName="grid gap-12 py-16 md:grid-cols-2 md:py-24">
+      <PageHero imageAlt={t("hero.imageAlt")} contentClassName="grid gap-12 py-8 lg:grid-cols-2 lg:py-24">
           <div className="flex flex-col justify-center text-white">
             <span className="inline-flex w-fit items-center gap-2 rounded-full border border-white/30 bg-white/10 px-3 py-1 text-xs font-semibold backdrop-blur-sm">
               <Sparkles className="h-3.5 w-3.5" /> {t("hero.badge")}

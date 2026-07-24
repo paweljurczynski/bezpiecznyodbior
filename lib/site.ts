@@ -27,7 +27,7 @@ export const site = {
       "https://www.google.com/search?q=Bezpieczny+odbi%C3%B3r+-+Odbiory+mieszka%C5%84+Krak%C3%B3w",
   },
   reviews: {
-    count: 103,
+    count: 107,
     rating: 5.0,
   },
   regions: ["Małopolska", "Śląsk", "Podkarpacie"],

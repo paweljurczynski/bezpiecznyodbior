@@ -27,22 +27,23 @@ export function Navbar() {
   const pathname = usePathname();
   const locale = useLocale() as Locale;
   const t = useTranslations("nav");
+  const tCommon = useTranslations("common");
 
   const isActive = (href: string) =>
     pathname === href || (href !== "/" && pathname.startsWith(href));
 
   return (
     <header className="sticky top-0 z-40 border-b border-border/70 bg-background/85 backdrop-blur">
-      <div className="container-page flex h-16 items-center gap-4">
+      <div className="container-page flex h-16 items-center gap-3 lg:gap-4">
         <Logo size={40} onClick={() => setOpen(false)} />
 
-        <nav className="ml-6 hidden items-center gap-1 md:flex">
+        <nav className="ml-6 hidden items-center gap-1 lg:flex">
           {localizedLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               className={cn(
-                "rounded-md px-3 py-2 text-sm font-medium transition-colors hover:text-foreground",
+                "whitespace-nowrap rounded-md px-3 py-2 text-sm font-medium transition-colors hover:text-foreground",
                 isActive(link.href) ? "text-foreground" : "text-muted-foreground"
               )}
               aria-current={isActive(link.href) ? "page" : undefined}
@@ -56,7 +57,7 @@ export function Navbar() {
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  "rounded-md px-3 py-2 text-sm font-medium transition-colors hover:text-foreground",
+                  "whitespace-nowrap rounded-md px-3 py-2 text-sm font-medium transition-colors hover:text-foreground",
                   isActive(link.href) ? "text-foreground" : "text-muted-foreground"
                 )}
                 aria-current={isActive(link.href) ? "page" : undefined}
@@ -66,31 +67,43 @@ export function Navbar() {
             ))}
         </nav>
 
-        <div className="ml-auto hidden items-center gap-3 md:flex">
+        <div className="ml-auto hidden items-center gap-3 lg:flex">
           <LanguageSwitcher />
-          <ObfuscatedPhoneLink className="flex items-center gap-2 text-sm font-semibold text-foreground">
-            <Phone className="h-4 w-4 text-cta" />
+          <ObfuscatedPhoneLink
+            location="navbar"
+            className="flex items-center gap-2 whitespace-nowrap text-sm font-semibold text-foreground"
+          >
+            <Phone className="h-4 w-4 shrink-0 text-cta" />
           </ObfuscatedPhoneLink>
           <Button asChild variant="cta">
             <Link href="/kontakt">{t("quote")}</Link>
           </Button>
         </div>
 
-        <div className="ml-auto flex items-center gap-2 md:hidden">
+        <div className="ml-auto flex items-center gap-3 lg:hidden">
           <LanguageSwitcher />
+          <ObfuscatedPhoneLink
+            location="navbar_mobile"
+            showNumber={false}
+            aria-label={t("call")}
+            className="grid h-9 w-9 place-items-center rounded-lg bg-cta/15 text-cta"
+          >
+            <Phone className="h-4 w-4" />
+          </ObfuscatedPhoneLink>
           <button
-            className="cursor-pointer"
+            type="button"
+            className="grid h-9 w-9 cursor-pointer place-items-center"
             onClick={() => setOpen((v) => !v)}
             aria-label={t("menu")}
             aria-expanded={open}
           >
-            {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
         </div>
       </div>
 
       {open && (
-        <div className="border-t border-border md:hidden">
+        <div className="border-t border-border lg:hidden">
           <div className="container-page flex flex-col gap-1 py-3">
             {localizedLinks.map((link) => (
               <Link
@@ -120,6 +133,14 @@ export function Navbar() {
                   {t(link.key)}
                 </Link>
               ))}
+            <ObfuscatedPhoneLink
+              location="navbar_menu"
+              onClick={() => setOpen(false)}
+              className="mt-1 flex items-center gap-2 rounded-md px-3 py-2 text-sm font-semibold text-foreground"
+            >
+              <Phone className="h-4 w-4 text-cta" />
+              {tCommon("callUs")}{" "}
+            </ObfuscatedPhoneLink>
             <Button asChild variant="cta" className="mt-2">
               <Link href="/kontakt" onClick={() => setOpen(false)}>
                 {t("quoteMobile")}

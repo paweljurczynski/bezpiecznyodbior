@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useState, type ReactNode } from "react";
+import { useEffect, useState, type MouseEvent, type ReactNode } from "react";
 import { Mail, Phone } from "lucide-react";
 import { getEmail, getPhone, getPhoneDisplay } from "@/lib/contact-obfuscation";
+import { trackClickToCall } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
 
 function useContactInfo() {
@@ -20,24 +21,43 @@ function useContactInfo() {
 type ObfuscatedPhoneLinkProps = {
   className?: string;
   children?: ReactNode;
+  location: string;
+  showNumber?: boolean;
+  "aria-label"?: string;
+  onClick?: (event: MouseEvent<HTMLAnchorElement>) => void;
 };
 
-export function ObfuscatedPhoneLink({ className, children }: ObfuscatedPhoneLinkProps) {
+export function ObfuscatedPhoneLink({
+  className,
+  children,
+  location,
+  showNumber = true,
+  "aria-label": ariaLabel,
+  onClick,
+}: ObfuscatedPhoneLinkProps) {
   const contact = useContactInfo();
 
   if (!contact) {
     return (
-      <span className={className} aria-label="Numer telefonu">
+      <span className={className} aria-label={ariaLabel ?? "Numer telefonu"}>
         {children}
-        502 ··· ···
+        {showNumber ? "502 ··· ···" : null}
       </span>
     );
   }
 
   return (
-    <a href={`tel:${contact.phone}`} className={className}>
+    <a
+      href={`tel:${contact.phone}`}
+      className={className}
+      aria-label={ariaLabel}
+      onClick={(event) => {
+        trackClickToCall(location);
+        onClick?.(event);
+      }}
+    >
       {children}
-      {contact.phoneDisplay}
+      {showNumber ? contact.phoneDisplay : null}
     </a>
   );
 }
@@ -76,6 +96,7 @@ export function ContactPhoneCard({ className }: { className?: string }) {
         !contact && "pointer-events-none",
         className
       )}
+      onClick={() => trackClickToCall("contact_card")}
     >
       <div className="grid h-12 w-12 shrink-0 place-items-center rounded-lg bg-cta/15 text-cta">
         <Phone className="h-6 w-6" />

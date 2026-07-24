@@ -8,7 +8,8 @@
     "krakowLanding": "Odbiory mieszkań Kraków",
     "quote": "Zamów wycenę",
     "quoteMobile": "Zamów bezpłatną wycenę",
-    "menu": "Menu"
+    "menu": "Menu",
+    "call": "Zadzwoń"
   },
   "footer": {
     "tagline": "Profesjonalne odbiory techniczne mieszkań i domów w województwach małopolskim, śląskim i podkarpackim.",
@@ -132,7 +133,8 @@
   },
   "languageSwitcher": {
     "pl": "PL",
-    "en": "EN"
+    "en": "EN",
+    "switchTo": "Przełącz na {locale}"
   },
   "home": {
     "hero": {

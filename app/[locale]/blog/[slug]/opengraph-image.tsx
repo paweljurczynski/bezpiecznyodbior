@@ -2,6 +2,7 @@ import { ImageResponse } from "next/og";
 import sharp from "sharp";
 import { join } from "path";
 import { posts } from "@/lib/posts";
+import { site } from "@/lib/site";
 
 export const runtime = "nodejs";
 export const contentType = "image/png";
@@ -100,7 +101,9 @@ export default async function OgImage({ params }: Props) {
             <span style={{ color: "#d4881a", fontSize: 18, fontWeight: 700 }}>
               5.0 / 5
             </span>
-            <span style={{ color: "#aaaaaa", fontSize: 16 }}>· 103 opinii Google</span>
+            <span style={{ color: "#aaaaaa", fontSize: 16 }}>
+              · {site.reviews.count} opinii Google
+            </span>
           </div>
         </div>
       </div>

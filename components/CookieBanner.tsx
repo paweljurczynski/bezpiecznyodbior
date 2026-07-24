@@ -6,8 +6,8 @@ import { Link } from "@/i18n/navigation";
 import Script from "next/script";
 import { Cookie } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { COOKIE_CONSENT_KEY } from "@/lib/analytics";
 
-const STORAGE_KEY = "bo-cookie-consent";
 const gaId = process.env.NEXT_PUBLIC_GA_ID;
 
 type Consent = "accepted" | "rejected" | null;
@@ -19,12 +19,12 @@ export function CookieBanner() {
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-    setConsent(localStorage.getItem(STORAGE_KEY) as Consent);
+    setConsent(localStorage.getItem(COOKIE_CONSENT_KEY) as Consent);
     setReady(true);
   }, []);
 
   const set = (value: Exclude<Consent, null>) => {
-    localStorage.setItem(STORAGE_KEY, value);
+    localStorage.setItem(COOKIE_CONSENT_KEY, value);
     setConsent(value);
   };
 

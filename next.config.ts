@@ -17,6 +17,25 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "images.unsplash.com" },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: "/rezerwacja",
+        destination: "/kontakt",
+        permanent: true,
+      },
+      {
+        source: "/pl/rezerwacja",
+        destination: "/kontakt",
+        permanent: true,
+      },
+      {
+        source: "/en/rezerwacja",
+        destination: "/en/contact",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default withNextIntl(nextConfig);
