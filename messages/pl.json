@@ -103,14 +103,14 @@
       "submit": "Zamów bezpłatną wycenę",
       "sending": "Wysyłanie…",
       "successTitle": "Zgłoszenie przyjęte",
-      "successMessage": "Nasz inżynier oddzwoni w ciągu 24 godzin z bezpłatną wyceną odbioru.",
+      "successMessage": "Oddzwonimy w ciągu 24 godzin z bezpłatną wyceną odbioru.",
       "toastSuccess": "Dziękujemy! Odezwiemy się w ciągu 24h.",
       "toastMissingContact": "Uzupełnij dane kontaktowe.",
       "toastError": "Ups, coś poszło nie tak. Zadzwoń pod {phone}."
     },
     "exitIntent": {
       "title": "Planujesz odbiór mieszkania?",
-      "description": "Zamów szybki kontakt inżyniera — bezpłatnie i bez zobowiązań. Zadzwonimy w ciągu godziny.",
+      "description": "Zamów szybki kontakt — bezpłatnie i bez zobowiązań. Zadzwonimy w ciągu godziny.",
       "placeholder": "Numer telefonu lub email",
       "submit": "Zamawiam szybki kontakt",
       "disclaimer": "Nie wysyłamy spamu. Możesz zrezygnować w każdej chwili.",
@@ -139,7 +139,7 @@
       "badge": "Małopolskie · Śląskie · Podkarpackie",
       "title": "Profesjonalne odbiory techniczne",
       "titleHighlight": "mieszkań i domów",
-      "description": "Kompleksowe kontrole inżynierskie nieruchomości zgodne z Polskimi Normami, umową deweloperską i projektami architektonicznymi. Kamera termowizyjna w standardzie.",
+      "description": "Kompleksowe kontrole techniczne nieruchomości zgodne z Polskimi Normami, umową deweloperską i projektami architektonicznymi. Kamera termowizyjna w standardzie.",
       "imageAlt": "Wnętrze nowego mieszkania — odbiór techniczny",
       "statsHandovers": "Odbiorów",
       "statsRating": "Ocena klientów",
@@ -162,15 +162,15 @@
     },
     "whyUs": {
       "title": "Dlaczego my",
-      "subtitle": "Łączymy inżynierską precyzję z doświadczeniem w setkach odbiorów w całej Polsce południowej.",
+      "subtitle": "Łączymy fachową precyzję z doświadczeniem w setkach odbiorów w całej Polsce południowej.",
       "normsTitle": "Zgodność z Polskimi Normami",
       "normsDesc": "Weryfikujemy każdy element zgodnie z aktualnymi normami budowlanymi, warunkami technicznymi i umową deweloperską.",
       "equipmentTitle": "Specjalistyczny sprzęt",
       "equipmentDesc": "Kamera termowizyjna, wilgotnościomierze, poziomice laserowe i mierniki wysokiej klasy.",
       "reportTitle": "Szczegółowy raport",
       "reportDesc": "Kompletny protokół z wykrytymi wadami, zdjęciami i podstawą prawną roszczeń — gotowy w 48h.",
-      "engineersTitle": "Doświadczeni inżynierowie",
-      "engineersDesc": "Zespół z uprawnieniami budowlanymi i setkami zrealizowanych odbiorów w całej Małopolsce."
+      "engineersTitle": "Doświadczeni specjaliści",
+      "engineersDesc": "Zespół specjalistów od odbiorów technicznych i setki zrealizowanych odbiorów w całej Małopolsce."
     },
     "testimonials": {
       "title": "Opinie klientów",
@@ -194,7 +194,7 @@
   },
   "about": {
     "heroTitle": "Ponad 5 lat doświadczenia w odbiorach technicznych",
-    "heroDescription": "{siteName} to zespół inżynierów i architektów pasjonujących się inspekcjami nieruchomości. Zapewniamy bezpieczeństwo Twojej inwestycji w województwach małopolskim, śląskim i podkarpackim.",
+    "heroDescription": "{siteName} to zespół specjalistów od odbiorów technicznych nieruchomości. Zapewniamy bezpieczeństwo Twojej inwestycji w województwach małopolskim, śląskim i podkarpackim.",
     "heroImageAlt": "Wnętrze nowego mieszkania — odbiór techniczny",
     "stats": {
       "experience": "lat doświadczenia",
@@ -212,7 +212,7 @@
       "reliabilityTitle": "Rzetelność i zgodność z normami",
       "reliabilityDesc": "Każdy odbiór prowadzimy zgodnie z Polskimi Normami budowlanymi, warunkami technicznymi i umową deweloperską. Nie pomijamy żadnego elementu.",
       "teamTitle": "Doświadczony zespół",
-      "teamDesc": "Zespół inżynierów i architektów z uprawnieniami budowlanymi. Dogłębna wiedza o materiałach budowlanych i technologiach sprawia, że wychwytujemy wady, które umykają niespecjalistom.",
+      "teamDesc": "Doświadczony zespół specjalistów od odbiorów technicznych. Dogłębna wiedza o materiałach budowlanych i technologiach sprawia, że wychwytujemy wady, które umykają niespecjalistom.",
       "reviewsTitle": "Pozytywne opinie klientów",
       "reviewsDesc": "Nasze zaangażowanie w jakość usług procentuje ponad 100 opiniami w Google ze średnią 5.0/5. To najlepszy dowód na naszą skuteczność.",
       "regionsTitle": "Trzy województwa",
@@ -220,9 +220,9 @@
     },
     "team": {
       "title": "Nasz zespół",
-      "description": "Zespół inżynierów i architektów pasjonujących się inspekcjami nieruchomości. Dzięki dogłębnej wiedzy o materiałach budowlanych i technologiach oferujemy rzetelne analizy stanu technicznego budynków, zapewniając bezpieczeństwo i pewność naszym klientom.",
+      "description": "Zespół specjalistów od odbiorów technicznych nieruchomości. Dzięki dogłębnej wiedzy o materiałach budowlanych i technologiach oferujemy rzetelne analizy stanu technicznego budynków, zapewniając bezpieczeństwo i pewność naszym klientom.",
       "badges": {
-        "licence": "Uprawnienia budowlane",
+        "licence": "Praktyczne doświadczenie",
         "thermal": "Kamera termowizyjna",
         "moisture": "Wilgotnościomierze",
         "laser": "Poziomice laserowe"
@@ -235,7 +235,7 @@
   },
   "offer": {
     "title": "Oferta i usługi",
-    "subtitle": "Cztery usługi bazowe i trzy dodatkowe — pełen katalog wsparcia inżynierskiego dla kupujących nieruchomości.",
+    "subtitle": "Cztery usługi bazowe i trzy dodatkowe — pełen katalog wsparcia technicznego dla kupujących nieruchomości.",
     "heroImageAlt": "Inspektor techniczny podczas odbioru nieruchomości",
     "basicServices": "Usługi podstawowe",
     "newServices": "Nowe usługi",
@@ -289,7 +289,7 @@
         "desc": "Wsparcie na każdym etapie inwestycji — od wyboru nieruchomości po nadzór nad ekipami remontowymi. Chronimy Twój budżet i harmonogram.",
         "bullets": [
           "Ocena inwestycji przed zakupem",
-          "Nadzór inżynierski nad wykonawcami",
+          "Nadzór techniczny nad wykonawcami",
           "Kontrola jakości wykończenia",
           "Konsultacje techniczne i budżetowe"
         ],
@@ -303,7 +303,7 @@
           "Identyfikacja klauzul niedozwolonych i ryzyk",
           "Rekomendacje negocjacyjne przed podpisaniem",
           "Rygorystyczny odbiór techniczny nieruchomości",
-          "Jednolity raport prawno-inżynierski"
+          "Jednolity raport prawno-techniczny"
         ]
       },
       "surveys": {
@@ -340,7 +340,7 @@
     "whyUsTitle": "Dlaczego Bezpieczny Odbiór?",
     "whyUsItems": [
       "Ponad {count}+ pozytywnych opinii na Google",
-      "Certyfikowani inżynierowie z uprawnieniami budowlanymi",
+      "Doświadczony zespół specjalistów",
       "Kamera termowizyjna w każdym odbiorze",
       "Protokół PDF gotowy w 48h",
       "Wsparcie po odbiorze — pomoc przy reklamacjach"
@@ -348,7 +348,7 @@
   },
   "krakow": {
     "badge": "Kraków i okolice",
-    "title": "Odbiór mieszkania Kraków — techniczny przegląd inżyniera",
+    "title": "Odbiór mieszkania Kraków — techniczny przegląd specjalisty",
     "description": "Realizujemy odbiory techniczne mieszkań i domów w każdej dzielnicy Krakowa — od Prądnika Białego, przez Krowodrzę i Bronowice, po Podgórze i Nową Hutę. Ponad 5 lat lokalnego doświadczenia i {count}+ opinii 5★ na Google.",
     "highlights": [
       "Znajomość lokalnych deweloperów",
@@ -456,7 +456,7 @@
     },
     "about": {
       "title": "O nas — Kim jesteśmy",
-      "description": "Bezpieczny Odbiór to zespół inżynierów i architektów z ponad 5-letnim doświadczeniem w odbiorach technicznych mieszkań i domów. Obsługujemy Małopolskę, Śląsk i Podkarpacie.",
+      "description": "Bezpieczny Odbiór to zespół specjalistów od odbiorów technicznych z ponad 5-letnim doświadczeniem w odbiorach mieszkań i domów. Obsługujemy Małopolskę, Śląsk i Podkarpacie.",
       "keywords": ""
     },
     "offer": {
@@ -470,7 +470,7 @@
       "keywords": ""
     },
     "krakow": {
-      "title": "Odbiór mieszkania Kraków — techniczny przegląd inżyniera",
+      "title": "Odbiór mieszkania Kraków — techniczny przegląd specjalisty",
       "description": "Odbiór mieszkania Kraków — profesjonalny przegląd techniczny z kamerą termowizyjną w każdej dzielnicy. Bezpłatna wycena w 24h.",
       "keywords": ""
     },

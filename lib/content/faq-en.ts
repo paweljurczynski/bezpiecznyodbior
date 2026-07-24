@@ -52,7 +52,7 @@ export const krakowFaqEn: FaqItem[] = [
   {
     question: "What if the developer refuses to acknowledge defects?",
     answer:
-      "Our engineers know industry case law and standards. Every defect is documented with a photo, description, and reference to a specific standard or contract clause. In over 100 Google reviews, clients confirm that developers accept our reports.",
+      "Our specialists know industry case law and standards. Every defect is documented with a photo, description, and reference to a specific standard or contract clause. In over 100 Google reviews, clients confirm that developers accept our reports.",
   },
   {
     question: "Do you carry out handovers in Kraków and the surrounding area?",

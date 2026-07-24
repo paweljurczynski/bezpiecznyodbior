@@ -48,7 +48,7 @@ const ebooks = [
       "Analiza klauzul niedozwolonych w umowach",
       "Harmonogram całego procesu zakupu",
       "Checklisty na każdy etap inwestycji",
-      "Praktyczne wskazówki od inżynierów i prawników",
+      "Praktyczne wskazówki od specjalistów i prawników",
     ],
   },
 ];

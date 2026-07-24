@@ -59,7 +59,7 @@ export default async function BlogPage({ params }: Props) {
           Porady Ekspertów
         </h1>
         <p className="mx-auto mt-4 max-w-2xl text-white/80">
-          Wskazówki i wiedza od inżynierów — dowiedz się, jak skutecznie odebrać mieszkanie od dewelopera.
+          Wskazówki i wiedza od specjalistów — dowiedz się, jak skutecznie odebrać mieszkanie od dewelopera.
         </p>
       </PageHero>
 

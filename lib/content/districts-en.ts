@@ -23,7 +23,7 @@ export const districtsEn: District[] = [
     slug: "zwierzyniec",
     name: "Zwierzyniec",
     description:
-      "Salwator, Wola Justowska, Półwsie Zwierzynieckie — a premium district. Requires an engineering approach that accounts for the specifics of higher finish standards.",
+      "Salwator, Wola Justowska, Półwsie Zwierzynieckie — a premium district. Requires a professional technical approach that accounts for the specifics of higher finish standards.",
   },
   {
     slug: "bronowice",

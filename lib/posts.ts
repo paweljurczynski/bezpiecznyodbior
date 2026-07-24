@@ -91,7 +91,7 @@ Nie chodzi tu o testowanie działania instalacji, lecz o **zgodność z projekte
 
 ## Dlaczego warto zlecić odbiór techniczny specjalistom?
 
-Choć formalnie nie ma takiego obowiązku, **zdecydowana większość usterek nie jest widoczna gołym okiem dla osoby bez doświadczenia budowlanego**. Profesjonalny inżynier korzysta z narzędzi pomiarowych, poziomic laserowych, łaty, kątowników, wilgotnościomierzy i dalmierzy, które umożliwiają precyzyjne wykrycie uchybień.
+Choć formalnie nie ma takiego obowiązku, **zdecydowana większość usterek nie jest widoczna gołym okiem dla osoby bez doświadczenia budowlanego**. Profesjonalny specjalista od odbiorów korzysta z narzędzi pomiarowych, poziomic laserowych, łaty, kątowników, wilgotnościomierzy i dalmierzy, które umożliwiają precyzyjne wykrycie uchybień.
 
 ---
 

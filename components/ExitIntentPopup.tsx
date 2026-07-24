@@ -74,7 +74,7 @@ export function ExitIntentPopup() {
                 Planujesz odbiór mieszkania?
               </DialogTitle>
               <DialogDescription className="text-center">
-                Zamów szybki kontakt inżyniera — bezpłatnie i bez zobowiązań. Zadzwonimy w ciągu godziny.
+                Zamów szybki kontakt — bezpłatnie i bez zobowiązań. Zadzwonimy w ciągu godziny.
               </DialogDescription>
             </DialogHeader>
             <form name="exit-intent" onSubmit={submit} className="mt-2 space-y-3">

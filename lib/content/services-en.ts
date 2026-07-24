@@ -112,7 +112,7 @@ export const servicesEn: Service[] = [
   {
     slug: "investment-advisory",
     title: "Investment advisory and finishing supervision",
-    short: 'Engineer support during renovation and turnkey fit-out.',
+    short: 'Specialist support during renovation and turnkey fit-out.',
     description:
       "Supervision of finishing crews, quality control of works, and material and technical advisory. We protect your budget and schedule.",
     bullets: [
@@ -163,7 +163,7 @@ export const servicesEn: Service[] = [
       { title: "Variation clauses", description: "Analysis of clauses allowing the developer to change the design" },
       { title: "Negotiation recommendations", description: "Specific terms to remove or amend before signing" },
       { title: "Full technical inspection", description: "All developer handover checkpoints — plaster, floors, installations, etc." },
-      { title: "Unified legal and engineering report", description: "One document combining legal and technical findings" },
+      { title: "Unified legal and technical report", description: "One document combining legal and technical findings" },
     ],
     tools: [
       "Thermal imaging camera",

@@ -27,7 +27,7 @@ export const districts: District[] = [
     slug: "zwierzyniec",
     name: "Zwierzyniec",
     description:
-      "Salwator, Wola Justowska, Półwsie Zwierzynieckie — dzielnica premium. Wymaga podejścia inżynierskiego z uwzględnieniem specyfiki wyższego standardu wykończeń.",
+      "Salwator, Wola Justowska, Półwsie Zwierzynieckie — dzielnica premium. Wymaga profesjonalnego podejścia technicznego z uwzględnieniem specyfiki wyższego standardu wykończeń.",
   },
   {
     slug: "bronowice",

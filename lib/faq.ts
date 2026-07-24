@@ -50,7 +50,7 @@ export const krakowFaq: FaqItem[] = [
   {
     question: "Co jeśli deweloper nie chce uznać usterek?",
     answer:
-      "Nasi inżynierowie znają orzecznictwo i normy branżowe. Każda usterka jest udokumentowana zdjęciem, opisem i wskazaniem konkretnej normy lub zapisu umowy. W ponad 100 opiniach na Google klienci potwierdzają, że deweloperzy uznają nasze zgłoszenia.",
+      "Nasi specjaliści znają orzecznictwo i normy branżowe. Każda usterka jest udokumentowana zdjęciem, opisem i wskazaniem konkretnej normy lub zapisu umowy. W ponad 100 opiniach na Google klienci potwierdzają, że deweloperzy uznają nasze zgłoszenia.",
   },
   {
     question: "Czy odbieracie mieszkania w Krakowie i okolicach?",

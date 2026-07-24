@@ -132,7 +132,7 @@ export const services: Service[] = [
   {
     slug: "doradztwo-inwestycyjne",
     title: "Doradztwo inwestycyjne i nadzór wykończeń",
-    short: 'Wsparcie inżyniera na etapie remontu i wykończenia "pod klucz".',
+    short: 'Wsparcie specjalisty na etapie remontu i wykończenia "pod klucz".',
     description:
       "Nadzór nad ekipami wykończeniowymi, kontrola jakości prac, doradztwo materiałowe oraz technologiczne. Chronimy Twój budżet i harmonogram.",
     bullets: [
@@ -183,7 +183,7 @@ export const services: Service[] = [
       { title: "Zapisy dotyczące zmian", description: "Analiza klauzul umożliwiających deweloperowi zmiany w projekcie" },
       { title: "Rekomendacje negocjacyjne", description: "Konkretne zapisy do usunięcia lub zmiany przed podpisaniem" },
       { title: "Pełny odbiór techniczny", description: "Wszystkie punkty odbioru od dewelopera — tynki, posadzki, instalacje itd." },
-      { title: "Jednolity raport prawno-inżynierski", description: "Jeden dokument łączący wnioski prawne i techniczne" },
+      { title: "Jednolity raport prawno-techniczny", description: "Jeden dokument łączący wnioski prawne i techniczne" },
     ],
     tools: [
       "Kamera termowizyjna",
