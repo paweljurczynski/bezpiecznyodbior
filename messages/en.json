@@ -76,6 +76,11 @@
         "house": "Detached, terraced, semi-detached",
         "commercial": "Office, hospitality, retail"
       },
+      "marketType": "Market",
+      "marketTypes": {
+        "primary": "Primary market",
+        "secondary": "Secondary market"
+      },
       "area": "Floor area",
       "areas": {
         "upTo40": "up to 40 m²",

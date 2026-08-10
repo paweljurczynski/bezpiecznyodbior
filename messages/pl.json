@@ -76,6 +76,11 @@
         "house": "Jednorodzinny, szeregówka, bliźniak",
         "commercial": "Biuro, gastronomia, handel"
       },
+      "marketType": "Rynek",
+      "marketTypes": {
+        "primary": "Rynek pierwotny",
+        "secondary": "Rynek wtórny"
+      },
       "area": "Metraż",
       "areas": {
         "upTo40": "do 40 m²",

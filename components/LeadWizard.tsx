@@ -24,6 +24,7 @@ import type { Locale } from "@/i18n/routing";
 
 type LeadData = {
   propertyType: string;
+  marketType: string;
   area: string;
   location: string;
   date: string;
@@ -63,6 +64,7 @@ export function LeadWizard() {
 
   const [data, setData] = useState<LeadData>({
     propertyType: "",
+    marketType: "",
     area: "",
     location: locale === "en" ? "Kraków" : "Kraków",
     date: "",
@@ -121,6 +123,7 @@ export function LeadWizard() {
     <form name="lead" onSubmit={submit} className="surface-panel p-6 md:p-8">
       <input type="hidden" name="form-name" value="lead" />
       <input type="hidden" name="propertyType" value={data.propertyType} />
+      <input type="hidden" name="marketType" value={data.marketType} />
       <input type="hidden" name="area" value={data.area} />
       <p hidden>
         <label>
@@ -170,6 +173,29 @@ export function LeadWizard() {
                     <span className="hidden text-center text-xs font-normal text-muted-foreground sm:block">
                       {hint}
                     </span>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+          <div>
+            <Label className="mb-3 block">{t("marketType")}</Label>
+            <div className="grid grid-cols-2 gap-1.5 sm:gap-2">
+              {(["primary", "secondary"] as const).map((m) => {
+                const value = t(`marketTypes.${m}`);
+                const active = data.marketType === value;
+                return (
+                  <button
+                    type="button"
+                    key={m}
+                    onClick={() => update("marketType", value)}
+                    className={`cursor-pointer rounded-lg border p-2.5 text-sm font-medium transition-colors ${
+                      active
+                        ? "border-cta/50 bg-cta/5 text-cta"
+                        : "border-border hover:border-cta/30"
+                    }`}
+                  >
+                    {value}
                   </button>
                 );
               })}
