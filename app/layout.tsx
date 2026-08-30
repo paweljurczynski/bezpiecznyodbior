@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
+import { GoogleTagManager } from "@next/third-parties/google";
 import { Inter, Plus_Jakarta_Sans } from "next/font/google";
+import Script from "next/script";
+import { getConsentDefaultScript } from "@/lib/analytics";
 import "./globals.css";
+
+const gtmId = "GTM-NF5XRN4H";
 
 const inter = Inter({
   subsets: ["latin", "latin-ext"],
@@ -22,15 +27,11 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="pl" className={`${inter.variable} ${plusJakarta.variable}`} suppressHydrationWarning>
-      <head><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-NF5XRN4H');</script>
-</head>
-      <body className="min-h-screen bg-background text-foreground"><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NF5XRN4H"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-{children}</body>
+      <Script id="consent-defaults" strategy="beforeInteractive">
+        {getConsentDefaultScript()}
+      </Script>
+      <GoogleTagManager gtmId={gtmId} />
+      <body className="min-h-screen bg-background text-foreground">{children}</body>
     </html>
   );
 }

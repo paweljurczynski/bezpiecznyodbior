@@ -127,7 +127,7 @@
     "botField": "Nie wypełniaj:"
   },
   "cookie": {
-    "text": "Używamy plików cookie do analizy ruchu (Google Analytics) i poprawy jakości strony. Szczegóły w",
+    "text": "Używamy plików cookie do analizy ruchu (Google Tag Manager / Google Analytics) i poprawy jakości strony. Szczegóły w",
     "privacyLink": "polityce prywatności",
     "reject": "Odrzuć",
     "accept": "Akceptuję"
@@ -409,12 +409,12 @@
           "obsługa zapytań ofertowych i przygotowanie wyceny (art. 6 ust. 1 lit. b RODO — czynności zmierzające do zawarcia umowy);",
           "realizacja umów o odbiór techniczny i pokrewne usługi (art. 6 ust. 1 lit. b RODO);",
           "dochodzenie ewentualnych roszczeń (art. 6 ust. 1 lit. f RODO);",
-          "analiza ruchu na stronie za pomocą Google Analytics (art. 6 ust. 1 lit. a RODO — wyłącznie po Państwa zgodzie)."
+          "analiza ruchu na stronie za pomocą Google Tag Manager i Google Analytics (art. 6 ust. 1 lit. a RODO — wyłącznie po Państwa zgodzie)."
         ]
       },
       "3": {
         "title": "3. Odbiorcy danych",
-        "content": "Państwa dane mogą być przekazywane naszym zaufanym podwykonawcom: dostawcom hostingu (Netlify), narzędzi analitycznych (Google Analytics — po zgodzie), obsługi księgowej oraz prawnej. Wszyscy odbiorcy zobowiązani są do zachowania poufności i ochrony danych zgodnie z RODO."
+        "content": "Państwa dane mogą być przekazywane naszym zaufanym podwykonawcom: dostawcom hostingu (Netlify), narzędzi analitycznych Google (Google Tag Manager, Google Analytics — po zgodzie), obsługi księgowej oraz prawnej. Wszyscy odbiorcy zobowiązani są do zachowania poufności i ochrony danych zgodnie z RODO."
       },
       "4": {
         "title": "4. Okres przechowywania",
@@ -434,11 +434,11 @@
       },
       "6": {
         "title": "6. Pliki cookies",
-        "content": "Serwis wykorzystuje pliki cookies niezbędne do prawidłowego działania oraz — po Państwa zgodzie — cookies analityczne Google Analytics (z anonimizacją IP). Zgodę można w każdej chwili wycofać, czyszcząc dane przeglądarki."
+        "content": "Serwis wykorzystuje pliki cookies niezbędne do prawidłowego działania oraz — po Państwa zgodzie — cookies analityczne Google Tag Manager i Google Analytics (z anonimizacją IP). Zanim wyrazicie zgodę, narzędzia analityczne nie zapisują plików cookie. Zgodę można w każdej chwili wycofać, czyszcząc dane przeglądarki."
       },
       "7": {
         "title": "7. Przekazywanie danych do państw trzecich",
-        "content": "W związku z korzystaniem z Google Analytics dane mogą być przekazywane poza EOG na podstawie standardowych klauzul umownych zatwierdzonych przez Komisję Europejską."
+        "content": "W związku z korzystaniem z Google Tag Manager i Google Analytics dane mogą być przekazywane poza EOG na podstawie standardowych klauzul umownych zatwierdzonych przez Komisję Europejską."
       },
       "8": {
         "title": "8. Zautomatyzowane podejmowanie decyzji",

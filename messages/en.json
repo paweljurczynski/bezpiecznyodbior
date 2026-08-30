@@ -127,7 +127,7 @@
     "botField": "Do not fill in:"
   },
   "cookie": {
-    "text": "We use cookies for traffic analysis (Google Analytics) and to improve the website. Details in our",
+    "text": "We use cookies for traffic analysis (Google Tag Manager / Google Analytics) and to improve the website. Details in our",
     "privacyLink": "privacy policy",
     "reject": "Reject",
     "accept": "Accept"
@@ -410,12 +410,12 @@
           "handling enquiries and preparing quotes (Art. 6(1)(b) GDPR — steps prior to entering into a contract);",
           "performance of technical handover and related service contracts (Art. 6(1)(b) GDPR);",
           "pursuing potential claims (Art. 6(1)(f) GDPR);",
-          "website traffic analysis using Google Analytics (Art. 6(1)(a) GDPR — only with your consent)."
+          "website traffic analysis using Google Tag Manager and Google Analytics (Art. 6(1)(a) GDPR — only with your consent)."
         ]
       },
       "3": {
         "title": "3. Data recipients",
-        "content": "Your data may be shared with our trusted subcontractors: hosting providers (Netlify), analytics tools (Google Analytics — with consent), accounting, and legal services. All recipients are obliged to maintain confidentiality and protect data in accordance with the GDPR."
+        "content": "Your data may be shared with our trusted subcontractors: hosting providers (Netlify), Google analytics tools (Google Tag Manager, Google Analytics — with consent), accounting, and legal services. All recipients are obliged to maintain confidentiality and protect data in accordance with the GDPR."
       },
       "4": {
         "title": "4. Retention period",
@@ -435,11 +435,11 @@
       },
       "6": {
         "title": "6. Cookies",
-        "content": "The website uses cookies necessary for proper operation and — with your consent — Google Analytics cookies (with IP anonymisation). Consent can be withdrawn at any time by clearing browser data."
+        "content": "The website uses cookies necessary for proper operation and — with your consent — Google Tag Manager and Google Analytics cookies (with IP anonymisation). Analytics tools do not set cookies until you accept. Consent can be withdrawn at any time by clearing browser data."
       },
       "7": {
         "title": "7. Transfers to third countries",
-        "content": "Due to the use of Google Analytics, data may be transferred outside the EEA on the basis of standard contractual clauses approved by the European Commission."
+        "content": "Due to the use of Google Tag Manager and Google Analytics, data may be transferred outside the EEA on the basis of standard contractual clauses approved by the European Commission."
       },
       "8": {
         "title": "8. Automated decision-making",
