@@ -208,7 +208,6 @@ export const services: Service[] = [
     bullets: [
       "Pomiar dalmierzem laserowym z dokładnością ±2 mm",
       "Rysunki CAD (rzuty, przekroje, elewacje)",
-      "Skanowanie 3D dla obiektów zabytkowych (opcja)",
       "Dokumentacja gotowa do złożenia w urzędzie",
       "Format DWG, DXF lub PDF",
     ],
@@ -224,7 +223,6 @@ export const services: Service[] = [
     tools: [
       "Dalmierz laserowy Leica z dokładnością ±1 mm",
       "Laser krzyżowy do trasowania",
-      "Skaner 3D (opcjonalnie dla obiektów zabytkowych)",
       "Oprogramowanie CAD (AutoCAD / ArchiCAD)",
     ],
     image: "/oferta-doradztwo.jpg",

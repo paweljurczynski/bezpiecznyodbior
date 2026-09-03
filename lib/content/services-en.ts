@@ -188,7 +188,6 @@ export const servicesEn: Service[] = [
     bullets: [
       "Laser distance measurement with ±2 mm accuracy",
       "CAD drawings (floor plans, sections, elevations)",
-      "3D scanning for heritage buildings (optional)",
       "Documentation ready for submission to authorities",
       "DWG, DXF, or PDF format",
     ],
@@ -204,7 +203,6 @@ export const servicesEn: Service[] = [
     tools: [
       "Leica laser distance meter with ±1 mm accuracy",
       "Cross-line laser for layout",
-      "3D scanner (optional for heritage buildings)",
       "CAD software (AutoCAD / ArchiCAD)",
     ],
     image: "/oferta-doradztwo.jpg",
