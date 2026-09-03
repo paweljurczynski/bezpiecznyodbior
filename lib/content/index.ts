@@ -45,7 +45,7 @@ export function getSiteCopy(locale: Locale) {
   return {
     tagline: "Profesjonalne odbiory techniczne mieszkań i domów",
     description:
-      "Odbiory techniczne mieszkań w Krakowie. Kamera termowizyjna, Polskie Normy, protokół gotowy w 48h.",
+      "Profesjonalne odbiory mieszkań Kraków i okolice. Kamera termowizyjna zawsze w standardzie. Wysokie opinie. Zaufaj wiedzy inżyniera. Darmowa wycena!",
     hours: [
       { day: "Poniedziałek – Piątek", time: "08:00 – 18:00" },
       { day: "Sobota", time: "09:00 – 14:00" },
