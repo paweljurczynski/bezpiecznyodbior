@@ -25,7 +25,7 @@ export function localBusinessSchema(locale: Locale = "pl") {
     url: site.url,
     telephone: site.phone,
     email: site.email,
-    priceRange: "700 - 3000 PLN",
+    priceRange: "399 - 3000 PLN",
     address: {
       "@type": "PostalAddress",
       streetAddress: site.address.street,
