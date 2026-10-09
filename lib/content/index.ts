@@ -33,7 +33,7 @@ export function getSiteCopy(locale: Locale) {
     return {
       tagline: "Professional technical handovers of apartments and houses",
       description:
-        "Technical apartment handovers in Kraków. Thermal imaging camera, Polish Standards, protocol ready within 48 hours.",
+        "Technical apartment handovers in Kraków. Thermal imaging camera, Polish Standards, PDF protocol within 48 hours (optional).",
       hours: [
         { day: "Monday – Friday", time: "08:00 – 18:00" },
         { day: "Saturday", time: "09:00 – 14:00" },

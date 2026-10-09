@@ -175,7 +175,7 @@
       "equipmentTitle": "Specjalistyczny sprzęt",
       "equipmentDesc": "Kamera termowizyjna, wilgotnościomierze, poziomice laserowe i mierniki wysokiej klasy.",
       "reportTitle": "Szczegółowy raport",
-      "reportDesc": "Kompletny protokół z wykrytymi wadami, zdjęciami i podstawą prawną roszczeń — gotowy w 48h.",
+      "reportDesc": "Kompletny protokół z wykrytymi wadami, zdjęciami i podstawą prawną roszczeń — gotowy w 48h (opcjonalnie).",
       "engineersTitle": "Doświadczeni specjaliści",
       "engineersDesc": "Zespół specjalistów od odbiorów technicznych i setki zrealizowanych odbiorów w całej Małopolsce."
     },
@@ -349,7 +349,7 @@
       "Ponad {count}+ pozytywnych opinii na Google",
       "Doświadczony zespół specjalistów",
       "Kamera termowizyjna w każdym odbiorze",
-      "Protokół PDF gotowy w 48h",
+      "Protokół PDF gotowy w 48h (opcjonalnie)",
       "Wsparcie po odbiorze — pomoc przy reklamacjach"
     ]
   },
@@ -361,7 +361,7 @@
       "Znajomość lokalnych deweloperów",
       "Odbiory w 2–5 dni roboczych",
       "Kamera termowizyjna",
-      "Protokół PDF gotowy w 48h"
+      "Protokół PDF gotowy w 48h (opcjonalnie)"
     ],
     "imageAlt": "Panorama Krakowa",
     "reviewQuote": "„Odbiór mieszkania w Krakowie (Prądnik Biały) spełnił wszystkie oczekiwania. Profesjonalny raport.\"",
@@ -384,7 +384,7 @@
         "Ponad 5 lat obsługi krakowskiego rynku nieruchomości",
         "{count}+ pozytywnych opinii na Google",
         "Znajomość specyfiki krakowskich inwestycji deweloperskich",
-        "Protokół gotowy w 48h w formacie PDF",
+        "Protokół gotowy w 48h w formacie PDF (opcjonalnie)",
         "Wsparcie po odbiorze — pomoc przy kontakcie z deweloperem"
       ]
     },

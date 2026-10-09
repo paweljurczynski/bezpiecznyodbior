@@ -175,7 +175,7 @@
       "equipmentTitle": "Specialist equipment",
       "equipmentDesc": "Thermal imaging camera, moisture meters, laser levels, and high-grade measuring instruments.",
       "reportTitle": "Detailed report",
-      "reportDesc": "Complete protocol with identified defects, photos, and legal basis for claims — ready within 48 hours.",
+      "reportDesc": "Complete protocol with identified defects, photos, and legal basis for claims — ready within 48 hours (optional).",
       "engineersTitle": "Experienced specialists",
       "engineersDesc": "A team of technical handover specialists with hundreds of completed handovers across Małopolska."
     },
@@ -349,7 +349,7 @@
       "Over {count}+ positive reviews on Google",
       "Experienced specialist team",
       "Thermal imaging camera at every handover",
-      "PDF protocol ready within 48 hours",
+      "PDF protocol ready within 48 hours (optional)",
       "Post-handover support — help with claims"
     ]
   },
@@ -361,7 +361,7 @@
       "Knowledge of local developers",
       "Handovers within 2–5 business days",
       "Thermal imaging camera",
-      "PDF protocol ready within 48 hours"
+      "PDF protocol ready within 48 hours (optional)"
     ],
     "imageAlt": "Panorama of Kraków",
     "reviewQuote": "\"The apartment handover in Kraków (Prądnik Biały) met all expectations. Professional report.\"",
@@ -384,7 +384,7 @@
         "Over 5 years serving the Kraków property market",
         "{count}+ positive reviews on Google",
         "Knowledge of Kraków developer investment specifics",
-        "Protocol ready within 48 hours in PDF format",
+        "Protocol ready within 48 hours in PDF format (optional)",
         "Post-handover support — help contacting the developer"
       ]
     },
