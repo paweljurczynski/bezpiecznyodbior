@@ -125,6 +125,8 @@ export function LeadWizard() {
       <input type="hidden" name="propertyType" value={data.propertyType} />
       <input type="hidden" name="marketType" value={data.marketType} />
       <input type="hidden" name="area" value={data.area} />
+      <input type="hidden" name="location" value={data.location} />
+      <input type="hidden" name="date" value={data.date} />
       <p hidden>
         <label>
           {tForms("botField")} <input name="bot-field" />
@@ -229,7 +231,6 @@ export function LeadWizard() {
             <Label htmlFor="location">{t("location")}</Label>
             <Input
               id="location"
-              name="location"
               placeholder={t("locationPlaceholder")}
               value={data.location}
               onChange={(e) => update("location", e.target.value)}
@@ -242,7 +243,6 @@ export function LeadWizard() {
             </Label>
             <Input
               id="date"
-              name="date"
               type="date"
               value={data.date}
               min={new Date().toISOString().split("T")[0]}
