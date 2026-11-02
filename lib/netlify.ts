@@ -5,19 +5,8 @@ function toUrlEncoded(formData: FormData): string {
     .join("&");
 }
 
-export async function submitNetlifyForm(
-  form: HTMLFormElement,
-  files?: File[]
-): Promise<void> {
+export async function submitNetlifyForm(form: HTMLFormElement): Promise<void> {
   const formData = new FormData(form);
-
-  if (files?.length) {
-    formData.delete("files");
-    files.forEach((file) => formData.append("files", file));
-    const response = await fetch("/__forms.html", { method: "POST", body: formData });
-    if (!response.ok) throw new Error("Netlify form failed");
-    return;
-  }
 
   const response = await fetch("/__forms.html", {
     method: "POST",

@@ -10,8 +10,6 @@ import {
   ChevronRight,
   CheckCircle2,
   Loader2,
-  Paperclip,
-  X,
 } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
@@ -33,6 +31,11 @@ type LeadData = {
   email: string;
 };
 
+function isValidArea(value: string) {
+  const normalized = value.trim().replace(",", ".");
+  return /^\d+(\.\d+)?$/.test(normalized) && Number(normalized) > 0;
+}
+
 export function LeadWizard() {
   const locale = useLocale() as Locale;
   const t = useTranslations("forms.leadWizard");
@@ -40,24 +43,12 @@ export function LeadWizard() {
   const tForms = useTranslations("forms");
   const [step, setStep] = useState<1 | 2 | 3>(1);
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
-  const [files, setFiles] = useState<File[]>([]);
 
   const propertyTypes = useMemo(
     () => [
       { value: t("propertyTypes.apartment"), icon: Building2, hint: t("propertyHints.apartment") },
       { value: t("propertyTypes.house"), icon: Home, hint: t("propertyHints.house") },
       { value: t("propertyTypes.commercial"), icon: Warehouse, hint: t("propertyHints.commercial") },
-    ],
-    [t]
-  );
-
-  const sizes = useMemo(
-    () => [
-      t("areas.upTo40"),
-      t("areas.40to60"),
-      t("areas.60to90"),
-      t("areas.90to150"),
-      t("areas.over150"),
     ],
     [t]
   );
@@ -77,7 +68,7 @@ export function LeadWizard() {
     setData((prev) => ({ ...prev, [key]: value }));
 
   const canNext =
-    (step === 1 && Boolean(data.propertyType) && Boolean(data.area)) ||
+    (step === 1 && Boolean(data.propertyType) && isValidArea(data.area)) ||
     (step === 2 && Boolean(data.location)) ||
     step === 3;
 
@@ -89,7 +80,7 @@ export function LeadWizard() {
     }
     setStatus("sending");
     try {
-      await submitNetlifyForm(e.currentTarget, files);
+      await submitNetlifyForm(e.currentTarget);
       setStatus("success");
       toast.success(t("toastSuccess"));
     } catch {
@@ -97,15 +88,6 @@ export function LeadWizard() {
       toast.error(t("toastError", { phone: getPhoneDisplay() }));
     }
   };
-
-  const fileCountLabel =
-    files.length === 0
-      ? t("attachmentsDropzone")
-      : files.length === 1
-        ? t("filesSelectedOne", { count: files.length })
-        : files.length < 5
-          ? t("filesSelectedFew", { count: files.length })
-          : t("filesSelectedMany", { count: files.length });
 
   if (status === "success") {
     return (
@@ -124,7 +106,11 @@ export function LeadWizard() {
       <input type="hidden" name="form-name" value="lead" />
       <input type="hidden" name="propertyType" value={data.propertyType} />
       <input type="hidden" name="marketType" value={data.marketType} />
-      <input type="hidden" name="area" value={data.area} />
+      <input
+        type="hidden"
+        name="area"
+        value={isValidArea(data.area) ? `${data.area.trim().replace(",", ".")} m²` : ""}
+      />
       <input type="hidden" name="location" value={data.location} />
       <input type="hidden" name="date" value={data.date} />
       <p hidden>
@@ -204,22 +190,19 @@ export function LeadWizard() {
             </div>
           </div>
           <div>
-            <Label className="mb-3 block">{t("area")}</Label>
-            <div className="flex flex-wrap gap-2">
-              {sizes.map((s) => (
-                <button
-                  type="button"
-                  key={s}
-                  onClick={() => update("area", s)}
-                  className={`cursor-pointer rounded-full border px-4 py-2 text-sm transition-colors ${
-                    data.area === s
-                      ? "border-cta bg-cta text-cta-foreground"
-                      : "border-border hover:border-cta/30"
-                  }`}
-                >
-                  {s}
-                </button>
-              ))}
+            <Label htmlFor="area">{t("area")}</Label>
+            <div className="relative mt-2">
+              <Input
+                id="area"
+                inputMode="decimal"
+                placeholder={t("areaPlaceholder")}
+                value={data.area}
+                onChange={(e) => update("area", e.target.value.replace(/[^\d.,]/g, ""))}
+                className="pr-12"
+              />
+              <span className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-sm text-muted-foreground">
+                m²
+              </span>
             </div>
           </div>
         </div>
@@ -249,44 +232,6 @@ export function LeadWizard() {
               onChange={(e) => update("date", e.target.value)}
               className="mt-2"
             />
-          </div>
-          <div>
-            <Label>
-              {t("attachments")}{" "}
-              <span className="font-normal text-muted-foreground">{t("attachmentsHint")}</span>
-            </Label>
-            <label
-              htmlFor="files"
-              className="mt-2 flex cursor-pointer flex-col items-center justify-center gap-1.5 rounded-lg border-2 border-dashed border-border p-5 transition-colors hover:border-cta/30"
-            >
-              <Paperclip className="h-5 w-5 text-muted-foreground" />
-              <span className="text-sm text-muted-foreground">{fileCountLabel}</span>
-              <span className="text-xs text-muted-foreground/70">{t("attachmentsFormats")}</span>
-              <input
-                id="files"
-                type="file"
-                multiple
-                accept=".pdf,.jpg,.jpeg,.png,.doc,.docx"
-                className="sr-only"
-                onChange={(e) => setFiles(Array.from(e.target.files ?? []))}
-              />
-            </label>
-            {files.length > 0 && (
-              <ul className="mt-2 space-y-1">
-                {files.map((f) => (
-                  <li key={f.name} className="flex items-center justify-between rounded-md bg-muted px-3 py-1.5 text-sm">
-                    <span className="truncate text-muted-foreground">{f.name}</span>
-                    <button
-                      type="button"
-                      onClick={() => setFiles((prev) => prev.filter((x) => x.name !== f.name))}
-                      className="ml-2 shrink-0 cursor-pointer text-muted-foreground hover:text-destructive"
-                    >
-                      <X className="h-3.5 w-3.5" />
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            )}
           </div>
         </div>
       )}
