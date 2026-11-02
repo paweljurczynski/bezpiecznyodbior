@@ -6,7 +6,7 @@ export type FaqItem = {
 export const faqItems: FaqItem[] = [
   {
     question: "Ile kosztuje odbiór mieszkania?",
-    answer: "Cena odbioru technicznego zaczyna się od 399 zł brutto. Ostateczny koszt zależy od metrażu, lokalizacji oraz zakresu usługi. Bezpłatną wycenę otrzymasz w ciągu 24 godzin od zgłoszenia.",
+    answer: "Koszt odbioru technicznego zależy od metrażu, lokalizacji oraz zakresu usługi. Bezpłatną wycenę otrzymasz w ciągu 24 godzin od zgłoszenia.",
   },
   {
     question: "Jak długo trwa odbiór techniczny?",
@@ -30,7 +30,7 @@ export const krakowFaq: FaqItem[] = [
   {
     question: "Ile kosztuje odbiór mieszkania w Krakowie?",
     answer:
-      "Cena odbioru technicznego mieszkania w Krakowie zaczyna się od 399 zł brutto. Ostateczny koszt zależy od metrażu, lokalizacji oraz zakresu usługi (dodatkowo termowizja, sprawdzenie umowy przez prawnika). Bezpłatną wycenę otrzymasz w ciągu godziny od zgłoszenia.",
+      "Koszt odbioru technicznego mieszkania w Krakowie zależy od metrażu, lokalizacji oraz zakresu usługi (dodatkowo termowizja, sprawdzenie umowy przez prawnika). Bezpłatną wycenę otrzymasz w ciągu godziny od zgłoszenia.",
   },
   {
     question: "Jak długo trwa odbiór techniczny mieszkania?",

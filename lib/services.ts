@@ -14,7 +14,7 @@ export type Service = {
   image: string;
   imageAlt: string;
   tag: string;
-  price: string;
+  price?: string;
   premium?: boolean;
   badge?: string;
   icon: "home" | "key" | "thermal" | "compass" | "shield" | "ruler" | "leaf";
@@ -57,7 +57,6 @@ export const services: Service[] = [
     image: "/oferta-deweloper-mieszkanie.jpg",
     imageAlt: "Pomiar wilgotności podczas odbioru technicznego mieszkania",
     tag: "Rynek pierwotny",
-    price: "od 399 zł",
     icon: "key",
   },
   {
@@ -95,7 +94,6 @@ export const services: Service[] = [
     image: "/oferta-deweloper-protokol.jpg",
     imageAlt: "Protokół odbioru technicznego nieruchomości",
     tag: "Rynek wtórny",
-    price: "od 399 zł",
     icon: "home",
   },
   {

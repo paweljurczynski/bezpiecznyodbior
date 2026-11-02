@@ -37,7 +37,6 @@ export const servicesEn: Service[] = [
     image: "/oferta-deweloper-mieszkanie.jpg",
     imageAlt: "Moisture measurement during a technical apartment handover",
     tag: "Primary market",
-    price: "from 399 PLN",
     icon: "key",
   },
   {
@@ -75,7 +74,6 @@ export const servicesEn: Service[] = [
     image: "/oferta-deweloper-protokol.jpg",
     imageAlt: "Technical property handover protocol",
     tag: "Secondary market",
-    price: "from 399 PLN",
     icon: "home",
   },
   {

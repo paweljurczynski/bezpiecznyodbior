@@ -4,7 +4,7 @@ export const faqItemsEn: FaqItem[] = [
   {
     question: "How much does an apartment handover cost?",
     answer:
-      "Technical handover pricing starts from 399 PLN gross. The final cost depends on floor area, location, and scope of service. You will receive a free quote within 24 hours of submitting your enquiry.",
+      "The cost of a technical handover depends on floor area, location, and scope of service. You will receive a free quote within 24 hours of submitting your enquiry.",
   },
   {
     question: "How long does a technical handover take?",
@@ -32,7 +32,7 @@ export const krakowFaqEn: FaqItem[] = [
   {
     question: "How much does an apartment handover cost in Kraków?",
     answer:
-      "Technical apartment handover in Kraków starts from 399 PLN gross. The final cost depends on floor area, location, and scope of service (additional thermal imaging, contract review by a solicitor). You will receive a free quote within one hour of submitting your enquiry.",
+      "The cost of a technical apartment handover in Kraków depends on floor area, location, and scope of service (additional thermal imaging, contract review by a solicitor). You will receive a free quote within one hour of submitting your enquiry.",
   },
   {
     question: "How long does a technical apartment handover take?",

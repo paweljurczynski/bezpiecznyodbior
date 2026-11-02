@@ -106,7 +106,9 @@ export default async function ServiceDetailPage({ params }: Props) {
             {service.title}
           </h1>
           <p className="mt-5 text-lg text-white/80">{service.description}</p>
-          <p className="mt-3 text-2xl font-bold text-white">{service.price}</p>
+          {service.price ? (
+            <p className="mt-3 text-2xl font-bold text-white">{service.price}</p>
+          ) : null}
           <div className="mt-8 flex flex-wrap gap-3">
             <Button asChild size="lg" variant="cta">
               <a href="#wycena">
@@ -199,7 +201,7 @@ export default async function ServiceDetailPage({ params }: Props) {
         <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
           <div>
             <h2 className="text-3xl font-bold text-brand md:text-4xl">
-              {t("orderTitle", { price: service.price })}
+              {service.price ? t("orderTitle", { price: service.price }) : t("orderTitleQuote")}
             </h2>
             <p className="mt-4 text-muted-foreground">{t("orderSubtitle")}</p>
             <div className="mt-6">
