@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useLayoutEffect, useMemo, useRef, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import {
   Building2,
@@ -36,6 +36,25 @@ function isValidArea(value: string) {
   return /^\d+(\.\d+)?$/.test(normalized) && Number(normalized) > 0;
 }
 
+function placeWizardInView(form: HTMLElement) {
+  const headerHeight = document.querySelector("header")?.getBoundingClientRect().height ?? 64;
+  const offset = headerHeight + 12;
+  const rect = form.getBoundingClientRect();
+  const viewportHeight = window.innerHeight;
+  const visibleTop = Math.max(rect.top, offset);
+  const visibleBottom = Math.min(rect.bottom, viewportHeight - 8);
+  const visibleHeight = Math.max(0, visibleBottom - visibleTop);
+  const neededHeight = Math.min(rect.height, viewportHeight - offset - 8);
+
+  if (rect.top >= offset - 4 && visibleHeight >= neededHeight - 8) return;
+
+  const html = document.documentElement;
+  const previous = html.style.scrollBehavior;
+  html.style.scrollBehavior = "auto";
+  window.scrollTo(0, Math.max(0, rect.top + window.scrollY - offset));
+  html.style.scrollBehavior = previous;
+}
+
 export function LeadWizard() {
   const locale = useLocale() as Locale;
   const t = useTranslations("forms.leadWizard");
@@ -43,6 +62,8 @@ export function LeadWizard() {
   const tForms = useTranslations("forms");
   const [step, setStep] = useState<1 | 2 | 3>(1);
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const formRef = useRef<HTMLFormElement>(null);
+  const isFirstStepRender = useRef(true);
 
   const propertyTypes = useMemo(
     () => [
@@ -71,6 +92,26 @@ export function LeadWizard() {
     (step === 1 && Boolean(data.propertyType) && isValidArea(data.area)) ||
     (step === 2 && Boolean(data.location)) ||
     step === 3;
+
+  useLayoutEffect(() => {
+    if (isFirstStepRender.current) {
+      isFirstStepRender.current = false;
+      return;
+    }
+    const form = formRef.current;
+    if (!form) return;
+
+    placeWizardInView(form);
+    const timeout = window.setTimeout(() => placeWizardInView(form), 300);
+    return () => window.clearTimeout(timeout);
+  }, [step]);
+
+  const goToStep = (next: 1 | 2 | 3) => {
+    if (document.activeElement instanceof HTMLElement) {
+      document.activeElement.blur();
+    }
+    setStep(next);
+  };
 
   const submit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -102,7 +143,7 @@ export function LeadWizard() {
   }
 
   return (
-    <form name="lead" onSubmit={submit} className="surface-panel p-6 md:p-8">
+    <form ref={formRef} name="lead" onSubmit={submit} className="surface-panel p-6 md:p-8">
       <input type="hidden" name="form-name" value="lead" />
       <input type="hidden" name="propertyType" value={data.propertyType} />
       <input type="hidden" name="marketType" value={data.marketType} />
@@ -287,7 +328,7 @@ export function LeadWizard() {
           <Button
             type="button"
             variant="ghost"
-            onClick={() => setStep((s) => Math.max(1, s - 1) as 1 | 2 | 3)}
+            onClick={() => goToStep((step - 1) as 1 | 2 | 3)}
           >
             <ChevronLeft className="mr-1 h-4 w-4" /> {t("back")}
           </Button>
@@ -298,7 +339,7 @@ export function LeadWizard() {
           <Button
             type="button"
             variant="cta"
-            onClick={() => canNext && setStep((s) => Math.min(3, s + 1) as 1 | 2 | 3)}
+            onClick={() => canNext && goToStep((step + 1) as 1 | 2 | 3)}
             disabled={!canNext}
           >
             {t("next")} <ChevronRight className="ml-1 h-4 w-4" />
